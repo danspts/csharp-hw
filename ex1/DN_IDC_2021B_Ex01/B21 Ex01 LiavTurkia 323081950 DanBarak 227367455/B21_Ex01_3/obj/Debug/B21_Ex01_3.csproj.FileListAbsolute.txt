@@ -1,0 +1,9 @@
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\bin\Debug\B21_Ex01_3.exe
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\bin\Debug\B21_Ex01_3.pdb
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\bin\Debug\B21_Ex01_2.exe
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\bin\Debug\B21_Ex01_2.pdb
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\obj\Debug\B21_Ex01_3.csprojAssemblyReference.cache
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\obj\Debug\B21_Ex01_3.csproj.CoreCompileInputs.cache
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\obj\Debug\B21_Ex01_3.csproj.CopyComplete
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\obj\Debug\B21_Ex01_3.exe
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex01_3\obj\Debug\B21_Ex01_3.pdb
