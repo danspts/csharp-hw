@@ -1,45 +1,50 @@
-﻿namespace B21_Ex01_2
+﻿using System.Text;
+
+namespace B21_Ex01_2
 {
 	public class Program
 	{
-		static void printStars(int n, int width) {
-			System.Console.Write(new System.String(' ', (width - n) / 2));
-			System.Console.Write(new System.String('*', n));
-			System.Console.WriteLine(new System.String(' ', (width - n) / 2));
+		private static void printStars(int i_NumStars, int i_Width) {
+			StringBuilder sb = new StringBuilder();
+			sb.Append(' ', (i_Width - i_NumStars) / 2);
+			sb.Append('*', i_NumStars);
+			sb.Append(' ', (i_Width - i_NumStars) / 2);
+			System.Console.WriteLine(sb.ToString());
 		}
 
-		static void recurseDown(int n, int height) {
-			if (n == 1)
+		private static void recurseDown(int i_NumStars, int i_Height) {
+			if (i_NumStars == 1)
 			{
-				recurseUp(1, height);
+				recurseUp(1, i_Height);
 			}
 			else
 			{
-				printStars(n, height);
-				recurseDown(n - 2, height);
+				printStars(i_NumStars, i_Height);
+				recurseDown(i_NumStars - 2, i_Height);
 			}
 		}
 
-		static void recurseUp(int n, int height) {
-			printStars(n, height);
-			if (n < height) {
-				recurseUp(n + 2, height);
+		private static void recurseUp(int i_NumStars, int i_Height) {
+			printStars(i_NumStars, i_Height);
+			if (i_NumStars < i_Height) {
+				recurseUp(i_NumStars + 2, i_Height);
 			}
 		}
 
-		public static void printSandClock(int height) {
-			if (height % 2 == 0)
+		public static void PrintSandClock(int i_Height) {
+			if (i_Height % 2 == 0)
 			{
-				recurseDown(height + 1, height + 1);
+				recurseDown(i_Height + 1, i_Height + 1);
 			}
-			else {
-				recurseDown(height, height);
+			else
+			{
+				recurseDown(i_Height, i_Height);
 			}
 		}
 
 		static void Main()
 		{
-			printSandClock(5);
+			PrintSandClock(5);
 		}
 	}
 }

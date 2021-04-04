@@ -6,14 +6,13 @@
 		{
 			System.Console.WriteLine("Please insert the height of your desired sand clock:");
 			string input = System.Console.ReadLine();
-			try
+			if (!int.TryParse(input, out int height))
 			{
-				int height = int.Parse(input);
-				// recurseDown handles even case
-				B21_Ex01_2.Program.printSandClock(height);
-			}
-			catch (System.ArgumentException e) {
 				System.Console.WriteLine("Invalid input!");
+			}
+			else
+			{
+				B21_Ex01_2.Program.PrintSandClock(height);
 			}
 		}
 	}

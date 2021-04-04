@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{09E6994C-CDF3-4384-80E1-8DCC22572640}</ProjectGuid>
+    <ProjectGuid>{A820C19D-0007-4E46-A76C-1E903EB7FF1C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>B21_Ex01_3</RootNamespace>
-    <AssemblyName>B21_Ex01_3</AssemblyName>
+    <RootNamespace>B21_Ex01_4</RootNamespace>
+    <AssemblyName>B21_Ex01_4</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,12 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\B21_Ex01_2\B21_Ex01_2.csproj">
-      <Project>{2d597dfa-46c6-45ee-962b-e8b28a1ee113}</Project>
-      <Name>B21_Ex01_2</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
   </ItemGroup>
