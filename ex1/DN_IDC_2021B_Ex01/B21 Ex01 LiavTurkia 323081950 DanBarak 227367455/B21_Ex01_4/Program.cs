@@ -6,7 +6,8 @@ namespace B21_Ex01_4
 	{
 		private static bool palindromeRecurse(string i_Input, int i_Offset)
 		{
-			if (i_Offset >= i_Input.Length / 2) {
+			if (i_Offset >= i_Input.Length / 2)
+			{
 				return true;
 			}
 
@@ -22,11 +23,14 @@ namespace B21_Ex01_4
 		public static bool CountUppercase(string i_Input, out int o_UppercaseLetters)
 		{
 			o_UppercaseLetters = 0;
-			foreach (char c in i_Input) {
-				if (!char.IsLetter(c)) {
+			foreach (char c in i_Input)
+			{
+				if (!char.IsLetter(c))
+				{
 					return false;
 				}
-				if (char.IsUpper(c)) {
+				if (char.IsUpper(c))
+				{
 					++o_UppercaseLetters;
 				}
 			}
@@ -53,7 +57,8 @@ namespace B21_Ex01_4
 			if (int.TryParse(i_Input, out int inputAsInt))
 			{
 				sb.AppendLine("It is a number");
-				if (inputAsInt % 4 == 0) {
+				if (inputAsInt % 4 == 0)
+				{
 					sb.AppendLine("It is a multiplication of 4");
 				}
 			}
