@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System;
 
 namespace B21_Ex01_1
 {
@@ -8,13 +9,9 @@ namespace B21_Ex01_1
 		static int minNumber(int[] numbers)
         {
 			int minNumber = numbers[0];
-
 			for (int i = 1; i < numbers.Length; i++)
 			{
-				if (numbers[i] < minNumber)
-				{
-					minNumber = numbers[i];
-				}
+				minNumber = Math.Min(numbers[i], minNumber);
 			}
 			return minNumber;
         }
@@ -22,28 +19,20 @@ namespace B21_Ex01_1
 		static int maxNumber(int[] numbers)
 		{
 			int maxNumber = numbers[0];
-
 			for(int i = 1; i < numbers.Length; i++)
             {
-				if (numbers[i] > maxNumber)
-                {
-					maxNumber = numbers[i];
-				}
+				maxNumber = Math.Max(numbers[i], maxNumber);
 			}
 			return maxNumber;
-
 		}
 
 		static int[] countNbOfOnes(string[] numbers)
         {
 			int[] array_nbOfOnes = new int[3];
-
 			for (int i = 0; i < numbers.Length; i++)
 			{
 				array_nbOfOnes[i] = countNbOfOnes(numbers[i]);
-
 			}
-
 			return array_nbOfOnes;
 		}
 
@@ -69,7 +58,6 @@ namespace B21_Ex01_1
 				total += number;
             }
 			float average = total / numbers.Length;
-
 			return average;
 		}
 
@@ -121,9 +109,7 @@ namespace B21_Ex01_1
 
 		static int countStrictlyMonotonicIncreasing(int[] numbersInt)
 		{
-
 			int nbMonotonicInc = 0;
-
 			foreach (int num in numbersInt)
 			{
 				if (strictlyMonotonicIncreasing(num))
@@ -131,7 +117,6 @@ namespace B21_Ex01_1
 					nbMonotonicInc++;
 				}
 			}
-
 			return nbMonotonicInc;
 		}
 
@@ -160,7 +145,6 @@ namespace B21_Ex01_1
 
 			args[5] = averageNbOfOnes;
 			args[6] = averageNbOfZeros;
-
 			args[7] = maxNumber(numbersInt);
 			args[8] = minNumber(numbersInt);
 
@@ -181,7 +165,6 @@ namespace B21_Ex01_1
 		static void Main()
 		{
 			string[] inputs = new string[3];
-
 			for (int i = 0; i < 3; i++)
 			{
 				System.Console.WriteLine("Please insert 7 bits:\n");
