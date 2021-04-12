@@ -38,11 +38,13 @@ namespace B21_Ex01_4
 			return true;
 		}
 
+		public static bool Divides(int i_Input, int i_Divisor)
+		{
+			return i_Input % i_Divisor == 0;
+		}
+
 		private static void analyzeInput(string i_Input)
 		{
-			object[] args = new object[2];
-			args[0] = i_Input;
-
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine("For the input string {0}:");
 			if (IsPalindrome(i_Input))
@@ -57,7 +59,7 @@ namespace B21_Ex01_4
 			if (int.TryParse(i_Input, out int inputAsInt))
 			{
 				sb.AppendLine("It is a number");
-				if (inputAsInt % 4 == 0)
+				if (Divides(inputAsInt, 4))
 				{
 					sb.AppendLine("It is a multiplication of 4");
 				}
@@ -67,20 +69,25 @@ namespace B21_Ex01_4
 				sb.AppendLine("It is not a number");
 			}
 
-			System.Console.WriteLine(string.Format(sb.ToString(), args));
+			System.Console.WriteLine(string.Format(sb.ToString(), i_Input));
 		}
 
-		static void Main()
+		public static void PromptUserForAnalysis(int i_DesiredLength)
 		{
 			string input = System.Console.ReadLine();
-			if (input.Length != 10)
+			if (input.Length != i_DesiredLength)
 			{
-				System.Console.WriteLine("Illegal input: Must have 10 characters");
+				System.Console.WriteLine(string.Format("Illegal input: Must have {0} characters", i_DesiredLength));
 			}
 			else
 			{
 				analyzeInput(input);
 			}
+		}
+
+		static void Main()
+		{
+			PromptUserForAnalysis(10);
 		}
 	}
 }
