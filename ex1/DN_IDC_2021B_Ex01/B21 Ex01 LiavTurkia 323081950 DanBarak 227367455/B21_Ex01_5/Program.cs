@@ -5,7 +5,7 @@ namespace B21_Ex01_5
 {
     class Program
     {
-		static char minDigit(string i_Digits)
+		private static char minDigit(string i_Digits)
 		{
 			char min = '\0';
 
@@ -19,7 +19,7 @@ namespace B21_Ex01_5
 			return min;
 		}
 
-		static char maxDigit(string i_Digits)
+		private static char maxDigit(string i_Digits)
 		{
 			char max = '\0';
 
@@ -31,10 +31,9 @@ namespace B21_Ex01_5
 				}
 			}
 			return max;
-
 		}
 
-		static int countMultOfThree(string i_Digits)
+		private static int countMultOfThree(string i_Digits)
 		{
 			int count = 0;
 			foreach (char c in i_Digits)
@@ -47,7 +46,7 @@ namespace B21_Ex01_5
 			return count;
 		}
 
-		static int nbDigitsBiggerThanUnit(string i_Digits)
+		private static int nbDigitsBiggerThanUnit(string i_Digits)
         {
 			int count = 0;
 			for(int i = 0; i < 4; i++)
@@ -59,8 +58,22 @@ namespace B21_Ex01_5
 			}
 			return count;
 		}
+		private static bool containsOnlyDigits(string i_Input)
+		{
+			bool result = true;
+			foreach (char c in i_Input)
+			{
+				if (!char.IsDigit(c))
+				{
+					result =  false;
+					break;
+				}
+			}
 
-		static void analyzeInput(string i_Digits)
+			return result;
+		}
+
+		public static void AnalyzeInput(string i_Digits)
         {
 			object[] args = new object[4];
 			args[0] = maxDigit(i_Digits);
@@ -76,29 +89,35 @@ namespace B21_Ex01_5
 
 			System.Console.WriteLine(string.Format(sb.ToString(), args));
 
+			return;
+		}
+
+		public static void PromptUserForAnalysis(int i_DesiredLength)
+		{
+			System.Console.WriteLine(string.Format("Please insert {0} digits:\n", i_DesiredLength));
+
+			string input = System.Console.ReadLine();
+			if (input.Length != i_DesiredLength)
+			{
+				System.Console.WriteLine(string.Format("Illegal input: Must have {0} characters", i_DesiredLength));
+				
+			}
+			else
+			{
+				if (!containsOnlyDigits(input))
+				{
+					System.Console.WriteLine("Illegal input: Must use only digits");
+				}
+				else
+				{
+					AnalyzeInput(input);
+				}
+			}
 		}
 
 		static void Main()
 		{
-			System.Console.WriteLine("Please insert 6 digits:\n");
-
-			string input = System.Console.ReadLine();
-			if (input.Length != 6)
-			{
-				System.Console.WriteLine("Illegal input: Must have 6 characters");
-				foreach (char c in input)
-				{
-					if(c < '0' || c > '9')
-                    {
-						System.Console.WriteLine("Illegal input: Must use only digits");
-						break;
-					}
-				}
-			}
-			else
-			{
-				analyzeInput(input);
-			}
+			PromptUserForAnalysis(6);
 		}
 	}
 }

@@ -23,11 +23,13 @@ namespace B21_Ex01_4
 		public static bool CountUppercase(string i_Input, out int o_UppercaseLetters)
 		{
 			o_UppercaseLetters = 0;
+			bool result = true;
 			foreach (char c in i_Input)
 			{
 				if (!char.IsLetter(c))
 				{
-					return false;
+					result = false;
+					break;
 				}
 				if (char.IsUpper(c))
 				{
@@ -35,7 +37,7 @@ namespace B21_Ex01_4
 				}
 			}
 
-			return true;
+			return result;
 		}
 
 		public static bool Divides(int i_Input, int i_Divisor)
@@ -43,7 +45,7 @@ namespace B21_Ex01_4
 			return i_Input % i_Divisor == 0;
 		}
 
-		private static void analyzeInput(string i_Input)
+		public static void AnalyzeInput(string i_Input)
 		{
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine("For the input string {0}:");
@@ -81,7 +83,7 @@ namespace B21_Ex01_4
 			}
 			else
 			{
-				analyzeInput(input);
+				AnalyzeInput(input);
 			}
 		}
 
