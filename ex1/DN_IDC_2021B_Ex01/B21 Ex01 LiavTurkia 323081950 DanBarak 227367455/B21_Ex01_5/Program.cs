@@ -7,6 +7,7 @@ namespace B21_Ex01_5
     {
 		private static char minDigit(string i_Digits)
 		{
+			// the '\0' is a placeholder for default value
 			char min = '\0';
 
 			foreach (char c in i_Digits)
@@ -88,8 +89,6 @@ namespace B21_Ex01_5
 			sb.AppendLine("The number of digits that are bigger than the units digit is: {3}");
 
 			System.Console.WriteLine(string.Format(sb.ToString(), args));
-
-			return;
 		}
 
 		public static void PromptUserForAnalysis(int i_DesiredLength)

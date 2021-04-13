@@ -4,14 +4,19 @@ namespace B21_Ex01_4
 {
 	public class Program
 	{
+		private static bool shouldTerminatePalindrome(string i_Input, int i_Offset)
+		{
+			return i_Offset >= i_Input.Length / 2;
+		}
+
+		private static bool offsetMatchesInString(string i_Input, int i_Offset)
+		{
+			return i_Input[i_Offset] == i_Input[i_Input.Length - 1 - i_Offset];
+		}
+
 		private static bool palindromeRecurse(string i_Input, int i_Offset)
 		{
-			if (i_Offset >= i_Input.Length / 2)
-			{
-				return true;
-			}
-
-			return i_Input[i_Offset] == i_Input[i_Input.Length - 1 - i_Offset] && palindromeRecurse(i_Input, i_Offset + 1);
+			return shouldTerminatePalindrome(i_Input, i_Offset) || (offsetMatchesInString(i_Input, i_Offset) && palindromeRecurse(i_Input, i_Offset + 1));
 		}
 
 		public static bool IsPalindrome(string i_Input)

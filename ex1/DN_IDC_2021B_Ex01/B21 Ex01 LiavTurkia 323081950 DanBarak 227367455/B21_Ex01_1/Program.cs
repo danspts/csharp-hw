@@ -26,23 +26,23 @@ namespace B21_Ex01_1
 			return maxNumber;
 		}
 
-		public static int[] CountNbOfOnes(string[] i_Numbers)
+		public static int[] CountNbOfCharacterInStrings(string[] i_Numbers, char i_CharToCount)
         {
 			int[] array_nbOfOnes = new int[3];
 			for (int i = 0; i < i_Numbers.Length; i++)
 			{
-				array_nbOfOnes[i] = CountNbOfOnes(i_Numbers[i]);
+				array_nbOfOnes[i] = CountNbOfCharacter(i_Numbers[i], i_CharToCount);
 			}
 			return array_nbOfOnes;
 		}
 
 
-		public static int CountNbOfOnes(string i_Digits)
+		public static int CountNbOfCharacter(string i_Digits, char i_CharToCount)
 		{
 			int count = 0;
 			foreach (char c in i_Digits)
 			{
-				if (c == '1')
+				if (c == i_CharToCount)
 				{
 					++count;
 				}
@@ -66,7 +66,7 @@ namespace B21_Ex01_1
 			int nbOfOnes;
 			foreach (string number in i_Numbers)
             {
-				nbOfOnes = CountNbOfOnes(number);
+				nbOfOnes = CountNbOfCharacter(number, '1');
 				if (nbOfOnes == 1)
                 {
 					++count;
@@ -153,11 +153,11 @@ namespace B21_Ex01_1
 			args[3] = nbPowersOfTwo;
 			args[4] = CountStrictlyMonotonicIncreasing(numbersInt);
 
-			int[] array_nbOfOnes = new int[3];
-			array_nbOfOnes = CountNbOfOnes(i_Numbers);
+			int[] array_nbOfOnes = new int[i_Numbers.Length];
+			array_nbOfOnes = CountNbOfCharacterInStrings(i_Numbers, '1');
 			
 			float averageNbOfOnes = Average(array_nbOfOnes);
-			float averageNbOfZeros = 7 - averageNbOfOnes;
+			float averageNbOfZeros = i_Numbers[0].Length - averageNbOfOnes;
 
 			args[5] = averageNbOfOnes;
 			args[6] = averageNbOfZeros;
@@ -177,11 +177,11 @@ namespace B21_Ex01_1
 			System.Console.WriteLine(string.Format(sb.ToString(), args));
 		}
 
-		public static void PromptUserForBits(int i_NbBits)
+		public static void PromptUserForBits(int i_NbBits, int i_NbStrings)
 		{
 			string[] inputs = new string[3];
 			bool inputValid = true;
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < i_NbStrings; i++)
 			{
 				System.Console.WriteLine(string.Format("Please insert {0} bits:", i_NbBits));
 
@@ -210,7 +210,7 @@ namespace B21_Ex01_1
 
 		static void Main()
 		{
-			PromptUserForBits(7);
+			PromptUserForBits(7, 3);
 		}
 	}
 }
