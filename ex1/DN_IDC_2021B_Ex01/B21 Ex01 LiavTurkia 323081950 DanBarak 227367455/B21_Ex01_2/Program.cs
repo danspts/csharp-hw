@@ -7,6 +7,7 @@ namespace B21_Ex01_2
 		private static void printStars(int i_NumStars, int i_Width)
 		{
 			StringBuilder sb = new StringBuilder();
+
 			sb.Append(' ', (i_Width - i_NumStars) / 2);
 			sb.Append('*', i_NumStars);
 			sb.Append(' ', (i_Width - i_NumStars) / 2);
@@ -15,9 +16,14 @@ namespace B21_Ex01_2
 
 		private static void recursivelyBuild(int i_NumStars, int i_Height)
 		{
-			if (i_NumStars > 0)
+			printStars(i_NumStars, i_Height);
+
+			// Terminating condition
+			// We still print one line of stars above
+			// to make sure the middle row only has one
+			// row of stars
+			if (i_NumStars > 1)
 			{
-				printStars(i_NumStars, i_Height);
 				recursivelyBuild(i_NumStars - 2, i_Height);
 				printStars(i_NumStars, i_Height);
 			}
@@ -35,7 +41,7 @@ namespace B21_Ex01_2
 			}
 		}
 
-		static void Main()
+		public static void Main()
 		{
 			PrintSandClock(5);
 		}

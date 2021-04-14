@@ -5,23 +5,23 @@
   </project>
   <sourcecode name="Program.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
-      <styleCop>2021/04/04 13:29:20.012</styleCop>
-      <settingsFile>2021/04/04 13:29:19.980</settingsFile>
-      <sourceFile>2021/04/04 15:46:06.983</sourceFile>
-      <parser>2021/04/04 13:29:20.012</parser>
-      <StyleCop.CSharp.DocumentationRules>2021/04/04 13:29:20.012</StyleCop.CSharp.DocumentationRules>
-      <StyleCop.CSharp.DocumentationRules.FilesHashCode>2082477622</StyleCop.CSharp.DocumentationRules.FilesHashCode>
-      <StyleCop.CSharp.LayoutRules>2021/04/04 13:29:20.012</StyleCop.CSharp.LayoutRules>
+      <styleCop>2021/04/14 10:59:18.995</styleCop>
+      <settingsFile>2021/04/14 10:59:18.975</settingsFile>
+      <sourceFile>2021/04/14 09:46:52.192</sourceFile>
+      <parser>2021/04/14 10:59:18.995</parser>
+      <StyleCop.CSharp.DocumentationRules>2021/04/14 10:59:18.995</StyleCop.CSharp.DocumentationRules>
+      <StyleCop.CSharp.DocumentationRules.FilesHashCode>461651153</StyleCop.CSharp.DocumentationRules.FilesHashCode>
+      <StyleCop.CSharp.LayoutRules>2021/04/14 10:59:18.995</StyleCop.CSharp.LayoutRules>
       <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
-      <StyleCop.CSharp.MaintainabilityRules>2021/04/04 13:29:20.012</StyleCop.CSharp.MaintainabilityRules>
+      <StyleCop.CSharp.MaintainabilityRules>2021/04/14 10:59:18.995</StyleCop.CSharp.MaintainabilityRules>
       <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
-      <StyleCop.CSharp.NamingRules>2021/04/04 13:29:20.012</StyleCop.CSharp.NamingRules>
+      <StyleCop.CSharp.NamingRules>2021/04/14 10:59:18.995</StyleCop.CSharp.NamingRules>
       <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
-      <StyleCop.CSharp.OrderingRules>2021/04/04 13:29:20.012</StyleCop.CSharp.OrderingRules>
+      <StyleCop.CSharp.OrderingRules>2021/04/14 10:59:18.995</StyleCop.CSharp.OrderingRules>
       <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
-      <StyleCop.CSharp.ReadabilityRules>2021/04/04 13:29:20.012</StyleCop.CSharp.ReadabilityRules>
+      <StyleCop.CSharp.ReadabilityRules>2021/04/14 10:59:18.995</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
-      <StyleCop.CSharp.SpacingRules>2021/04/04 13:29:20.012</StyleCop.CSharp.SpacingRules>
+      <StyleCop.CSharp.SpacingRules>2021/04/14 10:59:18.995</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
     <violations>
@@ -75,20 +75,20 @@
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>15</line>
-        <index>363</index>
-        <endIndex>364</endIndex>
-        <startLine>15</startLine>
+        <line>17</line>
+        <index>368</index>
+        <endIndex>369</endIndex>
+        <startLine>17</startLine>
         <startColumn>1</startColumn>
-        <endLine>15</endLine>
+        <endLine>17</endLine>
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>27</line>
-        <index>607</index>
-        <endIndex>608</endIndex>
+        <index>613</index>
+        <endIndex>614</endIndex>
         <startLine>27</startLine>
         <startColumn>1</startColumn>
         <endLine>27</endLine>
@@ -97,44 +97,28 @@
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>34</line>
-        <index>798</index>
-        <endIndex>799</endIndex>
-        <startLine>34</startLine>
+        <line>39</line>
+        <index>830</index>
+        <endIndex>831</endIndex>
+        <startLine>39</startLine>
         <startColumn>1</startColumn>
-        <endLine>34</endLine>
+        <endLine>39</endLine>
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>45</line>
-        <index>1002</index>
-        <endIndex>1003</endIndex>
-        <startLine>45</startLine>
+        <line>43</line>
+        <index>892</index>
+        <endIndex>892</endIndex>
+        <startLine>43</startLine>
         <startColumn>1</startColumn>
-        <endLine>45</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>49</line>
-        <index>1057</index>
-        <endIndex>1057</endIndex>
-        <startLine>49</startLine>
-        <startColumn>1</startColumn>
-        <endLine>49</endLine>
+        <endLine>43</endLine>
         <endColumn>1</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>7</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CurlyBracketsForMultiLineStatementsMustNotShareLine" ruleCheckId="SA1500">
-        <context>If a statement spans multiple lines, the opening curly bracket must be placed on its own line.</context>
         <line>7</line>
         <warning>False</warning>
       </violation>
@@ -155,25 +139,30 @@
       </violation>
       <violation namespace="StyleCop.CSharp.OrderingRules" rule="ElementsMustBeOrderedByAccess" ruleCheckId="SA1202">
         <context>All private methods must be placed after all public methods.</context>
-        <line>34</line>
+        <line>27</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.OrderingRules" rule="ElementsMustBeOrderedByAccess" ruleCheckId="SA1202">
+        <context>All private methods must be placed after all public methods.</context>
+        <line>39</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>8</line>
-        <index>139</index>
-        <endIndex>141</endIndex>
+        <index>137</index>
+        <endIndex>138</endIndex>
         <startLine>8</startLine>
         <startColumn>1</startColumn>
         <endLine>8</endLine>
-        <endColumn>3</endColumn>
+        <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>9</line>
-        <index>183</index>
-        <endIndex>185</endIndex>
+        <index>142</index>
+        <endIndex>144</endIndex>
         <startLine>9</startLine>
         <startColumn>1</startColumn>
         <endLine>9</endLine>
@@ -182,20 +171,9 @@
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>10</line>
-        <index>231</index>
-        <endIndex>233</endIndex>
-        <startLine>10</startLine>
-        <startColumn>1</startColumn>
-        <endLine>10</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
         <line>11</line>
-        <index>263</index>
-        <endIndex>265</endIndex>
+        <index>188</index>
+        <endIndex>190</endIndex>
         <startLine>11</startLine>
         <startColumn>1</startColumn>
         <endLine>11</endLine>
@@ -205,8 +183,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>12</line>
-        <index>311</index>
-        <endIndex>313</endIndex>
+        <index>236</index>
+        <endIndex>238</endIndex>
         <startLine>12</startLine>
         <startColumn>1</startColumn>
         <endLine>12</endLine>
@@ -216,77 +194,72 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>13</line>
-        <index>356</index>
-        <endIndex>357</endIndex>
+        <index>268</index>
+        <endIndex>270</endIndex>
         <startLine>13</startLine>
         <startColumn>1</startColumn>
         <endLine>13</endLine>
+        <endColumn>3</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
+        <context>Tabs are not allowed. Use spaces instead.</context>
+        <line>14</line>
+        <index>316</index>
+        <endIndex>318</endIndex>
+        <startLine>14</startLine>
+        <startColumn>1</startColumn>
+        <endLine>14</endLine>
+        <endColumn>3</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
+        <context>Tabs are not allowed. Use spaces instead.</context>
+        <line>15</line>
+        <index>361</index>
+        <endIndex>362</endIndex>
+        <startLine>15</startLine>
+        <startColumn>1</startColumn>
+        <endLine>15</endLine>
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>15</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CurlyBracketsForMultiLineStatementsMustNotShareLine" ruleCheckId="SA1500">
-        <context>If a statement spans multiple lines, the opening curly bracket must be placed on its own line.</context>
-        <line>15</line>
+        <line>17</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.NamingRules" rule="ElementMustBeginWithUpperCaseLetter" ruleCheckId="SA1300">
-        <context>method names begin with an upper-case letter: recurseDown.</context>
-        <line>15</line>
+        <context>method names begin with an upper-case letter: recursivelyBuild.</context>
+        <line>17</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotUseHungarianNotation" ruleCheckId="SA1305">
         <context>The variable name 'i_NumStars' begins with a prefix that looks like Hungarian notation. Remove the prefix or add it to the list of allowed prefixes.</context>
-        <line>15</line>
+        <line>17</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotUseHungarianNotation" ruleCheckId="SA1305">
         <context>The variable name 'i_Height' begins with a prefix that looks like Hungarian notation. Remove the prefix or add it to the list of allowed prefixes.</context>
-        <line>15</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>16</line>
-        <index>430</index>
-        <endIndex>432</endIndex>
-        <startLine>16</startLine>
-        <startColumn>1</startColumn>
-        <endLine>16</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
         <line>17</line>
-        <index>455</index>
-        <endIndex>457</endIndex>
-        <startLine>17</startLine>
-        <startColumn>1</startColumn>
-        <endLine>17</endLine>
-        <endColumn>3</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>18</line>
-        <index>461</index>
-        <endIndex>464</endIndex>
+        <index>438</index>
+        <endIndex>439</endIndex>
         <startLine>18</startLine>
         <startColumn>1</startColumn>
         <endLine>18</endLine>
-        <endColumn>4</endColumn>
+        <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>19</line>
-        <index>490</index>
-        <endIndex>492</endIndex>
+        <index>443</index>
+        <endIndex>445</endIndex>
         <startLine>19</startLine>
         <startColumn>1</startColumn>
         <endLine>19</endLine>
@@ -296,8 +269,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>20</line>
-        <index>496</index>
-        <endIndex>498</endIndex>
+        <index>467</index>
+        <endIndex>469</endIndex>
         <startLine>20</startLine>
         <startColumn>1</startColumn>
         <endLine>20</endLine>
@@ -307,19 +280,19 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>21</line>
-        <index>505</index>
-        <endIndex>507</endIndex>
+        <index>473</index>
+        <endIndex>476</endIndex>
         <startLine>21</startLine>
         <startColumn>1</startColumn>
         <endLine>21</endLine>
-        <endColumn>3</endColumn>
+        <endColumn>4</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>22</line>
-        <index>511</index>
-        <endIndex>514</endIndex>
+        <index>512</index>
+        <endIndex>515</endIndex>
         <startLine>22</startLine>
         <startColumn>1</startColumn>
         <endLine>22</endLine>
@@ -329,8 +302,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>23</line>
-        <index>550</index>
-        <endIndex>553</endIndex>
+        <index>561</index>
+        <endIndex>564</endIndex>
         <startLine>23</startLine>
         <startColumn>1</startColumn>
         <endLine>23</endLine>
@@ -340,8 +313,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>24</line>
-        <index>594</index>
-        <endIndex>596</endIndex>
+        <index>600</index>
+        <endIndex>602</endIndex>
         <startLine>24</startLine>
         <startColumn>1</startColumn>
         <endLine>24</endLine>
@@ -351,8 +324,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>25</line>
-        <index>600</index>
-        <endIndex>601</endIndex>
+        <index>606</index>
+        <endIndex>607</endIndex>
         <startLine>25</startLine>
         <startColumn>1</startColumn>
         <endLine>25</endLine>
@@ -364,26 +337,6 @@
         <line>27</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CurlyBracketsForMultiLineStatementsMustNotShareLine" ruleCheckId="SA1500">
-        <context>If a statement spans multiple lines, the opening curly bracket must be placed on its own line.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CurlyBracketsForMultiLineStatementsMustNotShareLine" ruleCheckId="SA1500">
-        <context>If a statement spans multiple lines, the opening curly bracket must be placed on its own line.</context>
-        <line>29</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="ElementMustBeginWithUpperCaseLetter" ruleCheckId="SA1300">
-        <context>method names begin with an upper-case letter: recurseUp.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotUseHungarianNotation" ruleCheckId="SA1305">
-        <context>The variable name 'i_NumStars' begins with a prefix that looks like Hungarian notation. Remove the prefix or add it to the list of allowed prefixes.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotUseHungarianNotation" ruleCheckId="SA1305">
         <context>The variable name 'i_Height' begins with a prefix that looks like Hungarian notation. Remove the prefix or add it to the list of allowed prefixes.</context>
         <line>27</line>
@@ -392,19 +345,19 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>28</line>
-        <index>672</index>
-        <endIndex>674</endIndex>
+        <index>664</index>
+        <endIndex>665</endIndex>
         <startLine>28</startLine>
         <startColumn>1</startColumn>
         <endLine>28</endLine>
-        <endColumn>3</endColumn>
+        <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>29</line>
-        <index>710</index>
-        <endIndex>712</endIndex>
+        <index>669</index>
+        <endIndex>671</endIndex>
         <startLine>29</startLine>
         <startColumn>1</startColumn>
         <endLine>29</endLine>
@@ -414,67 +367,74 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>30</line>
-        <index>743</index>
-        <endIndex>746</endIndex>
+        <index>696</index>
+        <endIndex>698</endIndex>
         <startLine>30</startLine>
         <startColumn>1</startColumn>
         <endLine>30</endLine>
-        <endColumn>4</endColumn>
+        <endColumn>3</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>31</line>
-        <index>785</index>
-        <endIndex>787</endIndex>
+        <index>702</index>
+        <endIndex>705</endIndex>
         <startLine>31</startLine>
         <startColumn>1</startColumn>
         <endLine>31</endLine>
-        <endColumn>3</endColumn>
+        <endColumn>4</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>32</line>
-        <index>791</index>
-        <endIndex>792</endIndex>
+        <index>753</index>
+        <endIndex>755</endIndex>
         <startLine>32</startLine>
         <startColumn>1</startColumn>
         <endLine>32</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>34</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CurlyBracketsForMultiLineStatementsMustNotShareLine" ruleCheckId="SA1500">
-        <context>If a statement spans multiple lines, the opening curly bracket must be placed on its own line.</context>
-        <line>34</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotUseHungarianNotation" ruleCheckId="SA1305">
-        <context>The variable name 'i_Height' begins with a prefix that looks like Hungarian notation. Remove the prefix or add it to the list of allowed prefixes.</context>
-        <line>34</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>35</line>
-        <index>851</index>
-        <endIndex>853</endIndex>
-        <startLine>35</startLine>
-        <startColumn>1</startColumn>
-        <endLine>35</endLine>
         <endColumn>3</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
+        <line>33</line>
+        <index>759</index>
+        <endIndex>761</endIndex>
+        <startLine>33</startLine>
+        <startColumn>1</startColumn>
+        <endLine>33</endLine>
+        <endColumn>3</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
+        <context>Tabs are not allowed. Use spaces instead.</context>
+        <line>34</line>
+        <index>768</index>
+        <endIndex>770</endIndex>
+        <startLine>34</startLine>
+        <startColumn>1</startColumn>
+        <endLine>34</endLine>
+        <endColumn>3</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
+        <context>Tabs are not allowed. Use spaces instead.</context>
+        <line>35</line>
+        <index>774</index>
+        <endIndex>777</endIndex>
+        <startLine>35</startLine>
+        <startColumn>1</startColumn>
+        <endLine>35</endLine>
+        <endColumn>4</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
+        <context>Tabs are not allowed. Use spaces instead.</context>
         <line>36</line>
-        <index>878</index>
-        <endIndex>880</endIndex>
+        <index>817</index>
+        <endIndex>819</endIndex>
         <startLine>36</startLine>
         <startColumn>1</startColumn>
         <endLine>36</endLine>
@@ -484,120 +444,49 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
         <line>37</line>
-        <index>884</index>
-        <endIndex>887</endIndex>
+        <index>823</index>
+        <endIndex>824</endIndex>
         <startLine>37</startLine>
         <startColumn>1</startColumn>
         <endLine>37</endLine>
-        <endColumn>4</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>38</line>
-        <index>930</index>
-        <endIndex>932</endIndex>
-        <startLine>38</startLine>
-        <startColumn>1</startColumn>
-        <endLine>38</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>39</line>
-        <index>936</index>
-        <endIndex>938</endIndex>
-        <startLine>39</startLine>
-        <startColumn>1</startColumn>
-        <endLine>39</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>40</line>
-        <index>945</index>
-        <endIndex>947</endIndex>
-        <startLine>40</startLine>
-        <startColumn>1</startColumn>
-        <endLine>40</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>41</line>
-        <index>951</index>
-        <endIndex>954</endIndex>
-        <startLine>41</startLine>
-        <startColumn>1</startColumn>
-        <endLine>41</endLine>
-        <endColumn>4</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>42</line>
-        <index>989</index>
-        <endIndex>991</endIndex>
-        <startLine>42</startLine>
-        <startColumn>1</startColumn>
-        <endLine>42</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>43</line>
-        <index>995</index>
-        <endIndex>996</endIndex>
-        <startLine>43</startLine>
-        <startColumn>1</startColumn>
-        <endLine>43</endLine>
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>45</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.MaintainabilityRules" rule="AccessModifierMustBeDeclared" ruleCheckId="SA1400">
-        <context>The method must have an access modifier.</context>
-        <line>45</line>
+        <line>39</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>46</line>
-        <index>1024</index>
-        <endIndex>1025</endIndex>
-        <startLine>46</startLine>
+        <line>40</line>
+        <index>859</index>
+        <endIndex>860</endIndex>
+        <startLine>40</startLine>
         <startColumn>1</startColumn>
-        <endLine>46</endLine>
+        <endLine>40</endLine>
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>47</line>
-        <index>1029</index>
-        <endIndex>1031</endIndex>
-        <startLine>47</startLine>
+        <line>41</line>
+        <index>864</index>
+        <endIndex>866</endIndex>
+        <startLine>41</startLine>
         <startColumn>1</startColumn>
-        <endLine>47</endLine>
+        <endLine>41</endLine>
         <endColumn>3</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
         <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>48</line>
-        <index>1052</index>
-        <endIndex>1053</endIndex>
-        <startLine>48</startLine>
+        <line>42</line>
+        <index>887</index>
+        <endIndex>888</endIndex>
+        <startLine>42</startLine>
         <startColumn>1</startColumn>
-        <endLine>48</endLine>
+        <endLine>42</endLine>
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>

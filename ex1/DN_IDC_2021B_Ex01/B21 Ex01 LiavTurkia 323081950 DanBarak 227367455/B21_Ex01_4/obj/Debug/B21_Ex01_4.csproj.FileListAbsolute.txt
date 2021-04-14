@@ -1,0 +1,6 @@
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 LiavTurkia 323081950 DanBarak 227367455\B21_Ex01_4\bin\Debug\B21_Ex01_4.exe
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 LiavTurkia 323081950 DanBarak 227367455\B21_Ex01_4\bin\Debug\B21_Ex01_4.pdb
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 LiavTurkia 323081950 DanBarak 227367455\B21_Ex01_4\obj\Debug\B21_Ex01_4.csprojAssemblyReference.cache
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 LiavTurkia 323081950 DanBarak 227367455\B21_Ex01_4\obj\Debug\B21_Ex01_4.csproj.CoreCompileInputs.cache
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 LiavTurkia 323081950 DanBarak 227367455\B21_Ex01_4\obj\Debug\B21_Ex01_4.exe
+D:\Workspace\csharp-hw\ex1\DN_IDC_2021B_Ex01\B21 Ex01 LiavTurkia 323081950 DanBarak 227367455\B21_Ex01_4\obj\Debug\B21_Ex01_4.pdb
