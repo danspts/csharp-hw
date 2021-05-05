@@ -6,5 +6,5 @@ Delivery Date.........: 14/4/2021
 Delivered In Delay....: No
 Delay Reason..........: None
 Visual Studio Version.: 2019
-Comments..............: <Comments>
+Comments..............: The solution links the StyleCop analyzer plugin using NuGet
 =======================End Exercise Checking Report=========================
