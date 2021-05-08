@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace B21_Ex02
+namespace B21_Ex02.Game
 {
 	class Game
 	{
-		private Board m_Board;
-		private Player[] m_Players;
+		public enum ePlayer
+		{
+			Player1,
+			Player2
+		}
 
-		public Game(Board i_Board, Player[] i_Players)
+		private Board m_Board;
+		private Player m_Player1;
+		private Player m_Player2;
+
+		public Game(Board i_Board, Player i_Player1, Player i_Player2)
 		{
 			this.m_Board = i_Board;
-			this.m_Players = i_Players;
+			this.m_Player1 = i_Player1;
+			this.m_Player2 = i_Player2;
 		}
 
 		public Board Board
@@ -21,26 +29,39 @@ namespace B21_Ex02
 			set { this.m_Board = value; }
 		}
 
-		public Player[] Players
+		public Player GetPlayer(ePlayer i_Who)
 		{
-			get { return this.m_Players; }
+			return i_Who == ePlayer.Player1 ? this.m_Player1 : this.m_Player2;
 		}
 
-		private void PlayMove(int i_WhoseTurn)
+		private void PlayMove(ePlayer i_WhoseTurn)
 		{
-			Player player = this.Players[i_WhoseTurn];
+			Player player = this.GetPlayer(i_WhoseTurn);
 
-			this.Board.SetCell(player.Play(this.Board), i_WhoseTurn);
+			Board.eCellValue cellValue;
+			switch (i_WhoseTurn)
+			{
+				case ePlayer.Player1:
+					cellValue = Board.eCellValue.Player1;
+					break;
+				case ePlayer.Player2:
+					cellValue = Board.eCellValue.Player2;
+					break;
+				// Should never happen (because of the values of ePlayer)
+				// But here for safety
+				default:
+					cellValue = Board.eCellValue.None;
+					break;
+			}
+
+			this.Board.SetCell(player.Play(this.Board), cellValue);
 		}
 
-		private bool IsGameOver()
-		{
-			return this.Board.IsBoardFull() || this.Board.GetWinningSequence() != -1;
-		}
 
 		// Returns the Winning player or null if was a tie
-		public Player PlayGame()
+		public Player PlayGame(UI.UI i_UserInterface)
 		{
+			i_UserInterface.StartGame(this);
 			int currentTurn = 0;
 			while (!this.IsGameOver())
 			{

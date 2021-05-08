@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace B21_Ex02
+namespace B21_Ex02.Game
 {
 	abstract class Player
 	{
