@@ -33,7 +33,7 @@ namespace B21_Ex02
 		public static void Main()
 		{
 			Interface.UI userInterface = new Interface.ConsoleInterface();
-			RunGame(new Game.HumanPlayer(userInterface), userInterface);
+			Program.RunGame(new Game.HumanPlayer(userInterface), userInterface);
 		}
 	}
 }

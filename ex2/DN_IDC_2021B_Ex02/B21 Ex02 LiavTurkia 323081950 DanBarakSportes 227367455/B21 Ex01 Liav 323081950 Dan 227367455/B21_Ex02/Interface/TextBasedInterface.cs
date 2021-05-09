@@ -13,26 +13,31 @@ namespace B21_Ex02.Interface
 
 		public override Game.Player PlayGame(Game.Game i_Game)
 		{
+			// TODO
 			throw new NotImplementedException();
 		}
 
 		public override int PromptForBoardSize()
 		{
+			// TODO
 			throw new NotImplementedException();
 		}
 
 		public override Game.CellPosition PromptForMove(Game.Board i_Board)
 		{
+			// TODO
 			throw new NotImplementedException();
 		}
 
 		public override Game.Player PromptForOpponent()
 		{
+			// TODO
 			throw new NotImplementedException();
 		}
 
 		public override bool ShouldGameContinue()
 		{
+			// TODO
 			throw new NotImplementedException();
 		}
 
