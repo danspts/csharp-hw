@@ -8,13 +8,9 @@ namespace B21_Ex02.Game
 	{
 		private readonly System.Random m_Random = new System.Random();
 
-		public ComputerPlayer(string i_Name)
-			: base(i_Name)
-		{
-		}
-
 		public override CellPosition Play(Board i_CurrentBoard)
 		{
+			// TODO make this smart
 			CellPosition move;
 			do
 			{

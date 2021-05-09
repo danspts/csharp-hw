@@ -43,8 +43,8 @@ namespace B21_Ex02.Game
 			return this.GetCell(i_Position) != eCellValue.None;
 		}
 
-		// Returns the winning coin, or -1 if it doesn't exist
-		public eCellValue GetWinningSequence(out bool o_IsTie)
+		// Returns the first sequence found, or None if there is none currently
+		public eCellValue GetCellSequence(out bool o_IsTie)
 		{
 			// TODO
 			o_IsTie = false;

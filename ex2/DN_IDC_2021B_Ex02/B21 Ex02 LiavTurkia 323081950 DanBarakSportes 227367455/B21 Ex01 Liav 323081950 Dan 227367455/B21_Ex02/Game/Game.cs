@@ -15,6 +15,7 @@ namespace B21_Ex02.Game
 		private Board m_Board;
 		private Player m_Player1;
 		private Player m_Player2;
+		private ePlayer m_CurrentTurn = ePlayer.Player1;
 
 		public Game(Board i_Board, Player i_Player1, Player i_Player2)
 		{
@@ -57,20 +58,17 @@ namespace B21_Ex02.Game
 			this.Board.SetCell(player.Play(this.Board), cellValue);
 		}
 
-
-		// Returns the Winning player or null if was a tie
-		public Player PlayGame(UI.UI i_UserInterface)
+		public void PlayRound()
 		{
-			i_UserInterface.StartGame(this);
-			int currentTurn = 0;
-			while (!this.IsGameOver())
+			this.PlayMove(this.m_CurrentTurn);
+			if (this.m_CurrentTurn == ePlayer.Player1)
 			{
-				this.PlayMove(currentTurn);
-				currentTurn = (currentTurn + 1) % this.Players.Length;
+				this.m_CurrentTurn = ePlayer.Player2;
 			}
-
-			int winningSequence = this.Board.GetWinningSequence();
-			return winningSequence >= 0 ? this.Players[winningSequence] : null;
+			else
+			{
+				this.m_CurrentTurn = ePlayer.Player1;
+			}
 		}
 	}
 }
