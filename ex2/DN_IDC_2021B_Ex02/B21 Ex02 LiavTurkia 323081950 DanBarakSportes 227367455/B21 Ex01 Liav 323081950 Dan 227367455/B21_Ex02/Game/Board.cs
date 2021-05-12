@@ -13,6 +13,14 @@ namespace B21_Ex02.Game
 			Player2
 		}
 
+		public enum eCellSequenceStatus
+		{
+			None,
+			Player1,
+			Player2,
+			Tie
+		}
+
 		private readonly int m_Size;
 
 		private eCellValue[,] m_Cells;
@@ -44,11 +52,10 @@ namespace B21_Ex02.Game
 		}
 
 		// Returns the first sequence found, or None if there is none currently
-		public eCellValue GetCellSequence(out bool o_IsTie)
+		public eCellSequenceStatus GetCellSequence()
 		{
 			// TODO
-			o_IsTie = false;
-			return eCellValue.None;
+			return eCellSequenceStatus.None;
 		}
 	}
 }

@@ -12,6 +12,13 @@ namespace B21_Ex02.Game
 			Player2
 		}
 
+		public enum eGameResult
+		{ 
+			Player1,
+			Player2,
+			Tie
+		}
+
 		private Board m_Board;
 		private Player m_Player1;
 		private Player m_Player2;
@@ -56,6 +63,26 @@ namespace B21_Ex02.Game
 			}
 
 			this.Board.SetCell(player.Play(this.Board), cellValue);
+		}
+
+		// Out variable is null if tie, otherwise it's who won
+		public bool IsGameOver(out Player o_Victor) {
+			Board.eCellSequenceStatus sequence = this.Board.GetCellSequence();
+
+			if (sequence == Board.eCellSequenceStatus.Player1)
+			{
+				o_Victor = this.m_Player1;
+			}
+			else if (sequence == Board.eCellSequenceStatus.Player2)
+			{
+				o_Victor = this.m_Player2;
+			}
+			else
+			{
+				o_Victor = null;
+			}
+
+			return sequence != Board.eCellSequenceStatus.None;
 		}
 
 		public void PlayRound()
