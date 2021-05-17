@@ -1,0 +1,6 @@
+/Users/dan/Google Drive/School/IDC/Year II/Semester 2/NET and C#/Exercices/ex1/B21 Ex01 LiavTurkia 323081950 DanBarak 227367455/B21_Ex01_1/bin/Debug/B21_Ex01_1_new.exe
+/Users/dan/Google Drive/School/IDC/Year II/Semester 2/NET and C#/Exercices/ex1/B21 Ex01 LiavTurkia 323081950 DanBarak 227367455/B21_Ex01_1/bin/Debug/B21_Ex01_1_new.pdb
+/Users/dan/Google Drive/School/IDC/Year II/Semester 2/NET and C#/Exercices/ex1/B21 Ex01 LiavTurkia 323081950 DanBarak 227367455/B21_Ex01_1/obj/Debug/B21_Ex01_1.csprojAssemblyReference.cache
+/Users/dan/Google Drive/School/IDC/Year II/Semester 2/NET and C#/Exercices/ex1/B21 Ex01 LiavTurkia 323081950 DanBarak 227367455/B21_Ex01_1/obj/Debug/B21_Ex01_1.csproj.CoreCompileInputs.cache
+/Users/dan/Google Drive/School/IDC/Year II/Semester 2/NET and C#/Exercices/ex1/B21 Ex01 LiavTurkia 323081950 DanBarak 227367455/B21_Ex01_1/obj/Debug/B21_Ex01_1_new.exe
+/Users/dan/Google Drive/School/IDC/Year II/Semester 2/NET and C#/Exercices/ex1/B21 Ex01 LiavTurkia 323081950 DanBarak 227367455/B21_Ex01_1/obj/Debug/B21_Ex01_1_new.pdb

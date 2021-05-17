@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{B0974064-858A-453B-99D9-951721BA2B55}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="B21_Ex01_1/Program.cs">
+    <Files>
+      <File FileName="B21_Ex01_1/Program.cs" Line="191" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="B21 Ex01 Liav 323081950 Dan 227367455" expanded="True">
+            <Node name="B21_Ex01_1" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.B21__Ex01__2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.B21__Ex01__1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
