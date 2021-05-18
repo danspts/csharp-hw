@@ -11,15 +11,15 @@ namespace B21_Ex02.Game
     {
         private readonly Hashtable r_TranspositionTable = new Hashtable();
 
-        private int min(ref Board i_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
+        private int min(ref Board io_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
         {
             int bestValue = int.MaxValue;
             o_BestChoice = null;
-            for (int x = 0; x < i_CurrentBoard.Size; x++)
+            for (int x = 0; x < io_CurrentBoard.Size; x++)
             {
-                for (int y = 0; y < i_CurrentBoard.Size; y++)
+                for (int y = 0; y < io_CurrentBoard.Size; y++)
                 {
-                    Board boardCopy = i_CurrentBoard.Clone();
+                    Board boardCopy = io_CurrentBoard.Clone();
                     CellPosition move = new CellPosition(x, y);
                     if (boardCopy.IsCellObstructed(move))
                     {
@@ -56,15 +56,15 @@ namespace B21_Ex02.Game
             return bestValue;
         }
 
-        private int max(ref Board i_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
+        private int max(ref Board io_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
         {
             int bestValue = int.MinValue;
             o_BestChoice = null;
-            for (int x = 0; x < i_CurrentBoard.Size; x++)
+            for (int x = 0; x < io_CurrentBoard.Size; x++)
             {
-                for (int y = 0; y < i_CurrentBoard.Size; y++)
+                for (int y = 0; y < io_CurrentBoard.Size; y++)
                 {
-                    Board boardCopy = i_CurrentBoard.Clone();
+                    Board boardCopy = io_CurrentBoard.Clone();
                     CellPosition move = new CellPosition(x, y);
                     if (boardCopy.IsCellObstructed(move))
                     {
@@ -101,12 +101,12 @@ namespace B21_Ex02.Game
             return bestValue;
         }
 
-        private int minimax(ref Board i_CurrentBoard, Game.ePlayer i_Player, out CellPosition o_Choice, int i_Alpha, int i_Beta)
+        private int minimax(ref Board io_CurrentBoard, Game.ePlayer i_Player, out CellPosition o_Choice, int i_Alpha, int i_Beta)
         {
             o_Choice = null;
             int returnValue;
 
-            Board.eCellSequenceStatus looser = i_CurrentBoard.GetCellSequence();
+            Board.eCellSequenceStatus looser = io_CurrentBoard.GetCellSequence();
             switch (looser)
             {
                 case Board.eCellSequenceStatus.Player1:
@@ -122,10 +122,10 @@ namespace B21_Ex02.Game
                     switch (i_Player)
                     {
                         case Game.ePlayer.Player1:
-                            returnValue = this.max(ref i_CurrentBoard, out o_Choice, i_Alpha, i_Beta);
+                            returnValue = this.max(ref io_CurrentBoard, out o_Choice, i_Alpha, i_Beta);
                             break;
                         case Game.ePlayer.Player2:
-                            returnValue = this.min(ref i_CurrentBoard, out o_Choice, i_Alpha, i_Beta);
+                            returnValue = this.min(ref io_CurrentBoard, out o_Choice, i_Alpha, i_Beta);
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(i_Player), i_Player, null);
