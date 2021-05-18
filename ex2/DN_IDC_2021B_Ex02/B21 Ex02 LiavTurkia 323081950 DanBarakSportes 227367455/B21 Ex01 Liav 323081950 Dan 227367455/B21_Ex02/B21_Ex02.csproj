@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game\Board.cs" />
+    <Compile Include="Game\BoardCount.cs" />
     <Compile Include="Game\CellPosition.cs" />
     <Compile Include="Game\ComputerPlayer.cs" />
     <Compile Include="Game\Game.cs" />

@@ -19,10 +19,10 @@ namespace B21_Ex02.Game
             Tie
         }
 
-        private Board m_Board;
-        private Player m_Player1;
-        private Player m_Player2;
+        private readonly Player m_Player1;
+        private readonly Player m_Player2;
         private ePlayer m_CurrentTurn = ePlayer.Player1;
+        private Board m_Board;
 
         public Game(Board i_Board, Player i_Player1, Player i_Player2)
         {
@@ -55,6 +55,7 @@ namespace B21_Ex02.Game
                 case ePlayer.Player2:
                     cellValue = Board.eCellValue.Player2;
                     break;
+
                 // Should never happen (because of the values of ePlayer)
                 // But here for safety
                 default:

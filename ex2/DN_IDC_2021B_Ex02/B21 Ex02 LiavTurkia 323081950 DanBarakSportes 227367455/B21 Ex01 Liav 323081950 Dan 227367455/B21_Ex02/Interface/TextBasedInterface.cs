@@ -11,7 +11,10 @@ namespace B21_Ex02.Interface
 
 		protected abstract void WriteLine(string i_Line);
 
-		protected char getSymbolForCell(Game.Board.eCellValue i_CellValue) {
+		protected abstract void ClearScreen();
+
+		protected char getSymbolForCell(Game.Board.eCellValue i_CellValue)
+		{
 			char result = ' ';
 			if (i_CellValue == Game.Board.eCellValue.Player1)
 			{
@@ -25,7 +28,8 @@ namespace B21_Ex02.Interface
 			return result;
 		}
 
-		private void printBoard(Game.Board i_Board) {
+		private void printBoard(Game.Board i_Board)
+		{
 			StringBuilder builder = new StringBuilder();
 
 			// Build X axis at the top
@@ -35,7 +39,7 @@ namespace B21_Ex02.Interface
 				builder.Append(x.ToString());
 				builder.Append("   ");
 			}
-			
+
 			builder.Append("\n");
 
 			for (int x = 0; x < i_Board.Size; ++x)
@@ -67,10 +71,12 @@ namespace B21_Ex02.Interface
 			Game.Player winner;
 			while (!i_Game.IsGameOver(out winner))
 			{
+				this.ClearScreen();
 				this.printBoard(i_Game.Board);
 				i_Game.PlayRound();
 			}
 
+			this.ClearScreen();
 			this.printBoard(i_Game.Board);
 
 			if (winner == null)
@@ -84,10 +90,9 @@ namespace B21_Ex02.Interface
 		public override int PromptForBoardSize()
 		{
 			this.WriteLine("Please insert the dimensions of the board (3-9)");
-			int result = -1;
 			do
 			{
-				if (!int.TryParse(this.ReadLine(), out result))
+				if (!int.TryParse(this.ReadLine(), out int result))
 				{
 					this.WriteLine("Syntax-invalid: not an integer");
 				}
@@ -123,10 +128,9 @@ namespace B21_Ex02.Interface
 				else
 				{
 					int x = (int)(char.ToUpper(input[0]) - 'A');
-					int y;
 
 					// Check if second character is a number
-					if (!int.TryParse(input[1].ToString(), out y))
+					if (!int.TryParse(input[1].ToString(), out int y))
 					{
 						this.WriteLine("Syntax-invalid: first character must be a digit");
 					}
@@ -158,9 +162,9 @@ namespace B21_Ex02.Interface
 			builder.AppendLine("Select your opponent:");
 			builder.AppendLine("1. Human");
 			builder.AppendLine("2. Computer");
-			builder.AppendLine("Please write the number indicating your choice.");
+			builder.Append("Please write the number indicating your choice.");
 			this.WriteLine(builder.ToString());
-			int result = -1;
+			int result;
 			do
 			{
 				if (!int.TryParse(this.ReadLine(), out result))
@@ -194,14 +198,16 @@ namespace B21_Ex02.Interface
 		public override bool ShouldGameContinue()
 		{
 			this.WriteLine("Do you want to keep playing? (Y/N)");
-			string result = string.Empty;
-			while (true) {
+			string result;
+			while (true)
+			{
 				result = this.ReadLine().ToUpper();
 				if (result != "Y" && result != "N")
 				{
 					this.WriteLine("Syntax-invalid: must insert Y or N");
 				}
-				else {
+				else
+				{
 					break;
 				}
 			}

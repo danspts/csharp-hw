@@ -1,7 +1,4 @@
 ﻿using B21_Ex02.Game;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace B21_Ex02.Interface
 {
@@ -21,6 +18,11 @@ namespace B21_Ex02.Interface
 		protected sealed override void WriteLine(string i_Line)
 		{
 			System.Console.WriteLine(i_Line);
+		}
+
+		protected sealed override void ClearScreen()
+		{
+			System.Console.Clear();
 		}
 	}
 }

@@ -13,13 +13,14 @@ namespace B21_Ex02.Game
             CellPosition move;
             do
             {
-                move = new CellPosition((int) this.m_Random.Next(i_CurrentBoard.Size),
-                    (int) this.m_Random.Next(i_CurrentBoard.Size));
-            } while (i_CurrentBoard.IsCellObstructed(move));
+                move = new CellPosition(
+                    this.m_Random.Next(i_CurrentBoard.Size),
+                    this.m_Random.Next(i_CurrentBoard.Size));
+            }
+            while (i_CurrentBoard.IsCellObstructed(move));
 
             return move;
         }
-
 
         private CellPosition bestMove(Board i_CurrentBoard)
         {
@@ -27,16 +28,18 @@ namespace B21_Ex02.Game
             CellPosition move;
             do
             {
-                move = new CellPosition((int) this.m_Random.Next(i_CurrentBoard.Size),
-                    (int) this.m_Random.Next(i_CurrentBoard.Size));
-            } while (i_CurrentBoard.IsCellObstructed(move));
+                move = new CellPosition(
+                    this.m_Random.Next(i_CurrentBoard.Size),
+                    this.m_Random.Next(i_CurrentBoard.Size));
+            }
+            while (i_CurrentBoard.IsCellObstructed(move));
 
             return move;
         }
 
         public override CellPosition Play(Board i_CurrentBoard)
         {
-            return bestMove(i_CurrentBoard);
+            return this.bestMove(i_CurrentBoard);
         }
     }
 }

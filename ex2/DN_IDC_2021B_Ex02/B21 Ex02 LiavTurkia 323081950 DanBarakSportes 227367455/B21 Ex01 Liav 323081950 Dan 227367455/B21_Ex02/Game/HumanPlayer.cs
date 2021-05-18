@@ -13,7 +13,6 @@ namespace B21_Ex02.Game
 			this.m_UserInterface = i_UserInterface;
 		}
 
-
 		public override CellPosition Play(Board i_CurrentBoard)
 		{
 			return this.m_UserInterface.PromptForMove(i_CurrentBoard);
