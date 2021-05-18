@@ -215,13 +215,13 @@ namespace B21_Ex02.Interface
 			return result == "Y";
 		}
 
-		public override void ShowScore(int i_Player1, int i_Player2, int ties)
+		public override void ShowScore(int i_Player1, int i_Player2, int i_Ties)
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.AppendLine("Current Score:");
 			builder.AppendLine(string.Format("You: {0}", i_Player1));
 			builder.AppendLine(string.Format("Opponent: {0}", i_Player2));
-			builder.AppendLine(string.Format("Ties: {0}", ties));
+			builder.AppendLine(string.Format("Ties: {0}", i_Ties));
 			this.WriteLine(builder.ToString());
 		}
 	}

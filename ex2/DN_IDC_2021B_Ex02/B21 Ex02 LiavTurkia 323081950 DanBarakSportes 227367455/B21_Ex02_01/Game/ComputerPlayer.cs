@@ -139,7 +139,6 @@ namespace B21_Ex02.Game
 
         public override CellPosition Play(Board i_CurrentBoard)
         {
-
             this.min(ref i_CurrentBoard, out CellPosition move, int.MaxValue, int.MinValue);
             return move;
         }

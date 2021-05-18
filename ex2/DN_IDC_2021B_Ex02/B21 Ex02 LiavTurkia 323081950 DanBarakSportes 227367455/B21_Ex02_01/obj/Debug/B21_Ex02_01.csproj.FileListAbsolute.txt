@@ -1,0 +1,15 @@
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\bin\Debug\B21_Ex02_01.exe
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\bin\Debug\B21_Ex02_01.pdb
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\bin\Debug\Ex02.ConsoleUtils.dll
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.csprojAssemblyReference.cache
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CoreCompileInputs.cache
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CopyComplete
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.exe
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21 Ex01 Liav 323081950 Dan 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.pdb
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\bin\Debug\B21_Ex02_01.exe
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\bin\Debug\B21_Ex02_01.pdb
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.csprojAssemblyReference.cache
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CoreCompileInputs.cache
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CopyComplete
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.exe
+D:\Workspace\csharp-hw\ex2\DN_IDC_2021B_Ex02\B21 Ex02 LiavTurkia 323081950 DanBarakSportes 227367455\B21_Ex02_01\obj\Debug\B21_Ex02_01.pdb
