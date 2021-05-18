@@ -12,7 +12,7 @@ namespace B21_Ex02.Interface
 
 		public abstract Game.Player PlayGame(Game.Game i_Game);
 
-		public abstract void ShowScore(int i_Player1, int i_Player2);
+		public abstract void ShowScore(int i_Player1, int i_Player2, int ties);
 
 		public abstract Game.CellPosition PromptForMove(Game.Board i_Board);
 

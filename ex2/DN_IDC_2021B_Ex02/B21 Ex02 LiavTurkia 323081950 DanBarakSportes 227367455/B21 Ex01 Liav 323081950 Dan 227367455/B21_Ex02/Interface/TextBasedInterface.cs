@@ -29,20 +29,22 @@ namespace B21_Ex02.Interface
 			StringBuilder builder = new StringBuilder();
 
 			// Build X axis at the top
-			builder.Append("  ");
+			builder.Append("   ");
 			for (int x = 0; x < i_Board.Size; ++x)
 			{
 				builder.Append(x.ToString());
 				builder.Append("   ");
 			}
+			
+			builder.Append("\n");
 
-			for (int y = 0; y < i_Board.Size; ++y)
+			for (int x = 0; x < i_Board.Size; ++x)
 			{
 				// Y axis on the left
-				builder.Append((char)('A' + y));
+				builder.Append((char)('A' + x));
 				builder.Append("|");
 
-				for (int x = 0; x < i_Board.Size; ++x)
+				for (int y = 0; y < i_Board.Size; ++y)
 				{
 					builder.Append(" ");
 					builder.Append(this.getSymbolForCell(i_Board.GetCell(new Game.CellPosition(x, y))));
@@ -68,6 +70,8 @@ namespace B21_Ex02.Interface
 				this.printBoard(i_Game.Board);
 				i_Game.PlayRound();
 			}
+
+			this.printBoard(i_Game.Board);
 
 			if (winner == null)
 			{
@@ -128,7 +132,7 @@ namespace B21_Ex02.Interface
 					}
 
 					// At this point, the syntax is valid. We now check the logic
-					else if (x < 0 || y < 0 || x > i_Board.Size || y > i_Board.Size)
+					else if (x < 0 || y < 0 || x >= i_Board.Size || y >= i_Board.Size)
 					{
 						this.WriteLine("Logic-invalid: chosen coordinate is out of bounds");
 					}
@@ -193,7 +197,7 @@ namespace B21_Ex02.Interface
 			string result = string.Empty;
 			while (true) {
 				result = this.ReadLine().ToUpper();
-				if (result != "Y" || result != "N")
+				if (result != "Y" && result != "N")
 				{
 					this.WriteLine("Syntax-invalid: must insert Y or N");
 				}
@@ -205,12 +209,13 @@ namespace B21_Ex02.Interface
 			return result == "Y";
 		}
 
-		public override void ShowScore(int i_Player1, int i_Player2)
+		public override void ShowScore(int i_Player1, int i_Player2, int ties)
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.AppendLine("Current Score:");
-			builder.AppendLine(string.Format("You: %d", i_Player1));
-			builder.AppendLine(string.Format("Opponent: %d", i_Player2));
+			builder.AppendLine(string.Format("You: {0}", i_Player1));
+			builder.AppendLine(string.Format("Opponent: {0}", i_Player2));
+			builder.AppendLine(string.Format("Ties: {0}", ties));
 			this.WriteLine(builder.ToString());
 		}
 	}

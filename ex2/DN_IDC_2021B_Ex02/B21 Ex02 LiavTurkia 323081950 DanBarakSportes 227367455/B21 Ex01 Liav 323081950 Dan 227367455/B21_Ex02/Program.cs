@@ -13,6 +13,7 @@ namespace B21_Ex02
 
 			int userScore = 0;
 			int opponentScore = 0;
+			int ties = 0;
 			do
 			{
 				Game.Player winner = i_UserInterface.PlayGame(new Game.Game(new Game.Board(boardSize), i_User, opponent));
@@ -20,12 +21,16 @@ namespace B21_Ex02
 				{
 					++userScore;
 				}
-				else
+				else if (winner == opponent)
 				{
 					++opponentScore;
 				}
+				else
+				{
+					++ties;
+				}
 
-				i_UserInterface.ShowScore(userScore, opponentScore);
+				i_UserInterface.ShowScore(userScore, opponentScore, ties);
 			}
 			while (i_UserInterface.ShouldGameContinue());
 		}
