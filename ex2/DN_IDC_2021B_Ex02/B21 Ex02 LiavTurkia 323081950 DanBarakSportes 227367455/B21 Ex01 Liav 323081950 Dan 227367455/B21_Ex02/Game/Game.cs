@@ -19,16 +19,16 @@ namespace B21_Ex02.Game
             Tie,
         }
 
-        private readonly Player m_Player1;
-        private readonly Player m_Player2;
+        private readonly Player r_Player1;
+        private readonly Player r_Player2;
         private ePlayer m_CurrentTurn = ePlayer.Player1;
         private Board m_Board;
 
         public Game(Board i_Board, Player i_Player1, Player i_Player2)
         {
             this.m_Board = i_Board;
-            this.m_Player1 = i_Player1;
-            this.m_Player2 = i_Player2;
+            this.r_Player1 = i_Player1;
+            this.r_Player2 = i_Player2;
         }
 
         public Board Board
@@ -39,7 +39,7 @@ namespace B21_Ex02.Game
 
         public Player GetPlayer(ePlayer i_Who)
         {
-            return i_Who == ePlayer.Player1 ? this.m_Player1 : this.m_Player2;
+            return i_Who == ePlayer.Player1 ? this.r_Player1 : this.r_Player2;
         }
 
         private void PlayMove(ePlayer i_WhoseTurn)
@@ -73,11 +73,11 @@ namespace B21_Ex02.Game
 
             if (sequence == Board.eCellSequenceStatus.Player1)
             {
-                o_Victor = this.m_Player2;
+                o_Victor = this.r_Player2;
             }
             else if (sequence == Board.eCellSequenceStatus.Player2)
             {
-                o_Victor = this.m_Player1;
+                o_Victor = this.r_Player1;
             }
             else
             {

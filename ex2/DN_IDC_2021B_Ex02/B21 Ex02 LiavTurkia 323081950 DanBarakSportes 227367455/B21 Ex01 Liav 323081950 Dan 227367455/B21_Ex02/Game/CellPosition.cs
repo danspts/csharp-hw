@@ -6,23 +6,23 @@ namespace B21_Ex02.Game
 {
 	class CellPosition
 	{
-		private readonly int m_X;
-		private readonly int m_Y;
+		private readonly int r_X;
+		private readonly int r_Y;
 
 		public CellPosition(int i_X, int i_Y)
 		{
-			this.m_X = i_X;
-			this.m_Y = i_Y;
+			this.r_X = i_X;
+			this.r_Y = i_Y;
 		}
 
 		public int X
 		{
-			get { return this.m_X; }
+			get { return this.r_X; }
 		}
 
 		public int Y
 		{
-			get { return this.m_Y; }
+			get { return this.r_Y; }
 		}
 
 		public override bool Equals(object i_Obj)

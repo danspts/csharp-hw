@@ -9,12 +9,12 @@ namespace B21_Ex02.Game
 {
     class ComputerPlayer : Player
     {
-        private readonly Hashtable m_TranspositionTable = new Hashtable();
+        private readonly Hashtable r_TranspositionTable = new Hashtable();
 
-        private int min(ref Board i_CurrentBoard, out CellPosition bestChoice, int alpha, int beta)
+        private int min(ref Board i_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
         {
             int bestValue = int.MaxValue;
-            bestChoice = null;
+            o_BestChoice = null;
             for (int x = 0; x < i_CurrentBoard.Size; x++)
             {
                 for (int y = 0; y < i_CurrentBoard.Size; y++)
@@ -29,24 +29,24 @@ namespace B21_Ex02.Game
                     int value;
                     boardCopy.SetCell(move, Board.eCellValue.Player2);
                     int boardHash = boardCopy.GetHashCode();
-                    if (!this.m_TranspositionTable.Contains(boardHash))
+                    if (!this.r_TranspositionTable.Contains(boardHash))
                     {
-                        value = this.minimax(ref boardCopy, Game.ePlayer.Player1, out CellPosition temp, alpha, beta);
-                        this.m_TranspositionTable[boardHash] = value;
+                        value = this.minimax(ref boardCopy, Game.ePlayer.Player1, out CellPosition temp, i_Alpha, i_Beta);
+                        this.r_TranspositionTable[boardHash] = value;
                     }
                     else
                     {
-                        value = (int)this.m_TranspositionTable[boardHash];
+                        value = (int)this.r_TranspositionTable[boardHash];
                     }
 
                     if (value < bestValue)
                     {
                         bestValue = value;
-                        bestChoice = move;
+                        o_BestChoice = move;
                     }
 
-                    beta = Math.Max(beta, value);
-                    if (beta <= alpha)
+                    i_Beta = Math.Max(i_Beta, value);
+                    if (i_Beta <= i_Alpha)
                     {
                         break;
                     }
@@ -56,10 +56,10 @@ namespace B21_Ex02.Game
             return bestValue;
         }
 
-        private int max(ref Board i_CurrentBoard, out CellPosition bestChoice, int alpha, int beta)
+        private int max(ref Board i_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
         {
             int bestValue = int.MinValue;
-            bestChoice = null;
+            o_BestChoice = null;
             for (int x = 0; x < i_CurrentBoard.Size; x++)
             {
                 for (int y = 0; y < i_CurrentBoard.Size; y++)
@@ -74,24 +74,24 @@ namespace B21_Ex02.Game
                     int value;
                     boardCopy.SetCell(move, Board.eCellValue.Player1);
                     int boardHash = boardCopy.GetHashCode();
-                    if (!this.m_TranspositionTable.Contains(boardHash))
+                    if (!this.r_TranspositionTable.Contains(boardHash))
                     {
-                        value = this.minimax(ref boardCopy, Game.ePlayer.Player2, out CellPosition temp, alpha, beta);
-                        this.m_TranspositionTable[boardHash] = value;
+                        value = this.minimax(ref boardCopy, Game.ePlayer.Player2, out CellPosition temp, i_Alpha, i_Beta);
+                        this.r_TranspositionTable[boardHash] = value;
                     }
                     else
                     {
-                        value = (int)this.m_TranspositionTable[boardHash];
+                        value = (int)this.r_TranspositionTable[boardHash];
                     }
 
                     if (value > bestValue)
                     {
                         bestValue = value;
-                        bestChoice = move;
+                        o_BestChoice = move;
                     }
 
-                    alpha = Math.Max(alpha, value);
-                    if (beta <= alpha)
+                    i_Alpha = Math.Max(i_Alpha, value);
+                    if (i_Beta <= i_Alpha)
                     {
                         break;
                     }
@@ -101,9 +101,9 @@ namespace B21_Ex02.Game
             return bestValue;
         }
 
-        private int minimax(ref Board i_CurrentBoard, Game.ePlayer player, out CellPosition choice, int alpha, int beta)
+        private int minimax(ref Board i_CurrentBoard, Game.ePlayer i_Player, out CellPosition o_Choice, int i_Alpha, int i_Beta)
         {
-            choice = null;
+            o_Choice = null;
             int returnValue;
 
             Board.eCellSequenceStatus looser = i_CurrentBoard.GetCellSequence();
@@ -119,16 +119,16 @@ namespace B21_Ex02.Game
                     returnValue = 0;
                     break;
                 default:
-                    switch (player)
+                    switch (i_Player)
                     {
                         case Game.ePlayer.Player1:
-                            returnValue = this.max(ref i_CurrentBoard, out choice, alpha, beta);
+                            returnValue = this.max(ref i_CurrentBoard, out o_Choice, i_Alpha, i_Beta);
                             break;
                         case Game.ePlayer.Player2:
-                            returnValue = this.min(ref i_CurrentBoard, out choice, alpha, beta);
+                            returnValue = this.min(ref i_CurrentBoard, out o_Choice, i_Alpha, i_Beta);
                             break;
                         default:
-                            throw new ArgumentOutOfRangeException(nameof(player), player, null);
+                            throw new ArgumentOutOfRangeException(nameof(i_Player), i_Player, null);
                     }
 
                     break;
@@ -137,15 +137,11 @@ namespace B21_Ex02.Game
             return returnValue;
         }
 
-        private CellPosition bestMove(Board i_CurrentBoard)
-        {
-            this.min(ref i_CurrentBoard, out CellPosition move, int.MaxValue, int.MinValue);
-            return move;
-        }
-
         public override CellPosition Play(Board i_CurrentBoard)
         {
-            return this.bestMove(i_CurrentBoard);
+
+            this.min(ref i_CurrentBoard, out CellPosition move, int.MaxValue, int.MinValue);
+            return move;
         }
     }
 }

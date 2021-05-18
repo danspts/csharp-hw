@@ -6,16 +6,16 @@ namespace B21_Ex02.Game
 {
     class BoardCount
     {
-        private int playerCountX;
-        private int playerCountO;
+        private int m_PlayerCountX;
+        private int m_PlayerCountO;
 
         BoardCount()
         {
-            this.playerCountX = 0;
-            this.playerCountO = 0;
+            this.m_PlayerCountX = 0;
+            this.m_PlayerCountO = 0;
         }
 
-        public static void initBoardCounts(ref BoardCount[] i_BoardCounts, int i_Size)
+        public static void InitBoardCounts(ref BoardCount[] i_BoardCounts, int i_Size)
         {
             i_BoardCounts = new BoardCount[i_Size];
             for (int i = 0; i < i_BoardCounts.Length; i++)
@@ -24,34 +24,34 @@ namespace B21_Ex02.Game
             }
         }
 
-        public void addPlayerCount(Board.eCellValue player)
+        public void AddPlayerCount(Board.eCellValue i_Player)
         {
-            if (player == Board.eCellValue.Player1)
+            if (i_Player == Board.eCellValue.Player1)
             {
-                ++this.playerCountX;
+                ++this.m_PlayerCountX;
             }
             else
             {
-                ++this.playerCountO;
+                ++this.m_PlayerCountO;
             }
         }
 
-        private int getTotal()
+        public int GetTotal()
         {
-            return this.playerCountX + this.playerCountO;
+            return this.m_PlayerCountX + this.m_PlayerCountO;
         }
 
-        public Board.eCellSequenceStatus getSequenceStatus(int boardSize)
+        public Board.eCellSequenceStatus GetSequenceStatus(int i_BoardSize)
         {
             Board.eCellSequenceStatus status = Board.eCellSequenceStatus.None;
 
-            if (this.getTotal() == boardSize)
+            if (this.GetTotal() == i_BoardSize)
             {
-                if (this.playerCountX == boardSize)
+                if (this.m_PlayerCountX == i_BoardSize)
                 {
                     status = Board.eCellSequenceStatus.Player1;
                 }
-                else if (this.playerCountO == boardSize)
+                else if (this.m_PlayerCountO == i_BoardSize)
                 {
                     status = Board.eCellSequenceStatus.Player2;
                 }

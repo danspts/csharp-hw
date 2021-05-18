@@ -21,65 +21,65 @@ namespace B21_Ex02.Game
             Player2,
         }
 
-        private readonly int m_Size;
+        private readonly int r_Size;
 
-        private readonly eCellValue[,] m_Cells;
+        private readonly eCellValue[,] r_Cells;
 
-        private readonly BoardCount[] boardCountRow;
-        private readonly BoardCount[] boardCountColumn;
-        private readonly BoardCount[] boardCountDiagonal;
+        private readonly BoardCount[] r_BoardCountRow;
+        private readonly BoardCount[] r_BoardCountColumn;
+        private readonly BoardCount[] r_BoardCountDiagonal;
 
         private int m_NumberFullCells = 0;
 
         public Board(int i_Size)
         {
-            this.m_Size = i_Size;
-            this.m_Cells = new eCellValue[i_Size, i_Size];
-            BoardCount.initBoardCounts(ref this.boardCountRow, i_Size);
-            BoardCount.initBoardCounts(ref this.boardCountColumn, i_Size);
-            BoardCount.initBoardCounts(ref this.boardCountDiagonal, 2);
+            this.r_Size = i_Size;
+            this.r_Cells = new eCellValue[i_Size, i_Size];
+            BoardCount.InitBoardCounts(ref this.r_BoardCountRow, i_Size);
+            BoardCount.InitBoardCounts(ref this.r_BoardCountColumn, i_Size);
+            BoardCount.InitBoardCounts(ref this.r_BoardCountDiagonal, 2);
         }
 
-        public int getNBOfCells()
+        public int GetNumberOfCells()
         {
             return this.m_NumberFullCells;
         }
 
         public int Size
         {
-            get { return this.m_Size; }
+            get { return this.r_Size; }
         }
 
-        internal bool isFull()
+        public bool IsFull()
         {
-            return this.m_Size * this.m_Size == this.m_NumberFullCells;
+            return this.r_Size * this.r_Size == this.m_NumberFullCells;
         }
 
         public void SetCell(CellPosition i_Position, eCellValue i_CellValue)
         {
-            this.m_Cells[i_Position.X, i_Position.Y] = i_CellValue;
+            this.r_Cells[i_Position.X, i_Position.Y] = i_CellValue;
 
             if (i_CellValue != eCellValue.None)
             {
                 if (i_Position.X == i_Position.Y)
                 {
-                    this.boardCountDiagonal[0].addPlayerCount(i_CellValue);
+                    this.r_BoardCountDiagonal[0].AddPlayerCount(i_CellValue);
                 }
 
-                if (i_Position.X + i_Position.Y + 1 == this.m_Size)
+                if (i_Position.X + i_Position.Y + 1 == this.r_Size)
                 {
-                    this.boardCountDiagonal[1].addPlayerCount(i_CellValue);
+                    this.r_BoardCountDiagonal[1].AddPlayerCount(i_CellValue);
                 }
 
-                this.boardCountRow[i_Position.Y].addPlayerCount(i_CellValue);
-                this.boardCountColumn[i_Position.X].addPlayerCount(i_CellValue);
+                this.r_BoardCountRow[i_Position.Y].AddPlayerCount(i_CellValue);
+                this.r_BoardCountColumn[i_Position.X].AddPlayerCount(i_CellValue);
                 ++this.m_NumberFullCells;
             }
         }
 
         public eCellValue GetCell(CellPosition i_Position)
         {
-            return this.m_Cells[i_Position.X, i_Position.Y];
+            return this.r_Cells[i_Position.X, i_Position.Y];
         }
 
         public bool IsCellObstructed(CellPosition i_Position)
@@ -92,37 +92,37 @@ namespace B21_Ex02.Game
         {
             eCellSequenceStatus status = eCellSequenceStatus.None;
 
-            foreach (BoardCount count in this.boardCountRow)
+            foreach (BoardCount count in this.r_BoardCountRow)
             {
                 if (status != eCellSequenceStatus.None)
                 {
                     break;
                 }
 
-                status = count.getSequenceStatus(this.m_Size);
+                status = count.GetSequenceStatus(this.r_Size);
             }
 
-            foreach (BoardCount count in this.boardCountColumn)
+            foreach (BoardCount count in this.r_BoardCountColumn)
             {
                 if (status != eCellSequenceStatus.None)
                 {
                     break;
                 }
 
-                status = count.getSequenceStatus(this.m_Size);
+                status = count.GetSequenceStatus(this.r_Size);
             }
 
-            foreach (BoardCount count in this.boardCountDiagonal)
+            foreach (BoardCount count in this.r_BoardCountDiagonal)
             {
                 if (status != eCellSequenceStatus.None)
                 {
                     break;
                 }
 
-                status = count.getSequenceStatus(this.m_Size);
+                status = count.GetSequenceStatus(this.r_Size);
             }
 
-            if (status == eCellSequenceStatus.None && this.isFull())
+            if (status == eCellSequenceStatus.None && this.IsFull())
             {
                 status = eCellSequenceStatus.Tie;
             }
@@ -164,7 +164,7 @@ namespace B21_Ex02.Game
 
         public override int GetHashCode()
         {
-            return -1701819646 + EqualityComparer<eCellValue[,]>.Default.GetHashCode(this.m_Cells);
+            return -1701819646 + EqualityComparer<eCellValue[,]>.Default.GetHashCode(this.r_Cells);
         }
     }
 }
