@@ -8,7 +8,7 @@ namespace B21_Ex02.Game
     {
         public enum eCellSequenceStatus
         {
-            None,
+            None = 0,
             Player1,
             Player2,
             Tie
@@ -16,7 +16,7 @@ namespace B21_Ex02.Game
 
         public enum eCellValue
         {
-            None,
+            None = 0,
             Player1,
             Player2
         }
@@ -40,12 +40,17 @@ namespace B21_Ex02.Game
             BoardCount.initBoardCounts(ref this.boardCountDiagonal, 2);
         }
 
+        public int getNBOfCells()
+        {
+            return this.m_NumberFullCells;
+        }
+
         public int Size
         {
             get { return this.m_Size; }
         }
 
-        private bool isFull()
+        internal bool isFull()
         {
             return this.m_Size * this.m_Size == this.m_NumberFullCells;
         }
@@ -54,19 +59,22 @@ namespace B21_Ex02.Game
         {
             this.m_Cells[i_Position.X, i_Position.Y] = i_CellValue;
 
-            if (i_Position.X == i_Position.Y)
+            if (i_CellValue != eCellValue.None)
             {
-                this.boardCountDiagonal[0].addPlayerCount(i_CellValue);
-            }
+                if (i_Position.X == i_Position.Y)
+                {
+                    this.boardCountDiagonal[0].addPlayerCount(i_CellValue);
+                }
 
-            if (i_Position.X + i_Position.Y + 1 == this.m_Size)
-            {
-                this.boardCountDiagonal[1].addPlayerCount(i_CellValue);
-            }
+                if (i_Position.X + i_Position.Y + 1 == this.m_Size)
+                {
+                    this.boardCountDiagonal[1].addPlayerCount(i_CellValue);
+                }
 
-            this.boardCountRow[i_Position.Y].addPlayerCount(i_CellValue);
-            this.boardCountColumn[i_Position.X].addPlayerCount(i_CellValue);
-            ++this.m_NumberFullCells;
+                this.boardCountRow[i_Position.Y].addPlayerCount(i_CellValue);
+                this.boardCountColumn[i_Position.X].addPlayerCount(i_CellValue);
+                ++this.m_NumberFullCells;
+            }
         }
 
         public eCellValue GetCell(CellPosition i_Position)
@@ -131,11 +139,31 @@ namespace B21_Ex02.Game
                 for (int y = 0; y < this.Size; ++y)
 				{
                     CellPosition pos = new CellPosition(x, y);
+                    eCellValue cellValue = this.GetCell(pos);
                     copy.SetCell(pos, this.GetCell(pos));
-				}
+                }
 			}
 
             return copy;
+        }
+
+        public string HashString()
+        {
+            string hashString = "";
+            CellPosition pos;
+            for (int x = 0; x < this.Size; ++x)
+            {
+                for (int y = 0; y < this.Size; ++y)
+                {
+                    pos = new CellPosition(x, y);
+                    hashString += this.GetCell(pos);
+                }
+            }
+            return hashString;
+        }
+        public override int GetHashCode()
+        {
+            return -1701819646 + EqualityComparer<eCellValue[,]>.Default.GetHashCode(m_Cells);
         }
     }
 }
