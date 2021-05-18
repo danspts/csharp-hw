@@ -9,14 +9,14 @@ namespace B21_Ex02.Game
         public enum ePlayer
         {
             Player1,
-            Player2
+            Player2,
         }
 
         public enum eGameResult
         {
             Player1,
             Player2,
-            Tie
+            Tie,
         }
 
         private readonly Player m_Player1;

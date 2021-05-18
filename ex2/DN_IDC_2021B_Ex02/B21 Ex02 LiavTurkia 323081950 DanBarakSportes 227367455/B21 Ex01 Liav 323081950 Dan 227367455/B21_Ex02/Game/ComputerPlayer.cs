@@ -9,9 +9,7 @@ namespace B21_Ex02.Game
 {
     class ComputerPlayer : Player
     {
-        private readonly System.Random m_Random = new System.Random();
-        Hashtable transpositionTable = new Hashtable();
-
+        private readonly Hashtable m_TranspositionTable = new Hashtable();
 
         private int min(ref Board i_CurrentBoard, out CellPosition bestChoice, int alpha, int beta)
         {
@@ -31,14 +29,14 @@ namespace B21_Ex02.Game
                     int value;
                     boardCopy.SetCell(move, Board.eCellValue.Player2);
                     int boardHash = boardCopy.GetHashCode();
-                    if (!this.transpositionTable.Contains(boardHash))
+                    if (!this.m_TranspositionTable.Contains(boardHash))
                     {
-                        value = minimax(ref boardCopy, Game.ePlayer.Player1, out CellPosition temp, alpha, beta);
-                        this.transpositionTable[boardHash] = value;
+                        value = this.minimax(ref boardCopy, Game.ePlayer.Player1, out CellPosition temp, alpha, beta);
+                        this.m_TranspositionTable[boardHash] = value;
                     }
                     else
                     {
-                        value = (int) this.transpositionTable[boardHash];
+                        value = (int)this.m_TranspositionTable[boardHash];
                     }
 
                     if (value < bestValue)
@@ -76,14 +74,14 @@ namespace B21_Ex02.Game
                     int value;
                     boardCopy.SetCell(move, Board.eCellValue.Player1);
                     int boardHash = boardCopy.GetHashCode();
-                    if (!this.transpositionTable.Contains(boardHash))
+                    if (!this.m_TranspositionTable.Contains(boardHash))
                     {
-                        value = minimax(ref boardCopy, Game.ePlayer.Player2, out CellPosition temp, alpha, beta);
-                        this.transpositionTable[boardHash] = value;
+                        value = this.minimax(ref boardCopy, Game.ePlayer.Player2, out CellPosition temp, alpha, beta);
+                        this.m_TranspositionTable[boardHash] = value;
                     }
                     else
                     {
-                        value = (int) this.transpositionTable[boardHash];
+                        value = (int)this.m_TranspositionTable[boardHash];
                     }
 
                     if (value > bestValue)
@@ -136,41 +134,18 @@ namespace B21_Ex02.Game
                     break;
             }
 
-
             return returnValue;
-        }
-
-        private CellPosition randomMove(Board i_CurrentBoard)
-        {
-            CellPosition move;
-            do
-            {
-                move = new CellPosition(
-                    this.m_Random.Next(i_CurrentBoard.Size),
-                    this.m_Random.Next(i_CurrentBoard.Size));
-            } while (i_CurrentBoard.IsCellObstructed(move));
-
-            return move;
         }
 
         private CellPosition bestMove(Board i_CurrentBoard)
         {
-            this.min(ref i_CurrentBoard, out CellPosition move, Int32.MaxValue, Int32.MinValue);
+            this.min(ref i_CurrentBoard, out CellPosition move, int.MaxValue, int.MinValue);
             return move;
         }
-
 
         public override CellPosition Play(Board i_CurrentBoard)
         {
             return this.bestMove(i_CurrentBoard);
-            if (i_CurrentBoard.Size * i_CurrentBoard.Size - i_CurrentBoard.getNBOfCells() < 16)
-            {
-                return this.bestMove(i_CurrentBoard);
-            }
-            else
-            {
-                return this.randomMove(i_CurrentBoard);
-            }
         }
     }
 }

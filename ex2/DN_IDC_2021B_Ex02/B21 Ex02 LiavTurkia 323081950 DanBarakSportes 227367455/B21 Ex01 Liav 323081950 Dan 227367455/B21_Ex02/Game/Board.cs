@@ -11,14 +11,14 @@ namespace B21_Ex02.Game
             None = 0,
             Player1,
             Player2,
-            Tie
+            Tie,
         }
 
         public enum eCellValue
         {
             None = 0,
             Player1,
-            Player2
+            Player2,
         }
 
         private readonly int m_Size;
@@ -139,7 +139,6 @@ namespace B21_Ex02.Game
                 for (int y = 0; y < this.Size; ++y)
 				{
                     CellPosition pos = new CellPosition(x, y);
-                    eCellValue cellValue = this.GetCell(pos);
                     copy.SetCell(pos, this.GetCell(pos));
                 }
 			}
@@ -149,7 +148,7 @@ namespace B21_Ex02.Game
 
         public string HashString()
         {
-            string hashString = "";
+            string hashString = string.Empty;
             CellPosition pos;
             for (int x = 0; x < this.Size; ++x)
             {
@@ -159,11 +158,13 @@ namespace B21_Ex02.Game
                     hashString += this.GetCell(pos);
                 }
             }
+
             return hashString;
         }
+
         public override int GetHashCode()
         {
-            return -1701819646 + EqualityComparer<eCellValue[,]>.Default.GetHashCode(m_Cells);
+            return -1701819646 + EqualityComparer<eCellValue[,]>.Default.GetHashCode(this.m_Cells);
         }
     }
 }
