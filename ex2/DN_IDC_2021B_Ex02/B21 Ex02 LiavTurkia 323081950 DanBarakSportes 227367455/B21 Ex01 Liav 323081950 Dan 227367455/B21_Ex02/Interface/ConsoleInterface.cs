@@ -22,7 +22,7 @@ namespace B21_Ex02.Interface
 
 		protected sealed override void ClearScreen()
 		{
-			System.Console.Clear();
+			Ex02.ConsoleUtils.Screen.Clear();
 		}
 	}
 }
