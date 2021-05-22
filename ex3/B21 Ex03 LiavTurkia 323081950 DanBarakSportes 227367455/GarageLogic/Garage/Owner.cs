@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GarageLogic.Garage
 {
-	class Owner
+	public class Owner
 	{
 		private readonly string r_Name;
 		private readonly string r_PhoneNumber;

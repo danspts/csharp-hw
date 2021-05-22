@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	class ElectricEngine : Engine
+	public class ElectricEngine : Engine
 	{
 		private readonly float r_MaxOperationHours;
 		private float m_RemainingHours;

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	class MotorcycleLicense : License
+	public class MotorcycleLicense : License
 	{
 		public enum eMotorcycleLicenseType
 		{

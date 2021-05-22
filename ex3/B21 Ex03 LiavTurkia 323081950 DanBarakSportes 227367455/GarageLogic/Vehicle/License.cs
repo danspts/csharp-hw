@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	class License
+	public class License
 	{
 		private readonly string r_LicenseNumber;
 

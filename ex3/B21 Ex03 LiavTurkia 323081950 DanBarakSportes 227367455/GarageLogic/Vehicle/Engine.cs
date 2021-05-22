@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	abstract class Engine
+	public abstract class Engine
 	{
 		protected float m_EnergyPercentage;
 

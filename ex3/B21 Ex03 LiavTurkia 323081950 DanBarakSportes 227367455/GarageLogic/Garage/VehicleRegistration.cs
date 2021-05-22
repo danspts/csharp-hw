@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Garage
+﻿namespace GarageLogic.Garage
 {
-	class VehicleRegistration
+	public class VehicleRegistration
 	{
 		public enum eVehicleStatus { 
 			InRepair,

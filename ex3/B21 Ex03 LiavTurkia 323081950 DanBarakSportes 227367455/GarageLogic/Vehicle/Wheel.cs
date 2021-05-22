@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	class Wheel
+	public class Wheel
 	{
 		private readonly string r_ManufacturerName;
 		private readonly float r_MaxPressure;

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	class Motorcycle : Vehicle
+	public class Motorcycle : Vehicle
 	{
 		private readonly int r_EngineVolume;
 
@@ -33,7 +29,7 @@ namespace GarageLogic.Vehicle
 			{
 				if (!(value is MotorcycleLicense))
 				{
-					throw new ArgumentException("Motorcycle license must be of type MotorcycleLicense!");
+					throw new System.ArgumentException("Motorcycle license must be of type MotorcycleLicense!");
 				}
 
 				base.License = value;

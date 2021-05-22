@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	class FuelEngine : Engine
+	public class FuelEngine : Engine
 	{
 		public enum eFuelType
 		{

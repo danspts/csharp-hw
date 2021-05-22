@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GarageLogic.Vehicle
+﻿namespace GarageLogic.Vehicle
 {
-	abstract class Vehicle
+	public abstract class Vehicle
 	{
 		private readonly string r_ModelName;
 		private License m_License;
