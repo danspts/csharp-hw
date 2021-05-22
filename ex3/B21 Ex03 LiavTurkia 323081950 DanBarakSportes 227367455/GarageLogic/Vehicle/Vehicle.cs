@@ -2,22 +2,22 @@
 {
 	public abstract class Vehicle
 	{
-		private readonly string r_ModelName;
+		private readonly Model r_Model;
 		private License m_License;
 		private Wheel[] m_Wheels;
 		private Engine m_Engine;
 
-		protected Vehicle(string i_ModelName, License i_License, Wheel[] i_Wheels, Engine i_Engine)
+		protected Vehicle(Model i_Model, License i_License, Wheel[] i_Wheels, Engine i_Engine)
 		{
-			this.r_ModelName = i_ModelName;
+			this.r_Model = i_Model;
 			this.m_License = i_License;
 			this.m_Wheels = i_Wheels;
 			this.m_Engine = i_Engine;
 		}
 
-		public string ModelName
+		public Model Model
 		{
-			get { return this.r_ModelName; }
+			get { return this.r_Model; }
 		}
 
 		public License License
@@ -36,16 +36,6 @@
 		{
 			get { return this.m_Engine; }
 			set { this.m_Engine = value; }
-		}
-
-		public string LicenseNumber
-		{
-			get { return this.License.Number; }
-		}
-
-		public float RemainingEnergyPercentage
-		{
-			get { return this.Engine.EnergyPercentage; }
 		}
 	}
 }

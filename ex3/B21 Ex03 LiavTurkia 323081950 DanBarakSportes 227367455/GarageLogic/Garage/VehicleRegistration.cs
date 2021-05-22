@@ -25,6 +25,11 @@
 			set { this.m_Vehicle = value; }
 		}
 
+		public Owner Owner
+		{
+			get { return this.r_Owner; }
+		}
+
 		public eVehicleStatus Status
 		{
 			get { return this.m_Status; }

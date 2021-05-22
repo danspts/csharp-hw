@@ -43,12 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Garage\Owner.cs" />
+    <Compile Include="ValueOutOfRangeException.cs" />
+    <Compile Include="Vehicle\CarModel.cs" />
     <Compile Include="Vehicle\FuelEngine.cs" />
     <Compile Include="Vehicle\ElectricEngine.cs" />
     <Compile Include="Vehicle\Engine.cs" />
     <Compile Include="Vehicle\License.cs" />
-    <Compile Include="Vehicle\Motorcycle.cs" />
+    <Compile Include="Vehicle\Model.cs" />
     <Compile Include="Vehicle\MotorcycleLicense.cs" />
+    <Compile Include="Vehicle\MotorcycleModel.cs" />
+    <Compile Include="Vehicle\TruckModel.cs" />
     <Compile Include="Vehicle\Vehicle.cs" />
     <Compile Include="Garage\VehicleRegistration.cs" />
     <Compile Include="Vehicle\Wheel.cs" />
