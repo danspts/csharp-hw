@@ -1,6 +1,6 @@
 ﻿namespace GarageLogic.Vehicle
 {
-	public abstract class Engine
+	public abstract class Engine : VehicleComponent<Engine>
 	{
 		protected float m_EnergyPercentage;
 

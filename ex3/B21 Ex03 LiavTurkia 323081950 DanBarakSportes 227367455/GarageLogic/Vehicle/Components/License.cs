@@ -1,6 +1,6 @@
 ﻿namespace GarageLogic.Vehicle
 {
-	public class License
+	public class License : VehicleComponent<License>
 	{
 		private readonly string r_LicenseNumber;
 

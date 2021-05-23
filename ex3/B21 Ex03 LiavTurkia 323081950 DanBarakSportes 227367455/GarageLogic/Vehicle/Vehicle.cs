@@ -1,6 +1,9 @@
-﻿namespace GarageLogic.Vehicle
+﻿using System;
+using System.Collections.Generic;
+
+namespace GarageLogic.Vehicle
 {
-	public abstract class Vehicle
+	public abstract class Vehicle : VehicleComponent<Vehicle>
 	{
 		private readonly Model r_Model;
 		private License m_License;
