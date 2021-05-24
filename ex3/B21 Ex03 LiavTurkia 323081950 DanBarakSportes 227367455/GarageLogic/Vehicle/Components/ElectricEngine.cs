@@ -1,4 +1,6 @@
-﻿namespace GarageLogic.Vehicle
+﻿using System;
+
+namespace GarageLogic.Vehicle
 {
 	public class ElectricEngine : Engine
 	{

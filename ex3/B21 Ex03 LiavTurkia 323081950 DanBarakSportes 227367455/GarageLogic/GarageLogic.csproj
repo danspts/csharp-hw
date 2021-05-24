@@ -42,6 +42,7 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Garage\Garage.cs" />
     <Compile Include="Vehicle\Requirements\MinimumRequirement.cs" />
     <Compile Include="Vehicle\Requirements\PropertyRequirement.cs" />
     <Compile Include="Vehicle\Requirements\RangeRequirement.cs" />

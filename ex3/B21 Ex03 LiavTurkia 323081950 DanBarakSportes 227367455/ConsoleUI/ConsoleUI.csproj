@@ -43,5 +43,15 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="UI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GarageLogic\GarageLogic.csproj">
+      <Project>{1918c734-9683-482b-9db8-f4e4e3c5e9e5}</Project>
+      <Name>GarageLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
