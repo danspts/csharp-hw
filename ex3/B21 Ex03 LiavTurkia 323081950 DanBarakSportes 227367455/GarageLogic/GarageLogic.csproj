@@ -47,6 +47,7 @@
     <Compile Include="Vehicle\Requirements\PropertyRequirement.cs" />
     <Compile Include="Vehicle\Requirements\RangeRequirement.cs" />
     <Compile Include="Vehicle\Requirements\TypeRequirement.cs" />
+    <Compile Include="Vehicle\TypeConfiguration.cs" />
     <Compile Include="Vehicle\VehicleComponent.cs" />
     <Compile Include="Vehicle\VehicleFactory.cs" />
     <Compile Include="Garage\Owner.cs" />

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace GarageLogic.Vehicle
 {
-	public abstract class Vehicle : VehicleComponent<Vehicle>
+	public class Vehicle : VehicleComponent<Vehicle>
 	{
 		private readonly Model r_Model;
 		private License m_License;
 		private Wheel[] m_Wheels;
 		private Engine m_Engine;
 
-		protected Vehicle(Model i_Model, License i_License, Wheel[] i_Wheels, Engine i_Engine)
+		public Vehicle(Model i_Model, License i_License, Wheel[] i_Wheels, Engine i_Engine)
 		{
 			this.r_Model = i_Model;
 			this.m_License = i_License;
