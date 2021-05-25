@@ -8,7 +8,7 @@ namespace ConsoleUI
         {
             Garage garage = new Garage();
             UI ui = new UI(garage);
-            ui.start();
+            ui.Start();
         }
 
     }

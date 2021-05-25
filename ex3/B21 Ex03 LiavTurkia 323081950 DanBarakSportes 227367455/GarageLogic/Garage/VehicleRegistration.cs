@@ -35,5 +35,11 @@
 			get { return this.m_Status; }
 			set { this.m_Status = value; }
 		}
+
+		public override string ToString()
+		{
+			//Todo needed to print vehicles' details 
+			return base.ToString();
+		}
 	}
 }

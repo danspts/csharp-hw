@@ -17,16 +17,17 @@ namespace ConsoleUI
 
     public class UI
     {
-
         private bool m_Continue = true;
+        private Garage m_garage;
+
         public UI(Garage i_Garage)
         {
-            throw new System.NotImplementedException();
+            this.m_garage = i_Garage;
         }
-        
-        public void start()
+
+        public void Start()
         {
-            while (m_Continue)
+            while (this.m_Continue)
             {
                 GarageOptions commandChoice = this.PromptChooseCommand();
                 this.chooseCommand(commandChoice);
@@ -35,6 +36,7 @@ namespace ConsoleUI
 
         public GarageOptions PromptChooseCommand()
         {
+            // todo
             return GarageOptions.QuitCommand;
         }
 
@@ -43,19 +45,19 @@ namespace ConsoleUI
             switch (i_Command)
             {
                 case GarageOptions.InsertNewVehicle:
-                    insertNewVehicleCommand();
+                    this.insertNewVehicleCommand();
                     break;
                 case GarageOptions.DisplayCarList:
-                    displayCarListCommand();
+                    this.displayCarListCommand();
                     break;
                 case GarageOptions.ModifyStatus:
-                    modifyStatusCommand();
+                    this.modifyStatusCommand();
                     break;
                 case GarageOptions.InflateTires:
-                    inflateTiresCommand();
+                    this.inflateTiresCommand();
                     break;
                 case GarageOptions.RefuelCar:
-                    refuelCarCommand();
+                    this.refuelCarCommand();
                     break;
                 case GarageOptions.ChargeCar:
                     this.chargeCarCommand();
@@ -71,32 +73,37 @@ namespace ConsoleUI
 
         public void insertNewVehicleCommand()
         {
+            // todo
         }
 
         public void displayCarListCommand()
         {
+            // todo
         }
 
         public void modifyStatusCommand()
         {
+            // todo
         }
 
         public void inflateTiresCommand()
         {
+            // todo
         }
 
         public void refuelCarCommand()
         {
+            // todo
         }
 
         public void chargeCarCommand()
         {
+            // todo
         }
 
         public void displayCarInformationCommand()
         {
+            // todo
         }
-
-
     }
 }
