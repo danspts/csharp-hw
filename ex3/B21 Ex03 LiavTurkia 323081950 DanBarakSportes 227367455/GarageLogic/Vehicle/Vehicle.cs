@@ -3,30 +3,45 @@ using System.Collections.Generic;
 
 namespace GarageLogic.Vehicle
 {
-	public class Vehicle : VehicleComponent<Vehicle>
+	public class Vehicle
 	{
-		private readonly Model r_Model;
-		private License m_License;
+		private readonly string r_ModelName;
+		private readonly string r_LicenseNumber;
 		private Wheel[] m_Wheels;
 		private Engine m_Engine;
 
-		public Vehicle(Model i_Model, License i_License, Wheel[] i_Wheels, Engine i_Engine)
+		public static Dictionary<string, Requirements.PropertyRequirement> GetRequirements()
 		{
-			this.r_Model = i_Model;
-			this.m_License = i_License;
+			Dictionary<string, Requirements.PropertyRequirement> requirements = new Dictionary<string, Requirements.PropertyRequirement>();
+			requirements.Add("Model Name", new Requirements.TypeRequirement(typeof(string)));
+			requirements.Add("License Number", new Requirements.TypeRequirement(typeof(string)));
+			return requirements;
+		}
+
+		public Vehicle(Dictionary<string, object> i_Properties, Wheel[] i_Wheels, Engine i_Engine)
+		{
+			this.applyProperty<string>(i_Properties, "Model Name", out this.r_ModelName);
+			this.applyProperty<string>(i_Properties, "License Number", out this.r_LicenseNumber);
+
 			this.m_Wheels = i_Wheels;
 			this.m_Engine = i_Engine;
 		}
 
-		public Model Model
+		protected void applyProperty<T>(Dictionary<string, object> i_Properties, string i_PropertyName, out T o_Variable)
 		{
-			get { return this.r_Model; }
-		}
+			if (i_Properties.TryGetValue("ModelName", out object value))
+			{
+				if (!(value is T))
+				{
+					throw new ArgumentException(string.Format("{0} is of the wrong type, should be {1}", i_PropertyName, typeof(T).Name));
+				}
 
-		public License License
-		{
-			get { return this.m_License; }
-			set { this.m_License = value; }
+				o_Variable = (T)value;
+			}
+			else
+			{
+				throw new ArgumentException(string.Format("Missing property: {0}", i_PropertyName));
+			}
 		}
 
 		public Wheel[] Wheels
@@ -39,6 +54,16 @@ namespace GarageLogic.Vehicle
 		{
 			get { return this.m_Engine; }
 			set { this.m_Engine = value; }
+		}
+
+		public string ModelName
+		{
+			get { return this.r_ModelName; }
+		}
+
+		public string LicenseNumber
+		{
+			get { return this.r_LicenseNumber; }
 		}
 	}
 }

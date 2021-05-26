@@ -3,47 +3,17 @@ using System.Collections.Generic;
 
 namespace GarageLogic.Vehicle
 {
-	public class Wheel : VehicleComponent<Wheel>
+	public class Wheel
 	{
-		public static new Dictionary<string, Requirements.PropertyRequirement> GetRequirements() {
-			return new Dictionary<string, Requirements.PropertyRequirement>()
-			{
-				{ "ManufacturerName", new Requirements.TypeRequirement(typeof(string)) },
-				{ "MaxPressure", new Requirements.MinimumRequirement<float>(0f) },
-			};
-		}
-
-		public static new Wheel Generate(Dictionary<string, object> i_Properties)
-		{
-			if (i_Properties.TryGetValue("MaxPressure", out object maxPressure) && i_Properties.TryGetValue("ManufacturerName", out object name))
-			{
-				if (!(name is string) || !(maxPressure is float))
-				{
-					throw new ArgumentException("Properties have an invalid type");
-				}
-
-				return new Wheel(name as string, (float)maxPressure);
-			}
-			else
-			{
-				throw new ArgumentException("Missing properties!");
-			}
-		}
-
 		private readonly string r_ManufacturerName;
 		private readonly float r_MaxPressure;
 		private float m_CurrentPressure;
 
-		public Wheel(string i_ManufacturerName, float i_StartingPressure, float i_MaxPressure)
+		public Wheel(string i_ManufacturerName, float i_MaxPressure)
 		{
 			this.r_ManufacturerName = i_ManufacturerName;
 			this.r_MaxPressure = i_MaxPressure;
-			this.m_CurrentPressure = i_StartingPressure;
-		}
-
-		public Wheel(string i_ManufacturerName, float i_MaxPressure)
-			: this(i_ManufacturerName, i_MaxPressure, i_MaxPressure)
-		{
+			this.m_CurrentPressure = this.r_MaxPressure;
 		}
 
 		public string ManufacturerName
@@ -65,8 +35,12 @@ namespace GarageLogic.Vehicle
 
 			set
 			{
-				// Clamp to be between [0, maxPressure]
-				this.m_CurrentPressure = Math.Max(0f, Math.Min(this.MaxPressure, value));
+				if (value < 0 || value > this.MaxPressure)
+				{
+					throw new ValueOutOfRangeException(0, this.MaxPressure, "Invalid pressure to inflate wheel to");
+				}
+
+				this.m_CurrentPressure = value;
 			}
 		}
 

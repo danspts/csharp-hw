@@ -13,6 +13,11 @@ namespace GarageLogic.Vehicle.Requirements
 			r_Type = i_Type;
 		}
 
+		public Type Type
+		{
+			get { return this.r_Type; }
+		}
+
 		public override bool Verify(object i_ToVerify)
 		{
 			return i_ToVerify != null && i_ToVerify.GetType() == this.r_Type;

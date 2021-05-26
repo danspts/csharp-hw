@@ -1,17 +1,12 @@
-﻿namespace GarageLogic.Vehicle
+﻿using System.Collections.Generic;
+
+namespace GarageLogic.Vehicle
 {
-	public abstract class Engine : VehicleComponent<Engine>
+	public abstract class Engine
 	{
-		protected float m_EnergyPercentage;
-
-		protected Engine(float i_StartingPercentage)
+		public abstract float EnergyPercentage
 		{
-			this.m_EnergyPercentage = i_StartingPercentage;
-		}
-
-		public float EnergyPercentage
-		{
-			get { return this.m_EnergyPercentage; }
+			get;
 		}
 	}
 }

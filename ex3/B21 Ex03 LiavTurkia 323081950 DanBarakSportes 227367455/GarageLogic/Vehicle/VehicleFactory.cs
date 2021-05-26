@@ -15,77 +15,42 @@ namespace GarageLogic.Vehicle
 			FuelBasedTruck,
 		}
 
-		/*
-		private TypeConfiguration getTypeConfiguration(eVehicleType i_Type)
-		{
-			TypeConfiguration config;
-			switch (i_Type)
-			{
-				// (1) When adding new vehicle types, make sure to fill in the proper type names here:
-				case eVehicleType.FuelBasedMotorcycle:
-					config = new TypeConfiguration(2, typeof(Wheel), typeof(MotorcycleLicense), typeof(FuelEngine), typeof(MotorcycleModel));
-					break;
-				case eVehicleType.ElectricMotorcycle:
-					config = new TypeConfiguration(2, typeof(Wheel), typeof(MotorcycleLicense), typeof(ElectricEngine), typeof(MotorcycleModel));
-					break;
-				case eVehicleType.FuelBasedCar:
-					config = new TypeConfiguration(4, typeof(Wheel), typeof(License), typeof(FuelEngine), typeof(CarModel));
-					break;
-				case eVehicleType.ElectricCar:
-					config = new TypeConfiguration(4, typeof(Wheel), typeof(License), typeof(ElectricEngine), typeof(CarModel));
-					break;
-				case eVehicleType.FuelBasedTruck:
-					config = new TypeConfiguration(16, typeof(Wheel), typeof(License), typeof(FuelEngine), typeof(TruckModel));
-					break;
-				default:
-					throw new ArgumentException("Unimplemented vehicle type");
-			}
+		private static readonly Dictionary<eVehicleType, Types.VehicleType> r_VehicleTypes;
 
-			return config;
-		}*/
-
-		private void fillTypeProperties(eVehicleType i_Type, ref Dictionary<string, object> io_Properties)
+		static VehicleFactory()
 		{
-			switch (i_Type)
-			{
-				// (2) When adding new vehicle types, make sure to fill in the proper default values here:
-				case eVehicleType.FuelBasedMotorcycle:
-					break;
-				case eVehicleType.ElectricMotorcycle:
-					break;
-				case eVehicleType.FuelBasedCar:
-					break;
-				case eVehicleType.ElectricCar:
-					break;
-				case eVehicleType.FuelBasedTruck:
-					break;
-				default:
-					throw new ArgumentException("Unimplemented vehicle type");
-			}
+			r_VehicleTypes = new Dictionary<eVehicleType, Types.VehicleType>();
+
+			// For adding new vehicle types, add them to here:
+			r_VehicleTypes.Add(eVehicleType.FuelBasedMotorcycle, new Types.FuelBasedMotorcycle());
+			r_VehicleTypes.Add(eVehicleType.ElectricMotorcycle, new Types.ElectricMotorcycle());
+			r_VehicleTypes.Add(eVehicleType.FuelBasedCar, new Types.FuelBasedCar());
+			r_VehicleTypes.Add(eVehicleType.ElectricCar, new Types.ElectricCar());
+			r_VehicleTypes.Add(eVehicleType.FuelBasedTruck, new Types.FuelBasedTruck());
 		}
 
 		public Vehicle GenerateVehicle(eVehicleType i_Type, Dictionary<string, object> i_Properties)
 		{
-			/*TypeConfiguration configuration = this.getTypeConfiguration(i_Type);
-
-			this.fillTypeProperties(i_Type, ref i_Properties);
-
-			Wheel[] wheels = new Wheel[configuration.NumOfWheels];
-
-			return new Vehicle(model, license, wheels, engine);
-			*/
-			return null;
+			if (r_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
+			{
+				return new Vehicle(i_Properties, type.GenerateWheels(), type.GenerateEngine());
+			}
+			else
+			{
+				throw new NotImplementedException(string.Format("Not implemented vehicle type: {0}", i_Type));
+			}
 		}
 
 		public Dictionary<string, Requirements.PropertyRequirement> GetRequirements(eVehicleType i_Type)
 		{
-			/*Dictionary<string, Requirements.PropertyRequirement> requirements = new Dictionary<string, Requirements.PropertyRequirement>();
-
-			TypeConfiguration configuration = getTypeConfiguration(i_Type, null);
-
-			return requirements;
-			*/
-			return null;
+			if (r_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
+			{
+				return type.GetRequirements();
+			}
+			else
+			{
+				throw new NotImplementedException(string.Format("Not implemented vehicle type: {0}", i_Type));
+			}
 		}
 	}
 }
