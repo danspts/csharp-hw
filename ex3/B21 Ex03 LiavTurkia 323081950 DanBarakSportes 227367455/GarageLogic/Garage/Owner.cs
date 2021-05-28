@@ -24,5 +24,10 @@ namespace GarageLogic.Garage
 		{
 			get { return this.r_PhoneNumber; }
 		}
+
+		public override string ToString()
+		{
+			return r_Name;
+		}
 	}
 }

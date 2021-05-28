@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GarageLogic
 {
-    class ValueOutOfRangeException : Exception
+    public class ValueOutOfRangeException : Exception
     {
         private readonly float r_MinValue;
         private readonly float r_MaxValue;

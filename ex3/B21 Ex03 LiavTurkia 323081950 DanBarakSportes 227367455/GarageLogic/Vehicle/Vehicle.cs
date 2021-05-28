@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace GarageLogic.Vehicle
 {
@@ -64,6 +65,24 @@ namespace GarageLogic.Vehicle
 		public string LicenseNumber
 		{
 			get { return this.r_LicenseNumber; }
+		}
+
+		public void InflateAllWheels()
+		{
+			foreach (Wheel wheel in this.Wheels)
+			{
+				wheel.Inflate();
+			}
+		}
+
+		public override string ToString()
+		{
+			StringBuilder builder = new StringBuilder();
+			builder.AppendLine("License number: " + this.LicenseNumber);
+			builder.AppendLine("Model name: " + this.ModelName);
+			builder.AppendLine(this.Engine.ToString());
+			builder.AppendLine(this.Wheels.ToString());
+			return builder.ToString();
 		}
 	}
 }

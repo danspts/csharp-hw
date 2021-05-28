@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 
 namespace GarageLogic.Garage
 {
@@ -11,7 +12,7 @@ namespace GarageLogic.Garage
             return this.m_Vehicles[i_LicenseNumber];
         }
 
-        public void UpdateRegistration(string i_LicenseNumber, VehicleRegistration i_Registration)
+        public void UpsertRegistration(string i_LicenseNumber, VehicleRegistration i_Registration)
         {
             this.m_Vehicles[i_LicenseNumber] = i_Registration;
         }
@@ -26,11 +27,17 @@ namespace GarageLogic.Garage
             return this.m_Vehicles.ContainsKey(i_LicenseNumber);
         }
 
-        public string[] ListVehicles()
+        public string ListVehicles(VehicleRegistration.eVehicleStatus status_filter = default)
         {
-            //Todo
-            string[] s = { };
-            return s;
+            StringBuilder builder = new StringBuilder();
+            foreach (KeyValuePair<string, VehicleRegistration> kvp in m_Vehicles)
+            {
+                if (kvp.Value.Status == status_filter || status_filter == default)
+                {
+                    builder.AppendLine(kvp.Key);
+                }
+            }
+            return builder.ToString();
         }
     }
 }

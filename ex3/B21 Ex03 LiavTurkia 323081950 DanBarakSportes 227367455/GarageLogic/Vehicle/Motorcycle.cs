@@ -21,7 +21,7 @@ namespace GarageLogic.Vehicle
 		{
 			Dictionary<string, Requirements.PropertyRequirement> requirements = Vehicle.GetRequirements();
 			requirements.Add("Engine Volume", new Requirements.MinimumRequirement<int>(0));
-			requirements.Add("License Type", new Requirements.TypeRequirement<>(typeof(eLicenseType)));
+			requirements.Add("License Type", new Requirements.TypeRequirement(typeof(eLicenseType)));
 			return requirements;
 		}
 
