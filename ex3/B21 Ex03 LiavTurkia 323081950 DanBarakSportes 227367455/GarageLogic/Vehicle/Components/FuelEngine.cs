@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace GarageLogic.Vehicle
 {
@@ -66,6 +67,14 @@ namespace GarageLogic.Vehicle
         public void Refuel(float i_ToAdd)
         {
             this.RemainingLiters += i_ToAdd;
+        }
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(String.Format("Fuel currently in tank: {0}L", this.RemainingLiters));
+            builder.AppendLine(String.Format("Tank total Capacity: {0}", this.MaxFuelLiters));
+            builder.AppendLine(String.Format("Fuel type: {0}", this.FuelType));
+            return builder.ToString();
         }
     }
 }

@@ -27,16 +27,17 @@ namespace GarageLogic.Garage
             return this.m_Vehicles.ContainsKey(i_LicenseNumber);
         }
 
-        public string ListVehicles(VehicleRegistration.eVehicleStatus status_filter = default)
+        public string ListVehicles(VehicleRegistration.eVehicleStatus i_StatusFiler = default)
         {
             StringBuilder builder = new StringBuilder();
             foreach (KeyValuePair<string, VehicleRegistration> kvp in m_Vehicles)
             {
-                if (kvp.Value.Status == status_filter || status_filter == default)
+                if (kvp.Value.Status == i_StatusFiler || i_StatusFiler == default)
                 {
                     builder.AppendLine(kvp.Key);
                 }
             }
+
             return builder.ToString();
         }
     }

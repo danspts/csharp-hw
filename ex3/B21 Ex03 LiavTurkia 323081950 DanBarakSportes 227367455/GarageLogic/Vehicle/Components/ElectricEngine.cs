@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace GarageLogic.Vehicle
 {
@@ -52,6 +53,14 @@ namespace GarageLogic.Vehicle
         public void Recharge(float i_ToAdd)
         {
             this.RemainingHours += i_ToAdd;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(String.Format("Amount currently charged: {0}h", this.RemainingHours));
+            builder.AppendLine(String.Format("Total Capacity: {0}h", this.MaxOperationHours));
+            return builder.ToString();
         }
     }
 }

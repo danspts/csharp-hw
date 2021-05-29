@@ -23,5 +23,13 @@ namespace GarageLogic.Vehicle
 			this.applyProperty<float>(i_Properties, "Max Cargo Weight", out this.r_MaxCargoWeight);
 			this.applyProperty<bool>(i_Properties, "Contains Dangerous Materials", out this.r_ContainsDangerousMaterials);
 		}
+
+		public override string ToString()
+		{
+			StringBuilder builder = new StringBuilder();
+			builder.AppendLine(base.ToString());
+			// TODO add other features
+			return builder.ToString();
+		}
 	}
 }

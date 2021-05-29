@@ -8,10 +8,10 @@ namespace GarageLogic.Vehicle
 	{
 		public enum eLicenseType
 		{
-			A,
-			B1,
-			AA,
-			BB,
+			A = 0,
+			B1 = 1,
+			AA = 2,
+			BB = 3,
 		}
 
 		private readonly eLicenseType r_LicenseType;
@@ -40,6 +40,14 @@ namespace GarageLogic.Vehicle
 		public int EngineVolume
 		{
 			get { return this.r_EngineVolume; }
+		}
+		
+		public override string ToString()
+		{
+			StringBuilder builder = new StringBuilder();
+			builder.AppendLine(base.ToString());
+			// TODO add other features
+			return builder.ToString();
 		}
 	}
 }

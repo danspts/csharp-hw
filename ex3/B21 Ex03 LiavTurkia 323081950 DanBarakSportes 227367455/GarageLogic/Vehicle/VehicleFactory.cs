@@ -8,11 +8,11 @@ namespace GarageLogic.Vehicle
 	{
 		public enum eVehicleType {
 			// Add vehicle type names to here, and then add relevant code to (1) and (2)
-			FuelBasedMotorcycle,
-			ElectricMotorcycle,
-			FuelBasedCar,
-			ElectricCar,
-			FuelBasedTruck,
+			FuelBasedMotorcycle = 0,
+			ElectricMotorcycle = 1,
+			FuelBasedCar = 2,
+			ElectricCar = 3,
+			FuelBasedTruck = 4,
 		}
 
 		private static readonly Dictionary<eVehicleType, Types.VehicleType> r_VehicleTypes;
@@ -37,7 +37,7 @@ namespace GarageLogic.Vehicle
 			}
 			else
 			{
-				throw new NotImplementedException(string.Format("Not implemented vehicle type: {0}", i_Type));
+				throw new NotImplementedException(String.Format("Not implemented vehicle type: {0}", i_Type));
 			}
 		}
 
