@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GarageLogic.Garage.Garage" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAQIAAAQAAAAAAQAIAAAAAAAA=</HashCode>
+      <FileName>Garage\Garage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Garage.Owner" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAQAQAAAAAAAAAAACAAAQAAAA=</HashCode>
+      <FileName>Garage\Owner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Garage.VehicleRegistration">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GarageLogic.Garage.VehicleRegistration.eVehicleStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Garage\VehicleRegistration.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAACEAgAAAAAEAAAAAAAABBAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Garage\VehicleRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.ValueOutOfRangeException" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAEAAAAAAAAAQAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ValueOutOfRangeException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Car">
+    <Position X="15.5" Y="6" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GarageLogic.Vehicle.Car.eCarColor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle\Car.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAACMAACAAAAAAAAACAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.ElectricEngine">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAEAAAAAAAAAgAAEAAQAAAAAAAAEBA=</HashCode>
+      <FileName>Vehicle\Components\ElectricEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Engine">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Components\Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.FuelEngine">
+    <Position X="8.25" Y="6.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GarageLogic.Vehicle.FuelEngine.eFuelType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle\Components\FuelEngine.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAgAQgAAAABoEAAAAACABAA=</HashCode>
+      <FileName>Vehicle\Components\FuelEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Wheel">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAABAAIICAIAAAIAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Vehicle\Components\Wheel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Motorcycle">
+    <Position X="17.5" Y="6" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GarageLogic.Vehicle.Motorcycle.eLicenseType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle\Motorcycle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAACAAFAAAAAAAAAQCAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Motorcycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Truck">
+    <Position X="13.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAAAAAAICAAAAAAAAAEAAAAAAAACAAAAA=</HashCode>
+      <FileName>Vehicle\Truck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Vehicle">
+    <Position X="15.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAACAAAAEEAAAAEAACAEBAAAAAAAABQBAAAAAgAAAA=</HashCode>
+      <FileName>Vehicle\Vehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.VehicleFactory">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GarageLogic.Vehicle.VehicleFactory.eVehicleType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle\VehicleFactory.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\VehicleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Requirements.MinimumRequirement&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAQAIAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Requirements\MinimumRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Requirements.PropertyRequirement" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Requirements\PropertyRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Requirements.RangeRequirement&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAQAIAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Requirements\RangeRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Requirements.TypeRequirement" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Requirements\TypeRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Types.CarBasedType">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Types\CarBasedType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Types.MotorcycleBasedType">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Types\MotorcycleBasedType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Types.TruckBasedType">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Types\TruckBasedType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarageLogic.Vehicle.Types.VehicleType" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACCAAAAAAAQAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle\Types\VehicleType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
