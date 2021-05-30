@@ -44,8 +44,8 @@ namespace GarageLogic.Garage
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("\n-------------------------------------------------------------------------------------");
             builder.AppendLine(this.Vehicle.ToString());
-            builder.AppendLine("Owner         : " + this.Owner.ToString());
-            builder.AppendLine("Status        : " + this.Status.ToString());
+            builder.AppendLine("Owner: " + this.Owner.ToString());
+            builder.AppendLine("Status: " + this.Status.ToString());
             builder.AppendLine("\n-------------------------------------------------------------------------------------");
             return builder.ToString();
         }

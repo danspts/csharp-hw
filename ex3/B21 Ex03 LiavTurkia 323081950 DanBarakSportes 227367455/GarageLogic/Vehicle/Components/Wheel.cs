@@ -26,10 +26,12 @@ namespace GarageLogic.Vehicle
             get { return this.r_MaxPressure; }
         }
 
-
         public float Pressure
         {
-            get { return this.m_CurrentPressure; }
+            get
+            {
+                return this.m_CurrentPressure;
+            }
 
             set
             {

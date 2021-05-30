@@ -22,22 +22,29 @@ namespace GarageLogic.Vehicle
 			r_VehicleTypes = new Dictionary<eVehicleType, Types.VehicleType>();
 
 			// For adding new vehicle types, add them to here:
-			r_VehicleTypes.Add(eVehicleType.FuelBasedMotorcycle, new Types.FuelBasedMotorcycle());
-			r_VehicleTypes.Add(eVehicleType.ElectricMotorcycle, new Types.ElectricMotorcycle());
-			r_VehicleTypes.Add(eVehicleType.FuelBasedCar, new Types.FuelBasedCar());
-			r_VehicleTypes.Add(eVehicleType.ElectricCar, new Types.ElectricCar());
-			r_VehicleTypes.Add(eVehicleType.FuelBasedTruck, new Types.FuelBasedTruck());
+			r_VehicleTypes.Add(eVehicleType.FuelBasedMotorcycle, new Types.MotorcycleBasedType(new FuelEngine(FuelEngine.eFuelType.Octane98, 6f)));
+			r_VehicleTypes.Add(eVehicleType.ElectricMotorcycle, new Types.MotorcycleBasedType(new ElectricEngine(1.8f)));
+			r_VehicleTypes.Add(eVehicleType.FuelBasedCar, new Types.CarBasedType(new FuelEngine(FuelEngine.eFuelType.Octane95, 45f)));
+			r_VehicleTypes.Add(eVehicleType.ElectricCar, new Types.CarBasedType(new ElectricEngine(3.2f)));
+			r_VehicleTypes.Add(eVehicleType.FuelBasedTruck, new Types.TruckBasedType(new FuelEngine(FuelEngine.eFuelType.Soler, 120f)));
 		}
 
 		public Vehicle GenerateVehicle(eVehicleType i_Type, Dictionary<string, object> i_Properties)
 		{
 			if (r_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
 			{
-				return new Vehicle(i_Properties, type.GenerateWheels(), type.GenerateEngine());
+				if (i_Properties.TryGetValue("Tire Manufacturer", out object tireManufacturer))
+				{
+					return new Vehicle(i_Properties, type.GenerateWheels(tireManufacturer.ToString()), type.Engine);
+				}
+				else
+				{
+					throw new ArgumentException("Missing property: Tire Manufacturer");
+				}
 			}
 			else
 			{
-				throw new NotImplementedException(String.Format("Not implemented vehicle type: {0}", i_Type));
+				throw new NotImplementedException(string.Format("Not implemented vehicle type: {0}", i_Type));
 			}
 		}
 
@@ -45,7 +52,9 @@ namespace GarageLogic.Vehicle
 		{
 			if (r_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
 			{
-				return type.GetRequirements();
+				Dictionary<string, Requirements.PropertyRequirement> requirements = type.GetRequirements();
+				requirements.Add("Tire Manufacturer", new Requirements.TypeRequirement(typeof(string)));
+				return requirements;
 			}
 			else
 			{

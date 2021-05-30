@@ -41,13 +41,13 @@ namespace GarageLogic.Vehicle
 		{
 			get { return this.r_EngineVolume; }
 		}
-		
-		public override string ToString()
+
+		public override Dictionary<string, object> GetProperties()
 		{
-			StringBuilder builder = new StringBuilder();
-			builder.AppendLine(base.ToString());
-			// TODO add other features
-			return builder.ToString();
+			Dictionary<string, object> props = base.GetProperties();
+			props.Add("Engine Volume", this.EngineVolume);
+			props.Add("License Type", this.LicenseType);
+			return props;
 		}
 	}
 }

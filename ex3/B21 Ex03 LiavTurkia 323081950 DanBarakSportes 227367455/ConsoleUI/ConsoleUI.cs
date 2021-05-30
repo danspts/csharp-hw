@@ -1,37 +1,36 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using GarageLogic;
 using GarageLogic.Garage;
 using GarageLogic.Vehicle;
 using GarageLogic.Vehicle.Requirements;
 
-
 namespace ConsoleUI
 {
-    public enum GarageOptions
+    public class ConsoleUI
     {
-        ClearInterface = 0,
-        InsertNewVehicle = 1,
-        DisplayCarList = 2,
-        ModifyStatus = 3,
-        InflateTires = 4,
-        RefuelCar = 5,
-        ChargeCar = 6,
-        DisplayCarInformation = 7,
-        QuitCommand = 8,
-    }
+        public enum eGarageOptions
+        {
+            ClearInterface = 0,
+            InsertNewVehicle = 1,
+            DisplayCarList = 2,
+            ModifyStatus = 3,
+            InflateTires = 4,
+            RefuelCar = 5,
+            ChargeCar = 6,
+            DisplayCarInformation = 7,
+            QuitCommand = 8,
+        }
 
-    public class UI
-    {
-        private static readonly string r_Line =
-            "-------------------------------------------------------------------------------------";
+        private static readonly string r_Line = new string('-', 85);
 
         private bool m_Continue = true;
         private Garage m_Garage;
         private VehicleFactory m_VehicleFactory;
 
-        public UI(Garage i_Garage)
+        public ConsoleUI(Garage i_Garage)
         {
             this.m_Garage = i_Garage;
             this.m_VehicleFactory = new VehicleFactory();
@@ -55,7 +54,7 @@ namespace ConsoleUI
             {
                 try
                 {
-                    GarageOptions commandChoice = (GarageOptions) this.PromptChooseCommand();
+                    eGarageOptions commandChoice = (eGarageOptions) this.PromptChooseCommand();
                     this.chooseCommand(commandChoice);
                 }
                 catch (Exception e) when (e is ValueOutOfRangeException || e is FormatException ||
@@ -73,35 +72,35 @@ namespace ConsoleUI
             }
         }
 
-        private void chooseCommand(GarageOptions i_Command)
+        private void chooseCommand(eGarageOptions i_Command)
         {
             switch (i_Command)
             {
-                case GarageOptions.ClearInterface:
+                case eGarageOptions.ClearInterface:
                     Console.Clear();
                     break;
-                case GarageOptions.InsertNewVehicle:
+                case eGarageOptions.InsertNewVehicle:
                     this.insertNewVehicleCommand();
                     break;
-                case GarageOptions.DisplayCarList:
+                case eGarageOptions.DisplayCarList:
                     this.displayCarListCommand();
                     break;
-                case GarageOptions.ModifyStatus:
+                case eGarageOptions.ModifyStatus:
                     this.modifyStatusCommand();
                     break;
-                case GarageOptions.InflateTires:
+                case eGarageOptions.InflateTires:
                     this.inflateTiresCommand();
                     break;
-                case GarageOptions.RefuelCar:
+                case eGarageOptions.RefuelCar:
                     this.refuelCarCommand();
                     break;
-                case GarageOptions.ChargeCar:
+                case eGarageOptions.ChargeCar:
                     this.chargeCarCommand();
                     break;
-                case GarageOptions.DisplayCarInformation:
+                case eGarageOptions.DisplayCarInformation:
                     this.displayCarInformationCommand();
                     break;
-                case GarageOptions.QuitCommand:
+                case eGarageOptions.QuitCommand:
                     this.m_Continue = false;
                     break;
             }
@@ -145,6 +144,17 @@ namespace ConsoleUI
             Console.WriteLine(message);
             string command = Console.ReadLine();
             if (!int.TryParse(command, out o_object))
+            {
+                throw new FormatException("Syntax-invalid: not an integer");
+            }
+        }
+
+        private void promptGetInput(out float o_object, string message)
+        {
+            Console.Clear();
+            Console.WriteLine(message);
+            string command = Console.ReadLine();
+            if (!float.TryParse(command, out o_object))
             {
                 throw new FormatException("Syntax-invalid: not an integer");
             }
@@ -207,6 +217,10 @@ namespace ConsoleUI
                         promptGetInput(out int o_ObjectInt, builder.ToString());
                         properties.Add(kvp.Key, o_ObjectInt);
                         break;
+                    case bool _ when type == typeof(float):
+                        promptGetInput(out float o_ObjectFloat, builder.ToString());
+                        properties.Add(kvp.Key, o_ObjectFloat);
+                        break;
                     case bool _ when type == typeof(string):
                         promptGetInput(out string o_ObjectString, builder.ToString());
                         properties.Add(kvp.Key, o_ObjectString);
@@ -224,13 +238,12 @@ namespace ConsoleUI
                             properties.Add(kvp.Key, Enum.ToObject(type, o_ObjectEnum));
                         break;
                     default:
-                        throw new NotImplementedException("This class object has not been handled");
+                        throw new NotImplementedException(string.Format("{0} object has not been handled", type.Name));
                 }
-            }
+			}
 
-            return VehicleFactory.GenerateVehicle((VehicleFactory.eVehicleType) o_VehicleType, properties);
+            return VehicleFactory.GenerateVehicle((VehicleFactory.eVehicleType)o_VehicleType, properties);
         }
-
 
         private VehicleRegistration promptGetVehicleFromPlate()
         {

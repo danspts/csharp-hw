@@ -15,6 +15,11 @@ namespace GarageLogic.Vehicle.Requirements
 			this.r_Maximum = i_Maximum;
 		}
 
+		public T Maximum
+		{
+			get { return this.r_Maximum; }
+		}
+
 		public override bool Verify(object i_ToVerify)
 		{
 			return base.Verify(i_ToVerify) && Comparer<T>.Default.Compare((T)i_ToVerify, this.r_Maximum) <= 0;

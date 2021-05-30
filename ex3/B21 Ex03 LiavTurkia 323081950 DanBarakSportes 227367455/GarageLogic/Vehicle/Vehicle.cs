@@ -30,7 +30,7 @@ namespace GarageLogic.Vehicle
 
 		protected void applyProperty<T>(Dictionary<string, object> i_Properties, string i_PropertyName, out T o_Variable)
 		{
-			if (i_Properties.TryGetValue("ModelName", out object value))
+			if (i_Properties.TryGetValue(i_PropertyName, out object value))
 			{
 				if (!(value is T))
 				{
@@ -67,6 +67,20 @@ namespace GarageLogic.Vehicle
 			get { return this.r_LicenseNumber; }
 		}
 
+		public virtual Dictionary<string, object> GetProperties()
+		{
+			Dictionary<string, object> props = new Dictionary<string, object>();
+			props.Add("License Number", this.LicenseNumber);
+			props.Add("Model Name", this.ModelName);
+			if (this.Wheels.Length > 0)
+			{
+				// all the tires should have the same specification anyways, so [0] is fine
+				props.Add("Tire Manufacturer", this.Wheels[0].ManufacturerName);
+				props.Add("Tire Max Pressure", this.Wheels[0].MaxPressure);
+			}
+			return props;
+		}
+
 		public void InflateAllWheels()
 		{
 			foreach (Wheel wheel in this.Wheels)
@@ -78,10 +92,12 @@ namespace GarageLogic.Vehicle
 		public override string ToString()
 		{
 			StringBuilder builder = new StringBuilder();
-			builder.AppendLine("License number: " + this.LicenseNumber);
-			builder.AppendLine("Model name: " + this.ModelName);
+			foreach (KeyValuePair<string, object> pair in this.GetProperties())
+			{
+				builder.AppendLine(string.Format("{0}: {1}", pair.Key, pair.Value.ToString()));
+			}
+
 			builder.AppendLine(this.Engine.ToString());
-			builder.AppendLine(this.Wheels.ToString());
 			return builder.ToString();
 		}
 	}
