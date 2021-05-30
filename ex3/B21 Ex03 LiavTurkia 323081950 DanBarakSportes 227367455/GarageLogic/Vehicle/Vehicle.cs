@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GarageLogic.Vehicle
 {
-	public class Vehicle
+	public abstract class Vehicle
 	{
 		private readonly string r_ModelName;
 		private readonly string r_LicenseNumber;

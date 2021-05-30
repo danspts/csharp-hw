@@ -24,7 +24,7 @@ namespace GarageLogic.Vehicle
             get { return this.r_MaxOperationHours; }
         }
 
-        public float differenceHours
+        public float DifferenceOfHours
         {
             get { return this.MaxOperationHours - this.RemainingHours; }
         }
@@ -38,9 +38,9 @@ namespace GarageLogic.Vehicle
 
             set
             {
-                if (value < 0 || value > this.differenceHours)
+                if (value < 0 || value > this.DifferenceOfHours)
                 {
-                    throw new ValueOutOfRangeException(0, this.differenceHours, "Invalid amount of operational hours");
+                    throw new ValueOutOfRangeException(0, this.DifferenceOfHours, "Invalid amount of operational hours");
                 }
 
                 // Clamp to be between [0, maxTime - existingTime]

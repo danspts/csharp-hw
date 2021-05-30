@@ -39,7 +39,7 @@ namespace GarageLogic.Vehicle
             get { return this.r_MaxFuelLiters; }
         }
 
-        public float differenceFuel
+        public float DifferenceOfFuel
         {
             get { return this.MaxFuelLiters - this.RemainingLiters; }
         }
@@ -53,9 +53,9 @@ namespace GarageLogic.Vehicle
 
             set
             {
-                if (value < 0 || value > this.differenceFuel)
+                if (value < 0 || value > this.DifferenceOfFuel)
                 {
-                    throw new ValueOutOfRangeException(0, this.differenceFuel, "Invalid liters of fuel");
+                    throw new ValueOutOfRangeException(0, this.DifferenceOfFuel, "Invalid liters of fuel");
                 }
 
                 this.m_RemainingLiters = value;
