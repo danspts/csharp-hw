@@ -1,4 +1,5 @@
 ﻿using System.Text;
+
 namespace GarageLogic.Garage
 {
     public class VehicleRegistration

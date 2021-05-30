@@ -6,8 +6,9 @@ namespace GarageLogic.Vehicle
 {
 	public class VehicleFactory
 	{
-		public enum eVehicleType {
-			// Add vehicle type names to here, and then add relevant code to (1) and (2)
+		public enum eVehicleType
+		{
+			// Add vehicle type names to here, and then add relevant code to the static constructor
 			FuelBasedMotorcycle = 0,
 			ElectricMotorcycle = 1,
 			FuelBasedCar = 2,
@@ -15,23 +16,24 @@ namespace GarageLogic.Vehicle
 			FuelBasedTruck = 4,
 		}
 
-		private static readonly Dictionary<eVehicleType, Types.VehicleType> r_VehicleTypes;
+		private static readonly Dictionary<eVehicleType, Types.VehicleType> sr_VehicleTypes;
 
 		static VehicleFactory()
 		{
-			r_VehicleTypes = new Dictionary<eVehicleType, Types.VehicleType>();
-
-			// For adding new vehicle types, add them to here:
-			r_VehicleTypes.Add(eVehicleType.FuelBasedMotorcycle, new Types.MotorcycleBasedType(new FuelEngine(FuelEngine.eFuelType.Octane98, 6f)));
-			r_VehicleTypes.Add(eVehicleType.ElectricMotorcycle, new Types.MotorcycleBasedType(new ElectricEngine(1.8f)));
-			r_VehicleTypes.Add(eVehicleType.FuelBasedCar, new Types.CarBasedType(new FuelEngine(FuelEngine.eFuelType.Octane95, 45f)));
-			r_VehicleTypes.Add(eVehicleType.ElectricCar, new Types.CarBasedType(new ElectricEngine(3.2f)));
-			r_VehicleTypes.Add(eVehicleType.FuelBasedTruck, new Types.TruckBasedType(new FuelEngine(FuelEngine.eFuelType.Soler, 120f)));
+			sr_VehicleTypes = new Dictionary<eVehicleType, Types.VehicleType>
+			{
+				// For adding new vehicle types, add them to here:
+				{ eVehicleType.FuelBasedMotorcycle, new Types.MotorcycleBasedType(new FuelEngine(FuelEngine.eFuelType.Octane98, 6f)) },
+				{ eVehicleType.ElectricMotorcycle, new Types.MotorcycleBasedType(new ElectricEngine(1.8f)) },
+				{ eVehicleType.FuelBasedCar, new Types.CarBasedType(new FuelEngine(FuelEngine.eFuelType.Octane95, 45f)) },
+				{ eVehicleType.ElectricCar, new Types.CarBasedType(new ElectricEngine(3.2f)) },
+				{ eVehicleType.FuelBasedTruck, new Types.TruckBasedType(new FuelEngine(FuelEngine.eFuelType.Soler, 120f)) },
+			};
 		}
 
 		public Vehicle GenerateVehicle(eVehicleType i_Type, Dictionary<string, object> i_Properties)
 		{
-			if (r_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
+			if (sr_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
 			{
 				if (i_Properties.TryGetValue("Tire Manufacturer", out object tireManufacturer))
 				{
@@ -50,7 +52,7 @@ namespace GarageLogic.Vehicle
 
 		public Dictionary<string, Requirements.PropertyRequirement> GetRequirements(eVehicleType i_Type)
 		{
-			if (r_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
+			if (sr_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
 			{
 				Dictionary<string, Requirements.PropertyRequirement> requirements = type.GetRequirements();
 				requirements.Add("Tire Manufacturer", new Requirements.TypeRequirement(typeof(string)));

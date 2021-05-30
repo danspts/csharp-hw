@@ -31,7 +31,10 @@ namespace GarageLogic.Vehicle
 
         public float RemainingHours
         {
-            get { return this.m_RemainingHours; }
+            get
+            {
+                return this.m_RemainingHours;
+            }
 
             set
             {

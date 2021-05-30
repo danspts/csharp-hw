@@ -24,7 +24,7 @@ namespace ConsoleUI
             QuitCommand = 8,
         }
 
-        private static readonly string r_Line = new string('-', 85);
+        private static readonly string sr_Line = new string('-', 85);
 
         private bool m_Continue = true;
         private Garage m_Garage;
@@ -39,11 +39,13 @@ namespace ConsoleUI
         private VehicleFactory VehicleFactory
         {
             get { return this.m_VehicleFactory; }
+            set { this.m_VehicleFactory = value; }
         }
 
         private Garage Garage
         {
             get { return this.m_Garage; }
+            set { this.m_Garage = value; }
         }
 
         public void Start()
@@ -54,19 +56,18 @@ namespace ConsoleUI
             {
                 try
                 {
-                    eGarageOptions commandChoice = (eGarageOptions) this.PromptChooseCommand();
+                    eGarageOptions commandChoice = (eGarageOptions)this.promptChooseCommand();
                     this.chooseCommand(commandChoice);
                 }
                 catch (Exception e) when (e is ValueOutOfRangeException || e is FormatException ||
-                                          e is KeyNotFoundException || e is ArgumentException) // ||
-                    //   e is NotImplementedException)
+                                          e is KeyNotFoundException || e is ArgumentException)
                 {
                     StringBuilder builder = new StringBuilder();
-                    builder.AppendLine("\n" + r_Line);
+                    builder.AppendLine("\n" + sr_Line);
                     builder.Append("/!\\ ERROR : ");
                     builder.Append(e.Message);
                     builder.AppendLine("  /!\\");
-                    builder.AppendLine(r_Line);
+                    builder.AppendLine(sr_Line);
                     Console.WriteLine(builder.ToString());
                 }
             }
@@ -106,12 +107,12 @@ namespace ConsoleUI
             }
         }
 
-        private int PromptChooseCommand()
+        private int promptChooseCommand()
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tChoose a command: ");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             builder.AppendLine("0: Clear the Screen");
             builder.AppendLine("1: Insert a new vehicle");
             builder.AppendLine("2: Display the car list");
@@ -121,7 +122,7 @@ namespace ConsoleUI
             builder.AppendLine("6: Charge a car");
             builder.AppendLine("7: Display the information of a car");
             builder.AppendLine("8: Quit the interface");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             builder.Append("Number:  ");
 
             Console.Write(builder.ToString());
@@ -138,122 +139,112 @@ namespace ConsoleUI
             return result;
         }
 
-        private void promptGetInput(out int o_object, string message)
+        private object promptGetInput(string i_Message, Type i_Type)
         {
             Console.Clear();
-            Console.WriteLine(message);
+            Console.WriteLine(i_Message);
             string command = Console.ReadLine();
-            if (!int.TryParse(command, out o_object))
-            {
-                throw new FormatException("Syntax-invalid: not an integer");
-            }
-        }
 
-        private void promptGetInput(out float o_object, string message)
-        {
-            Console.Clear();
-            Console.WriteLine(message);
-            string command = Console.ReadLine();
-            if (!float.TryParse(command, out o_object))
-            {
-                throw new FormatException("Syntax-invalid: not an integer");
-            }
-        }
+            TypeConverter converter = TypeDescriptor.GetConverter(i_Type);
+            object outObject;
 
-        private void promptGetInput(out string o_object, string message)
-        {
-            Console.Clear();
-            Console.WriteLine(message);
-            o_object = Console.ReadLine();
+            if (converter != null && converter.CanConvertFrom(typeof(string)))
+			{
+                if (!converter.IsValid(command))
+				{
+                    throw new FormatException(string.Format("Syntax-invalid: not an {0}", i_Type.Name));
+                }
+
+                outObject = converter.ConvertFromString(command);
+			}
+			else
+			{
+                outObject = command;
+			}
+
+            return outObject;
         }
 
         private Owner promptOwner()
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\tPlease write {0}: ");
-            builder.AppendLine(r_Line);
-            promptGetInput(out string ownerName, String.Format(builder.ToString(), "the owner's name"));
-            promptGetInput(out string ownerPhone, String.Format(builder.ToString(), "the owner's phone number"));
+            builder.AppendLine(sr_Line);
+            string ownerName = (string)this.promptGetInput(string.Format(builder.ToString(), "the owner's name"), typeof(string));
+            string ownerPhone = (string)this.promptGetInput(string.Format(builder.ToString(), "the owner's phone number"), typeof(string));
             return new Owner(ownerName, ownerPhone);
         }
 
-        private Vehicle promptVehicle()
-        {
-            Dictionary<string, object> dic = new Dictionary<string, object>();
-            StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
-            builder.AppendLine("\t\t\t\tChoose a vehicle type: ");
-            builder.AppendLine(r_Line);
-            builder.AppendLine("0: Fuel based motorcycle");
-            builder.AppendLine("1: Electric based motorcycle");
-            builder.AppendLine("2: Fuel based car");
-            builder.AppendLine("3: Electric based car");
-            builder.AppendLine("4: Fuel based truck");
-            builder.AppendLine(r_Line);
-            builder.Append("Number:  ");
-            this.promptGetInput(out int o_VehicleType, builder.ToString());
-            if (o_VehicleType < 0 || o_VehicleType > 4)
-            {
-                throw new ValueOutOfRangeException(0, 4, "Logic-invalid: must be between 0 and 4");
-            }
-
+        private Dictionary<string, object> promptPropertiesForVehicleType(VehicleFactory.eVehicleType i_Type)
+		{
             Dictionary<string, PropertyRequirement> requirements =
-                this.VehicleFactory.GetRequirements((VehicleFactory.eVehicleType) o_VehicleType);
+                this.VehicleFactory.GetRequirements(i_Type);
 
             Dictionary<string, object> properties = new Dictionary<string, object>();
 
             foreach (KeyValuePair<string, PropertyRequirement> kvp in requirements)
             {
                 PropertyRequirement propertyRequirement = kvp.Value;
-                builder = new StringBuilder();
-                builder.AppendLine("\n" + r_Line);
+                StringBuilder builder = new StringBuilder();
+                builder.AppendLine("\n" + sr_Line);
                 builder.AppendLine(kvp.Key + ": " + propertyRequirement.GetRequirementInformation());
-                builder.AppendLine(r_Line);
+                builder.AppendLine(sr_Line);
                 Type type = propertyRequirement.Type;
-                switch (true)
-                {
-                    case bool _ when type == typeof(int):
-                        promptGetInput(out int o_ObjectInt, builder.ToString());
-                        properties.Add(kvp.Key, o_ObjectInt);
-                        break;
-                    case bool _ when type == typeof(float):
-                        promptGetInput(out float o_ObjectFloat, builder.ToString());
-                        properties.Add(kvp.Key, o_ObjectFloat);
-                        break;
-                    case bool _ when type == typeof(string):
-                        promptGetInput(out string o_ObjectString, builder.ToString());
-                        properties.Add(kvp.Key, o_ObjectString);
-                        break;
-                    case bool _ when type.IsEnum:
-                        foreach (Enum val in Enum.GetValues(type))
-                        {
-                            builder.AppendLine(String.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
-                        }
+                if (type.IsEnum)
+				{
+                    foreach (Enum val in Enum.GetValues(type))
+                    {
+                        builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
+                    }
 
-                        builder.AppendLine(r_Line);
-                        builder.Append("Number:  ");
-                        promptGetInput(out int o_ObjectEnum, builder.ToString());
-                        if (type != null)
-                            properties.Add(kvp.Key, Enum.ToObject(type, o_ObjectEnum));
-                        break;
-                    default:
-                        throw new NotImplementedException(string.Format("{0} object has not been handled", type.Name));
+                    builder.AppendLine(sr_Line);
+                    builder.Append("Number:  ");
+                    if (type != null)
+                    {
+                        properties.Add(kvp.Key, Enum.ToObject(type, (int)this.promptGetInput(builder.ToString(), typeof(int))));
+                    }
                 }
-			}
+                else
+				{
+                    properties.Add(kvp.Key, this.promptGetInput(builder.ToString(), type));
+                }
+            }
 
-            return VehicleFactory.GenerateVehicle((VehicleFactory.eVehicleType)o_VehicleType, properties);
+            return properties;
+        }
+
+        private Vehicle promptVehicle()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine("\n" + sr_Line);
+            builder.AppendLine("\t\t\t\tChoose a vehicle type: ");
+            builder.AppendLine(sr_Line);
+            builder.AppendLine("0: Fuel based motorcycle");
+            builder.AppendLine("1: Electric based motorcycle");
+            builder.AppendLine("2: Fuel based car");
+            builder.AppendLine("3: Electric based car");
+            builder.AppendLine("4: Fuel based truck");
+            builder.AppendLine(sr_Line);
+            builder.Append("Number:  ");
+            int vehicleType = (int)this.promptGetInput(builder.ToString(), typeof(int));
+            if (vehicleType < 0 || vehicleType > 4)
+            {
+                throw new ValueOutOfRangeException(0, 4, "Logic-invalid: must be between 0 and 4");
+            }
+
+            return this.VehicleFactory.GenerateVehicle((VehicleFactory.eVehicleType)vehicleType, this.promptPropertiesForVehicleType((VehicleFactory.eVehicleType)vehicleType));
         }
 
         private VehicleRegistration promptGetVehicleFromPlate()
         {
             VehicleRegistration outputVehicle;
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\tPlease write the vehicle registration plate: ");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             builder.Append("Registration Plate:  ");
-            this.promptGetInput(out string registrationPlate, builder.ToString());
+            string registrationPlate = (string)this.promptGetInput(builder.ToString(), typeof(string));
             if (this.m_Garage.HasRegistered(registrationPlate))
             {
                 outputVehicle = this.m_Garage.GetRegistration(registrationPlate);
@@ -266,11 +257,10 @@ namespace ConsoleUI
             return outputVehicle;
         }
 
-
-        public void insertNewVehicleCommand()
+        private void insertNewVehicleCommand()
         {
-            Owner owner = promptOwner();
-            Vehicle vehicle = promptVehicle();
+            Owner owner = this.promptOwner();
+            Vehicle vehicle = this.promptVehicle();
             VehicleRegistration registration = new VehicleRegistration(owner, vehicle);
             if (!this.Garage.HasRegistered(vehicle.LicenseNumber))
             {
@@ -282,74 +272,74 @@ namespace ConsoleUI
             }
         }
 
-        public void displayCarListCommand()
+        private void displayCarListCommand()
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
 
             builder.AppendLine("\t\t\t\tChoose a status: ");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             builder.AppendLine("0: No Filter");
             builder.AppendLine("1: In Repair");
             builder.AppendLine("2: Repaired");
             builder.AppendLine("3: Payed for");
-            builder.AppendLine(r_Line);
-            this.promptGetInput(out int o_StatusFiler, builder.ToString());
-            if (o_StatusFiler < 0 || o_StatusFiler > 3)
+            builder.AppendLine(sr_Line);
+            int statusFilter = (int)this.promptGetInput(builder.ToString(), typeof(int));
+            if (statusFilter < 0 || statusFilter > 3)
             {
                 throw new ValueOutOfRangeException(0, 3, "Logic-invalid: must be between 0 and 3");
             }
 
             builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tList of Vehicles:");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             Console.Write(builder.ToString());
-            Console.Write(this.Garage.ListVehicles((VehicleRegistration.eVehicleStatus) o_StatusFiler));
+            Console.Write(this.Garage.ListVehicles((VehicleRegistration.eVehicleStatus)statusFilter));
         }
 
-        public void modifyStatusCommand()
+        private void modifyStatusCommand()
         {
-            VehicleRegistration vehicle = promptGetVehicleFromPlate();
+            VehicleRegistration vehicle = this.promptGetVehicleFromPlate();
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tChoose a status: ");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             builder.AppendLine("1: In Repair");
             builder.AppendLine("2: Repaired");
             builder.AppendLine("3: Payed for");
-            this.promptGetInput(out int o_Status, builder.ToString());
-            if (o_Status < 1 || o_Status > 3)
+            int status = (int)this.promptGetInput(builder.ToString(), typeof(int));
+            if (status < 1 || status > 3)
             {
                 throw new ValueOutOfRangeException(1, 3, "Logic-invalid: must be between 1 and 3");
             }
 
-            vehicle.Status = (VehicleRegistration.eVehicleStatus) o_Status;
+            vehicle.Status = (VehicleRegistration.eVehicleStatus)status;
         }
 
-        public void inflateTiresCommand()
+        private void inflateTiresCommand()
         {
-            VehicleRegistration vehicle = promptGetVehicleFromPlate();
+            VehicleRegistration vehicle = this.promptGetVehicleFromPlate();
             vehicle.Vehicle.InflateAllWheels();
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("All the wheels of of vehicle " + vehicle.Vehicle.LicenseNumber + " have been inflated");
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             Console.Write(builder.ToString());
         }
 
-        public void refuelCarCommand()
+        private void refuelCarCommand()
         {
-            VehicleRegistration vehicle = promptGetVehicleFromPlate();
+            VehicleRegistration vehicle = this.promptGetVehicleFromPlate();
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\tPlease write how much time you want the vehicle to charge:  ");
-            builder.AppendLine(r_Line);
-            promptGetInput(out int o_AmountRefuel, builder.ToString());
+            builder.AppendLine(sr_Line);
+            int amountRefuel = (int)this.promptGetInput(builder.ToString(), typeof(int));
             Engine engine = vehicle.Vehicle.Engine;
             if (engine.GetType() == typeof(FuelEngine))
             {
-                ((FuelEngine) vehicle.Vehicle.Engine).Refuel(o_AmountRefuel);
+                ((FuelEngine)vehicle.Vehicle.Engine).Refuel(amountRefuel);
             }
             else
             {
@@ -357,18 +347,18 @@ namespace ConsoleUI
             }
         }
 
-        public void chargeCarCommand()
+        private void chargeCarCommand()
         {
-            VehicleRegistration vehicle = promptGetVehicleFromPlate();
+            VehicleRegistration vehicle = this.promptGetVehicleFromPlate();
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\tPlease write how much time you want the vehicle to charge:  ");
-            builder.AppendLine(r_Line);
-            promptGetInput(out int o_TimeToCharge, builder.ToString());
+            builder.AppendLine(sr_Line);
+            int timeToCharge = (int)this.promptGetInput(builder.ToString(), typeof(int));
             Engine engine = vehicle.Vehicle.Engine;
             if (engine.GetType() == typeof(ElectricEngine))
             {
-                ((ElectricEngine) vehicle.Vehicle.Engine).Recharge(o_TimeToCharge);
+                ((ElectricEngine)vehicle.Vehicle.Engine).Recharge(timeToCharge);
             }
             else
             {
@@ -376,13 +366,13 @@ namespace ConsoleUI
             }
         }
 
-        public void displayCarInformationCommand()
+        private void displayCarInformationCommand()
         {
-            VehicleRegistration vehicle = promptGetVehicleFromPlate();
+            VehicleRegistration vehicle = this.promptGetVehicleFromPlate();
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("\n" + r_Line);
+            builder.AppendLine("\n" + sr_Line);
             builder.AppendLine(vehicle.ToString());
-            builder.AppendLine(r_Line);
+            builder.AppendLine(sr_Line);
             Console.WriteLine(builder.ToString());
         }
     }

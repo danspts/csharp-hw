@@ -27,7 +27,7 @@ namespace GarageLogic.Garage
 
 		public override string ToString()
 		{
-			return r_Name;
+			return this.r_Name;
 		}
 	}
 }

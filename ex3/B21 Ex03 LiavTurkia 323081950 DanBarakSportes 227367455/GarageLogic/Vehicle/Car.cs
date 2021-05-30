@@ -39,7 +39,7 @@ namespace GarageLogic.Vehicle
 
 		public int NumberOfDoors
 		{
-			get { return this.NumberOfDoors; }
+			get { return this.r_NumberOfDoors; }
 		}
 
 		public override Dictionary<string, object> GetProperties()

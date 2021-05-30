@@ -22,7 +22,7 @@ namespace GarageLogic.Vehicle.Types
             return wheels;
         }
 
-        public override Dictionary<string, Requirements.PropertyRequirement> GetRequirements()
+		public override Dictionary<string, Requirements.PropertyRequirement> GetRequirements()
         {
             return Motorcycle.GetRequirements();
         }
