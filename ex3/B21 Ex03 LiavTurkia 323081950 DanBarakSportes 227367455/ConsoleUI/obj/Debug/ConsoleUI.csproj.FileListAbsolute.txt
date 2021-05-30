@@ -1,0 +1,10 @@
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\bin\Debug\ConsoleUI.exe
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\bin\Debug\ConsoleUI.pdb
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\bin\Debug\Ex02.ConsoleUtils.dll
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\bin\Debug\GarageLogic.dll
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\bin\Debug\GarageLogic.pdb
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\obj\Debug\ConsoleUI.csprojAssemblyReference.cache
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\obj\Debug\ConsoleUI.csproj.CopyComplete
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\obj\Debug\ConsoleUI.exe
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\ConsoleUI\obj\Debug\ConsoleUI.pdb

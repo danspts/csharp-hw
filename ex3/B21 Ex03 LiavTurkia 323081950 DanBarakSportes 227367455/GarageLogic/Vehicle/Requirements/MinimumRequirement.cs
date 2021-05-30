@@ -15,6 +15,11 @@ namespace GarageLogic.Vehicle.Requirements
 			this.r_Minimum = i_Minimum;
 		}
 
+		public T Minimum
+		{
+			get { return this.r_Minimum; }
+		}
+
 		public override bool Verify(object i_ToVerify)
 		{
 			return base.Verify(i_ToVerify) && Comparer<T>.Default.Compare((T)i_ToVerify, this.r_Minimum) >= 0;

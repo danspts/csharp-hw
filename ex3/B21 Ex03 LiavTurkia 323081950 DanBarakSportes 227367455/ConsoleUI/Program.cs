@@ -6,8 +6,7 @@ namespace ConsoleUI
     {
         public static void Main()
         {
-            Garage garage = new Garage();
-            UI ui = new UI(garage);
+            ConsoleUI ui = new ConsoleUI(new Garage());
             ui.Start();
         }
 

@@ -58,8 +58,8 @@ namespace GarageLogic.Vehicle
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine(String.Format("Amount currently charged: {0}h", this.RemainingHours));
-            builder.AppendLine(String.Format("Total Capacity: {0}h", this.MaxOperationHours));
+            builder.AppendLine(string.Format("Amount currently charged: {0}h", this.RemainingHours));
+            builder.AppendLine(string.Format("Total Capacity: {0}h", this.MaxOperationHours));
             return builder.ToString();
         }
     }

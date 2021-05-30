@@ -50,11 +50,6 @@
     <Compile Include="Vehicle\Requirements\RangeRequirement.cs" />
     <Compile Include="Vehicle\Requirements\TypeRequirement.cs" />
     <Compile Include="Vehicle\Truck.cs" />
-    <Compile Include="Vehicle\Types\ElectricMotorcycle.cs" />
-    <Compile Include="Vehicle\Types\FuelBasedCar.cs" />
-    <Compile Include="Vehicle\Types\ElectricCar.cs" />
-    <Compile Include="Vehicle\Types\FuelBasedTruck.cs" />
-    <Compile Include="Vehicle\Types\FuelBasedMotorcycle.cs" />
     <Compile Include="Vehicle\Types\TruckBasedType.cs" />
     <Compile Include="Vehicle\Types\MotorcycleBasedType.cs" />
     <Compile Include="Vehicle\Types\CarBasedType.cs" />

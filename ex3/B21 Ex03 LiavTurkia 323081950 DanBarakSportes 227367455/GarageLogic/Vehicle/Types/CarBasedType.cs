@@ -4,14 +4,19 @@ using System.Text;
 
 namespace GarageLogic.Vehicle.Types
 {
-	public abstract class CarBasedType : VehicleType
+	public class CarBasedType : VehicleType
 	{
-		public override Wheel[] GenerateWheels()
+		public CarBasedType(Engine i_Engine)
+			: base(i_Engine)
+		{
+		}
+
+		public override Wheel[] GenerateWheels(string i_ManufacturerName)
 		{
 			Wheel[] wheels = new Wheel[4];
 			for (int i = 0; i < wheels.Length; ++i)
 			{
-				wheels[i] = new Wheel("TODO", 32);
+				wheels[i] = new Wheel(i_ManufacturerName, 32);
 			}
 
 			return wheels;

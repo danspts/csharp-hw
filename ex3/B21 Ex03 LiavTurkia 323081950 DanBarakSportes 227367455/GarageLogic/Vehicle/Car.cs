@@ -41,13 +41,13 @@ namespace GarageLogic.Vehicle
 		{
 			get { return this.NumberOfDoors; }
 		}
-		
-		public override string ToString()
+
+		public override Dictionary<string, object> GetProperties()
 		{
-			StringBuilder builder = new StringBuilder();
-			builder.AppendLine(base.ToString());
-			// TODO add other features
-			return builder.ToString();
+			Dictionary<string, object> props = base.GetProperties();
+			props.Add("Number of Doors", this.NumberOfDoors);
+			props.Add("Car Color", this.CarColor);
+			return props;
 		}
 	}
 }

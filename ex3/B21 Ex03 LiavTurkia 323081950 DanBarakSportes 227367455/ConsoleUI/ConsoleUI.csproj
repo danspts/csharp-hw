@@ -35,6 +35,7 @@
     <Reference Include="Ex02.ConsoleUtils">
       <HintPath>..\..\..\ex2\DN_IDC_2021B_Ex02\Ex02.ConsoleUtils.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -45,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="UI.cs" />
+    <Compile Include="ConsoleUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GarageLogic\GarageLogic.csproj">
