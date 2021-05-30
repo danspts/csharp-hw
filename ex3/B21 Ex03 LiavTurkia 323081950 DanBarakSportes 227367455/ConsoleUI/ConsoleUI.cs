@@ -300,13 +300,14 @@ namespace ConsoleUI
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tChoose a status: ");
             builder.AppendLine(sr_Line);
-            builder.AppendLine("1: In Repair");
-            builder.AppendLine("2: Repaired");
-            builder.AppendLine("3: Payed for");
-            int status = (int)this.promptGetInput(builder.ToString(), typeof(int));
-            if (status < 1 || status > 3)
+            foreach (Enum val in Enum.GetValues(typeof(VehicleRegistration.eVehicleStatus)))
             {
-                throw new ValueOutOfRangeException(1, 3, "Logic-invalid: must be between 1 and 3");
+                builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
+            }
+            int status = (int)this.promptGetInput(builder.ToString(), typeof(int));
+            if (status < 0 || status > 3)
+            {
+                throw new ValueOutOfRangeException(0, 3, "Logic-invalid: must be between 1 and 3");
             }
 
             vehicle.Status = (VehicleRegistration.eVehicleStatus)status;
