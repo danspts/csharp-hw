@@ -200,10 +200,7 @@ namespace ConsoleUI
 
                     builder.AppendLine(sr_Line);
                     builder.Append("Number:  ");
-                    if (type != null)
-                    {
-                        properties.Add(kvp.Key, Enum.ToObject(type, (int)this.promptGetInput(builder.ToString(), typeof(int))));
-                    }
+                    properties.Add(kvp.Key, Enum.ToObject(type, (int)this.promptGetInput(builder.ToString(), typeof(int))));
                 }
                 else
 				{
@@ -220,11 +217,10 @@ namespace ConsoleUI
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tChoose a vehicle type: ");
             builder.AppendLine(sr_Line);
-            builder.AppendLine("0: Fuel based motorcycle");
-            builder.AppendLine("1: Electric based motorcycle");
-            builder.AppendLine("2: Fuel based car");
-            builder.AppendLine("3: Electric based car");
-            builder.AppendLine("4: Fuel based truck");
+            foreach (Enum val in Enum.GetValues(typeof(VehicleFactory.eVehicleType)))
+            {
+                builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
+            }
             builder.AppendLine(sr_Line);
             builder.Append("Number:  ");
             int vehicleType = (int)this.promptGetInput(builder.ToString(), typeof(int));
@@ -279,17 +275,16 @@ namespace ConsoleUI
 
             builder.AppendLine("\t\t\t\tChoose a status: ");
             builder.AppendLine(sr_Line);
-            builder.AppendLine("0: No Filter");
-            builder.AppendLine("1: In Repair");
-            builder.AppendLine("2: Repaired");
-            builder.AppendLine("3: Payed for");
+            foreach (Enum val in Enum.GetValues(typeof(VehicleRegistration.eVehicleStatus)))
+            {
+                builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
+            }
             builder.AppendLine(sr_Line);
             int statusFilter = (int)this.promptGetInput(builder.ToString(), typeof(int));
             if (statusFilter < 0 || statusFilter > 3)
             {
                 throw new ValueOutOfRangeException(0, 3, "Logic-invalid: must be between 0 and 3");
             }
-
             builder = new StringBuilder();
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tList of Vehicles:");
