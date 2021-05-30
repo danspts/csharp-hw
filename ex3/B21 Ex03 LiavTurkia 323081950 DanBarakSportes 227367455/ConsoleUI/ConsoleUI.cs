@@ -57,6 +57,7 @@ namespace ConsoleUI
                 try
                 {
                     eGarageOptions commandChoice = (eGarageOptions)this.promptChooseCommand();
+                    Console.Clear();
                     this.chooseCommand(commandChoice);
                 }
                 catch (Exception e) when (e is ValueOutOfRangeException || e is FormatException ||
@@ -142,24 +143,52 @@ namespace ConsoleUI
         private object promptGetInput(string i_Message, Type i_Type)
         {
             Console.WriteLine(i_Message);
-            string command = Console.ReadLine();
-
-            TypeConverter converter = TypeDescriptor.GetConverter(i_Type);
             object outObject;
-
-            if (converter != null && converter.CanConvertFrom(typeof(string)))
-			{
-                if (!converter.IsValid(command))
-				{
-                    throw new FormatException(string.Format("Syntax-invalid: not an {0}", i_Type.Name));
+            if (i_Type.IsEnum)
+            {
+                StringBuilder builder = new StringBuilder();
+                foreach (Enum val in Enum.GetValues(i_Type))
+                {
+                    builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
                 }
 
-                outObject = converter.ConvertFromString(command);
-			}
-			else
-			{
-                outObject = command;
-			}
+                builder.AppendLine(sr_Line);
+                builder.Append("Number:  ");
+                int ordinal = (int)this.promptGetInput(builder.ToString(), typeof(int));
+                while (ordinal < 0 || ordinal > Enum.GetValues(i_Type).Length)
+				{
+                    ordinal = (int)this.promptGetInput("Invalid input, try again", typeof(int));
+				}
+
+                outObject = Enum.ToObject(i_Type, ordinal);
+            }
+            else
+            {
+                string command = Console.ReadLine();
+
+                TypeConverter converter = TypeDescriptor.GetConverter(i_Type);
+
+                if (converter != null && converter.CanConvertFrom(typeof(string)))
+                {
+                    if (!converter.IsValid(command))
+                    {
+                        throw new FormatException(string.Format("Syntax-invalid: not an {0}", i_Type.Name));
+                    }
+
+                    try
+                    {
+                        outObject = converter.ConvertFromString(command);
+					}
+					catch
+                    {
+                        throw new FormatException(string.Format("Syntax-invalid: not an {0}", i_Type.Name));
+                    }
+                }
+                else
+                {
+                    outObject = command;
+                }
+            }
 
             return outObject;
         }
@@ -190,27 +219,14 @@ namespace ConsoleUI
                 builder.AppendLine(kvp.Key + ": " + propertyRequirement.GetRequirementInformation());
                 builder.AppendLine(sr_Line);
                 Type type = propertyRequirement.Type;
-                if (type.IsEnum)
-				{
-                    foreach (Enum val in Enum.GetValues(type))
-                    {
-                        builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
-                    }
 
-                    builder.AppendLine(sr_Line);
-                    builder.Append("Number:  ");
-                    properties.Add(kvp.Key, Enum.ToObject(type, (int)this.promptGetInput(builder.ToString(), typeof(int))));
+                object input = this.promptGetInput(builder.ToString(), type);
+                while (!propertyRequirement.Verify(input))
+                {
+                    input = this.promptGetInput("Invalid input, try again", type);
                 }
-                else
-				{
-                    object input = this.promptGetInput(builder.ToString(), type);
-                    while (!propertyRequirement.Verify(input))
-                    {
-                        input = this.promptGetInput("Invalid input, try again", type);
-                    }
 
-                    properties.Add(kvp.Key, input);
-                }
+                properties.Add(kvp.Key, input);
             }
 
             return properties;
@@ -222,19 +238,7 @@ namespace ConsoleUI
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tChoose a vehicle type: ");
             builder.AppendLine(sr_Line);
-            foreach (Enum val in Enum.GetValues(typeof(VehicleFactory.eVehicleType)))
-            {
-                builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
-            }
-
-            builder.AppendLine(sr_Line);
-            builder.Append("Number:  ");
-            int vehicleType = (int)this.promptGetInput(builder.ToString(), typeof(int));
-            if (vehicleType < 0 || vehicleType > 4)
-            {
-                throw new ValueOutOfRangeException(0, 4, "Logic-invalid: must be between 0 and 4");
-            }
-
+            VehicleFactory.eVehicleType vehicleType = (VehicleFactory.eVehicleType)this.promptGetInput(builder.ToString(), typeof(VehicleFactory.eVehicleType));
             return this.VehicleFactory.GenerateVehicle((VehicleFactory.eVehicleType)vehicleType, this.promptPropertiesForVehicleType((VehicleFactory.eVehicleType)vehicleType));
         }
 
@@ -281,24 +285,14 @@ namespace ConsoleUI
 
             builder.AppendLine("\t\t\t\tChoose a status: ");
             builder.AppendLine(sr_Line);
-            foreach (Enum val in Enum.GetValues(typeof(VehicleRegistration.eVehicleStatus)))
-            {
-                builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
-            }
-
-            builder.AppendLine(sr_Line);
-            int statusFilter = (int)this.promptGetInput(builder.ToString(), typeof(int));
-            if (statusFilter < 0 || statusFilter > 3)
-            {
-                throw new ValueOutOfRangeException(0, 3, "Logic-invalid: must be between 0 and 3");
-            }
+            VehicleRegistration.eVehicleStatus statusFilter = (VehicleRegistration.eVehicleStatus)this.promptGetInput(builder.ToString(), typeof(VehicleRegistration.eVehicleStatus));
 
             builder = new StringBuilder();
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tList of Vehicles:");
             builder.AppendLine(sr_Line);
             Console.Write(builder.ToString());
-            Console.Write(this.Garage.ListVehicles((VehicleRegistration.eVehicleStatus)statusFilter));
+            Console.Write(this.Garage.ListVehicles(statusFilter));
         }
 
         private void modifyStatusCommand()
@@ -307,19 +301,18 @@ namespace ConsoleUI
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tChoose a status: ");
+            builder.AppendLine("\t\t\t\tCan't choose None");
             builder.AppendLine(sr_Line);
-            foreach (Enum val in Enum.GetValues(typeof(VehicleRegistration.eVehicleStatus)))
-            {
-                builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
-            }
+            VehicleRegistration.eVehicleStatus vehicleStatus = (VehicleRegistration.eVehicleStatus)this.promptGetInput(builder.ToString(), typeof(VehicleRegistration.eVehicleStatus));
 
-            int status = (int)this.promptGetInput(builder.ToString(), typeof(int));
-            if (status < 0 || status > 3)
-            {
-                throw new ValueOutOfRangeException(0, 3, "Logic-invalid: must be between 1 and 3");
+            if (vehicleStatus == VehicleRegistration.eVehicleStatus.None)
+			{
+                Console.WriteLine("Can't choose None");
+			}
+			else
+			{
+                vehicle.Status = vehicleStatus;
             }
-
-            vehicle.Status = (VehicleRegistration.eVehicleStatus)status;
         }
 
         private void inflateTiresCommand()
