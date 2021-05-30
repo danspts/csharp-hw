@@ -9,6 +9,5 @@ namespace ConsoleUI
             ConsoleUI ui = new ConsoleUI(new Garage());
             ui.Start();
         }
-
     }
 }

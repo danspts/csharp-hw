@@ -10,7 +10,7 @@ namespace GarageLogic.Vehicle.Requirements
 
         public TypeRequirement(Type i_Type)
         {
-            r_Type = i_Type;
+            this.r_Type = i_Type;
         }
 
         public override Type Type

@@ -15,5 +15,15 @@ namespace GarageLogic
             this.r_MinValue = i_Min;
             this.r_MaxValue = i_Max;
         }
+
+        public float MinValue
+		{
+            get { return this.r_MinValue; }
+		}
+
+        public float MaxValue
+		{
+            get { return this.r_MaxValue; }
+		}
     }
 }

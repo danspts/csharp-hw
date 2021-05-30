@@ -46,7 +46,10 @@ namespace GarageLogic.Vehicle
 
         public float RemainingLiters
         {
-            get { return this.m_RemainingLiters; }
+            get
+            {
+                return this.m_RemainingLiters;
+            }
 
             set
             {
