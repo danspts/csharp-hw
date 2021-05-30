@@ -331,7 +331,7 @@ namespace ConsoleUI
             VehicleRegistration vehicle = this.promptGetVehicleFromPlate();
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("\n" + sr_Line);
-            builder.AppendLine("\tPlease write how much time you want the vehicle to charge:  ");
+            builder.AppendLine("\tPlease write how many liter you want to refuel:  ");
             builder.AppendLine(sr_Line);
             int amountRefuel = (int)this.promptGetInput(builder.ToString(), typeof(int));
             Engine engine = vehicle.Vehicle.Engine;
