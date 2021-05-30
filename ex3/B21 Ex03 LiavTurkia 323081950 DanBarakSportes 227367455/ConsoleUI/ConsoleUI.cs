@@ -141,7 +141,6 @@ namespace ConsoleUI
 
         private object promptGetInput(string i_Message, Type i_Type)
         {
-            Console.Clear();
             Console.WriteLine(i_Message);
             string command = Console.ReadLine();
 
@@ -204,7 +203,13 @@ namespace ConsoleUI
                 }
                 else
 				{
-                    properties.Add(kvp.Key, this.promptGetInput(builder.ToString(), type));
+                    object input = this.promptGetInput(builder.ToString(), type);
+                    while (!propertyRequirement.Verify(input))
+                    {
+                        input = this.promptGetInput("Invalid input, try again", type);
+                    }
+
+                    properties.Add(kvp.Key, input);
                 }
             }
 
@@ -221,6 +226,7 @@ namespace ConsoleUI
             {
                 builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
             }
+
             builder.AppendLine(sr_Line);
             builder.Append("Number:  ");
             int vehicleType = (int)this.promptGetInput(builder.ToString(), typeof(int));
@@ -279,12 +285,14 @@ namespace ConsoleUI
             {
                 builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
             }
+
             builder.AppendLine(sr_Line);
             int statusFilter = (int)this.promptGetInput(builder.ToString(), typeof(int));
             if (statusFilter < 0 || statusFilter > 3)
             {
                 throw new ValueOutOfRangeException(0, 3, "Logic-invalid: must be between 0 and 3");
             }
+
             builder = new StringBuilder();
             builder.AppendLine("\n" + sr_Line);
             builder.AppendLine("\t\t\t\tList of Vehicles:");
@@ -304,6 +312,7 @@ namespace ConsoleUI
             {
                 builder.AppendLine(string.Format("{0}: {1}", Convert.ChangeType(val, typeof(int)), val));
             }
+
             int status = (int)this.promptGetInput(builder.ToString(), typeof(int));
             if (status < 0 || status > 3)
             {
