@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1918C734-9683-482B-9DB8-F4E4E3C5E9E5}</ProjectGuid>
+    <ProjectGuid>{56B48B35-64D7-46B9-9E80-CE09608E5134}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>GarageLogic</RootNamespace>
     <AssemblyName>GarageLogic</AssemblyName>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

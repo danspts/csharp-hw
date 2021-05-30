@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ConsoleUI</RootNamespace>
     <AssemblyName>ConsoleUI</AssemblyName>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -48,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GarageLogic\GarageLogic.csproj">
-      <Project>{1918c734-9683-482b-9db8-f4e4e3c5e9e5}</Project>
+      <Project>{56b48b35-64d7-46b9-9e80-ce09608e5134}</Project>
       <Name>GarageLogic</Name>
     </ProjectReference>
   </ItemGroup>
