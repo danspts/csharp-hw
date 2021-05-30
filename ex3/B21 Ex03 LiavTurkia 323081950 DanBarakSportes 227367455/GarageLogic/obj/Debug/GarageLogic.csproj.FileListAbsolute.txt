@@ -9,3 +9,4 @@ D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 2273674
 D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\GarageLogic\obj\Debug\GarageLogic.csproj.CoreCompileInputs.cache
 D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\GarageLogic\obj\Debug\GarageLogic.dll
 D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\GarageLogic\obj\Debug\GarageLogic.pdb
+D:\Workspace\csharp-hw\ex3\B21 Ex03 LiavTurkia 323081950 DanBarakSportes 227367455\GarageLogic\obj\Debug\GarageLogic.csprojAssemblyReference.cache

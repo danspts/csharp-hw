@@ -35,14 +35,7 @@ namespace GarageLogic.Vehicle
 		{
 			if (sr_VehicleTypes.TryGetValue(i_Type, out Types.VehicleType type))
 			{
-				if (i_Properties.TryGetValue("Tire Manufacturer", out object tireManufacturer))
-				{
-					return new Vehicle(i_Properties, type.GenerateWheels(tireManufacturer.ToString()), type.Engine);
-				}
-				else
-				{
-					throw new ArgumentException("Missing property: Tire Manufacturer");
-				}
+				return type.GenerateVehicle(i_Properties);
 			}
 			else
 			{

@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="GarageLogic.Garage.Garage">
-    <Position X="0.5" Y="5" Width="1.5" />
+    <Position X="4" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAQIAAAQAAAAAAQAIAAAAAAAA=</HashCode>
       <FileName>Garage\Garage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Garage.Owner">
-    <Position X="2.25" Y="5" Width="1.5" />
+    <Position X="5.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAQAQAAAAAAAAAAACAAAQAAAA=</HashCode>
       <FileName>Garage\Owner.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Garage.VehicleRegistration">
-    <Position X="4" Y="5" Width="1.5" />
+    <Position X="2.25" Y="6.5" Width="1.5" />
     <NestedTypes>
       <Enum Name="GarageLogic.Garage.VehicleRegistration.eVehicleStatus" Collapsed="true">
         <TypeIdentifier>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.ValueOutOfRangeException">
-    <Position X="5.75" Y="5" Width="1.5" />
+    <Position X="4" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAEAAAAAAAAAQAAAAAAgAAAAAAA=</HashCode>
       <FileName>ValueOutOfRangeException.cs</FileName>
@@ -52,7 +52,7 @@
   <Class Name="GarageLogic.Vehicle.ElectricEngine">
     <Position X="6" Y="17.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAgAAAAAAAAEAAAAAAAAAgAAEAAQAAAAAAAAEBA=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAAEAAAAAAAAAgAAEAAQAgAAAAAAEBA=</HashCode>
       <FileName>Vehicle\Components\ElectricEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -73,12 +73,12 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAgAQgAAAABoEAAAAACABAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAAAEAAAAAAAAQgAAAABoEAAAAACABAA=</HashCode>
       <FileName>Vehicle\Components\FuelEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Vehicle.Wheel">
-    <Position X="1.5" Y="8" Width="1.5" />
+    <Position X="0.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAABAAIICAIAAAIAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Vehicle\Components\Wheel.cs</FileName>
@@ -113,7 +113,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Vehicle.VehicleFactory">
-    <Position X="4.75" Y="8.5" Width="1.5" />
+    <Position X="5.75" Y="8.5" Width="1.5" />
     <NestedTypes>
       <Enum Name="GarageLogic.Vehicle.VehicleFactory.eVehicleType" Collapsed="true">
         <TypeIdentifier>
@@ -155,30 +155,30 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Vehicle.Types.CarBasedType">
-    <Position X="1.5" Y="3.25" Width="1.5" />
+    <Position X="1.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vehicle\Types\CarBasedType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Vehicle.Types.MotorcycleBasedType">
-    <Position X="3.5" Y="3.25" Width="1.5" />
+    <Position X="3.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vehicle\Types\MotorcycleBasedType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Vehicle.Types.TruckBasedType">
-    <Position X="5.5" Y="3.25" Width="1.5" />
+    <Position X="5.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vehicle\Types\TruckBasedType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GarageLogic.Vehicle.Types.VehicleType">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACCAAAAAAAQAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAgAAAAAAAAAAACCAAAAAAAQAAAABAAAAAAAAAA=</HashCode>
       <FileName>Vehicle\Types\VehicleType.cs</FileName>
     </TypeIdentifier>
   </Class>
