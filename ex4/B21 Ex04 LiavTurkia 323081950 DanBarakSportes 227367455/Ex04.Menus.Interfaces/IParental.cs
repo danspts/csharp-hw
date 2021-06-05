@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-	public interface IExecutable
+	public interface IParental
 	{
-		void Execute();
+		List<MenuItem> GetChildren();
 	}
 }

@@ -25,12 +25,12 @@ namespace Ex04.Menus.Interfaces
             builder.AppendLine(i_Item.Name);
             builder.AppendLine(sr_Line);
 
-            if(i_Item is IDescribable)
-			{
-                builder.AppendLine((i_Item as IDescribable).Description);
-			}
-
             Console.WriteLine(builder.ToString());
+
+            if (i_Item is IDescribable)
+            {
+                Console.WriteLine((i_Item as IDescribable).Description);
+            }
 
             if (i_Item is IInputable)
 			{
@@ -58,63 +58,73 @@ namespace Ex04.Menus.Interfaces
                 (i_Item as IExecutable).Execute();
 			}
 
-            List<MenuItem> children = i_Item.GetChildren();
-
             MenuItem chosen;
-            if(children.Count == 0)
+
+            if (i_Item is IParental)
 			{
-                if(i_Item == r_Root)
-				{
-                    chosen = null;
-				}
+                List<MenuItem> children = (i_Item as IParental).GetChildren();
+
+                if (children.Count == 1)
+                {
+                    chosen = children[0];
+                }
                 else
-				{
-                    chosen = r_Root;
-				}
-			}else if(children.Count == 1)
-			{
-                chosen = children[0];
-			}
-			else
-			{
-                builder = new StringBuilder();
-                builder.AppendLine("\n" + sr_Line);
-                builder.AppendLine("\t\t\t\tChoose a command: ");
-                builder.AppendLine(sr_Line);
-                if(i_Item == r_Root)
-				{
-                    builder.AppendLine("0: Exit");
-				}
-				else
                 {
-                    builder.AppendLine("0: Back to main menu");
-                }
-
-                for (int i = 0; i < children.Count; ++i) 
-                {
-                    builder.AppendLine(string.Format("{0}: {1}", i + 1, children[i].Name));
-                }
-                builder.AppendLine(sr_Line);
-                builder.Append("Number:  ");
-                Console.WriteLine(builder.ToString());
-
-                int ordinal = (int)this.promptGetInput(new Requirements.RangeRequirement<int>(0, children.Count));
-                if (ordinal == 0)
-                {
+                    builder = new StringBuilder();
+                    builder.AppendLine("\n" + sr_Line);
+                    builder.AppendLine("\t\t\t\tChoose a command: ");
+                    builder.AppendLine(sr_Line);
                     if (i_Item == r_Root)
                     {
-                        chosen = null;
+                        builder.AppendLine("0: Exit");
                     }
                     else
                     {
-                        chosen = r_Root;
+                        builder.AppendLine("0: Back to main menu");
+                    }
+
+                    for (int i = 0; i < children.Count; ++i)
+                    {
+                        builder.AppendLine(string.Format("{0}: {1}", i + 1, children[i].Name));
+                    }
+                    builder.AppendLine(sr_Line);
+                    builder.Append("Number:  ");
+                    Console.WriteLine(builder.ToString());
+
+                    int ordinal = (int)this.promptGetInput(new Requirements.RangeRequirement<int>(0, children.Count));
+                    if (ordinal == 0)
+                    {
+                        if (i_Item == r_Root)
+                        {
+                            chosen = null;
+                        }
+                        else
+                        {
+                            chosen = r_Root;
+                        }
+                    }
+                    else
+                    {
+                        chosen = children[ordinal - 1];
                     }
                 }
-				else
+            }
+            else
+			{
+                // wait the screen so they can read what the command executed
+                Console.WriteLine("Press enter to return to main menu");
+                Console.ReadLine();
+
+                if (i_Item == r_Root)
                 {
-                    chosen = children[ordinal];
+                    chosen = null;
+                }
+                else
+                {
+                    chosen = r_Root;
                 }
             }
+            
 
             return chosen;
 		}

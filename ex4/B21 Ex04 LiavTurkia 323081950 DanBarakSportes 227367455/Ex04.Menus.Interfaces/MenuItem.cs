@@ -13,8 +13,6 @@ namespace Ex04.Menus.Interfaces
 			this.r_Name = i_Name;
 		}
 
-		public abstract List<MenuItem> GetChildren();
-
 		public string Name
 		{
 			get { return this.r_Name; }

@@ -38,6 +38,7 @@
     <Compile Include="IDescribable.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="IInputable.cs" />
+    <Compile Include="IParental.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Requirements\EnumRequirement.cs" />
