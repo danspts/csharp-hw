@@ -36,13 +36,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IDescribable.cs" />
+    <Compile Include="IExecutable.cs" />
     <Compile Include="IInputable.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="Requirements\EnumRequirement.cs" />
     <Compile Include="Requirements\MinimumRequirement.cs" />
     <Compile Include="Requirements\PropertyRequirement.cs" />
     <Compile Include="Requirements\RangeRequirement.cs" />
     <Compile Include="Requirements\TypeRequirement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,10 +6,10 @@ namespace Ex04.Menus.Interfaces
 {
 	interface IInputable
 	{
-		Requirements.PropertyRequirement GetInputRequirement();
+		Requirements.TypeRequirement GetInputRequirement();
 
 		// returns true if the input was valid,
 		// false if its invalid and should reprompt
-		bool AcceptInput(string i_Input);
+		bool Execute(object i_Input, StringBuilder i_OutputText);
 	}
 }
