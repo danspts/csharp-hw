@@ -18,3 +18,5 @@ D:/Workspace/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 2273674
 /Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Test/obj/Debug/Ex04.Menus.Test.csproj.CopyComplete
 /Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Test/obj/Debug/Ex04.Menus.Test.exe
 /Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Test/obj/Debug/Ex04.Menus.Test.pdb
+/Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Test/bin/Debug/Ex04.Menus.Delegates.dll
+/Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Test/bin/Debug/Ex04.Menus.Delegates.pdb

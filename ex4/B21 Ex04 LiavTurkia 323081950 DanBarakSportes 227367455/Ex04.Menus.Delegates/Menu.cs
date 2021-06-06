@@ -10,86 +10,101 @@ namespace Ex04.Menus.Delegates
     public class Menu
     {
 
-        public delegate object UIInputDelegate(object obj);
+        public delegate object UIInputDelegate(Type i_Type);
 
         public UIInputDelegate m_UIInput;
-        public Action<object> m_UIout;
+        public Action<object> MUiOut;
+        private readonly string m_Name;
 
-        private static readonly object sr_quit;
+        private static object sr_quit;
         
         private readonly Menu r_Root;
 
         private MenuAction<object> m_MenuAction;
-
-        private static readonly string sr_Line = new string('-', 85);
-
-        private List<Menu> m_Menus;
         
+        private List<Menu> m_MenuList;
 
-        public Menu(List<Menu> i_MenuActions)
+        Action<object> Output
         {
-            m_Menus = i_MenuActions;
+            get { return MUiOut; }
+        }
+
+        UIInputDelegate Input
+        {
+            get { return m_UIInput; }
         }
         
-        public Menu(List<Menu> i_MenuActions, Action<object> i_UIout, UIInputDelegate i_UIInput, object sr_quit)
+        MenuAction<object> MenuAction
         {
-            m_Menus = i_MenuActions;
+            get { return m_MenuAction; }
+        }
+        
+        internal List<Menu> MenuList
+        {
+            get { return m_MenuList; }
+        }
+        
+        public string Name {
+            get { return this.m_Name;}
+        }
+
+        public Menu(List<Menu> i_MenuActions )
+        {
+            m_MenuList = i_MenuActions;
+        }
+        
+        public Menu(string i_Name, List<Menu> i_MenuList, Action<object> i_UIOut, UIInputDelegate i_UIInput, object i_Quit)
+        {
+            m_Name = i_Name;
+            m_MenuList = i_MenuList;
             m_UIInput = i_UIInput;
-            m_UIout = i_UIout;
+            MUiOut = i_UIOut;
+            sr_quit = i_Quit;
         }
 
-        private static object promptGetInput(MenuAction<object> i_MenuAction)
+        private static object promptGetInput(Menu i_Menu)
         {
-            object outObject;
-            
-            string command = Console.ReadLine();
+            object input = i_Menu.Input.Invoke(i_Menu.m_MenuAction.Type);
 
-            TypeConverter converter = TypeDescriptor.GetConverter(i_MenuAction.Type);
-
-            if (converter.CanConvertFrom(typeof(string)))
+            if (!i_Menu.MenuAction.Verify.Invoke(input))
             {
-                if (!converter.IsValid(command))
-                {
-                    throw new FormatException(string.Format("Syntax-invalid: not of type {0}", i_MenuAction.Type));
-                }
-
-                try
-                {
-                    outObject = converter.ConvertFromString(command);
-                }
-                catch
-                {
-                    throw new FormatException(string.Format("Syntax-invalid: not of type {0}", i_MenuAction.Type));
-                }
+                throw new FormatException(string.Format("Logic-invalid: {0}", i_Menu.MenuAction.Requirements.Invoke()));
             }
-            else
-            {
-                outObject = command;
-            }
-
-            if (!i_MenuAction.Verify.Invoke(outObject))
-            {
-                throw new FormatException(string.Format("Logic-invalid: {0}", i_MenuAction.Requirements.Invoke()));
-            }
-
-            return outObject;
+            return input;
         }
         
-        private static Menu showMenuItem(Menu i_Menu)
+        private static object showMenuItem(Menu i_Menu)
         {
-            i_Menu.m_MenuAction.Description.Invoke();
-            return i_Menu.m_MenuAction.Action.Invoke(promptGetInput(i_Menu.m_MenuAction));
+            i_Menu.Output(i_Menu.m_MenuAction.Description.Invoke());
+            return promptGetInput(i_Menu);
         }
-        
+
         public void Show()
         {
-            Menu currentItem = this.r_Root;
+            Show(r_Root);
+        }
+        
+        public static void Show(Menu i_Menu)
+        {
             while (true)
             {
-                
-                if (currentItem == this.r_Root)
+                i_Menu.Output(i_Menu.Name);
+                i_Menu.Output(i_Menu.m_MenuList);
+                try
                 {
-                    
+                    object nextMenu = showMenuItem(i_Menu);
+                    if (nextMenu == sr_quit)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Show(i_Menu.MenuAction.Action.Invoke(nextMenu));
+                    }
+                }
+                catch (Exception e)
+                {
+                    i_Menu.Output(e.Message);
                 }
             }
         }

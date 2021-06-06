@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Menu.cs" />
     <Compile Include="MenuAction.cs" />
+    <Compile Include="TerminalUIMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

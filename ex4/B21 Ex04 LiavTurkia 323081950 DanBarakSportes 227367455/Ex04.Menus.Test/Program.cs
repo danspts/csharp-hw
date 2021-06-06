@@ -8,6 +8,8 @@ namespace Ex04.Menus.Test
 	{
 		public static void Main(String[] args)
 		{
+			Delegates.RootDelegate.Show(new Delegates.RootDelegate());
+			
 			new Menus.Interfaces.Menu(new Interfaces.RootItem()).Show();
 		}
 	}
