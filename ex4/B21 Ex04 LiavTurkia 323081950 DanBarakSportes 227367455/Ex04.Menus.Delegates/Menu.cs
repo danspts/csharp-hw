@@ -109,7 +109,7 @@ namespace Ex04.Menus.Delegates
                     if (this.MenuList != null)
                     {
                         input = promptGetInput(this);
-                        if (input.Equals(s_Quit))
+                        if (input.Equals(s_Quit) && this != Root)
                         {
                             break;
                         }
