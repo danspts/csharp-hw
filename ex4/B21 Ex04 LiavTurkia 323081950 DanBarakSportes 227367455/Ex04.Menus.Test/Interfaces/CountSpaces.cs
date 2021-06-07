@@ -1,7 +1,5 @@
-﻿using Ex04.Menus.Interfaces.Requirements;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
+using Ex04.Menus.Interfaces.Requirements;
 
 namespace Ex04.Menus.Test.Interfaces
 {
@@ -22,9 +20,9 @@ namespace Ex04.Menus.Test.Interfaces
 			string input = (string)i_Input;
 
 			int counter = 0;
-			foreach(char c in input)
+			foreach (char c in input)
 			{
-				if(c == ' ')
+				if (c == ' ')
 				{
 					++counter;
 				}

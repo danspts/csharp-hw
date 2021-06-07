@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces.Requirements
 {
-	class EnumRequirement : RangeRequirement<int>
+	public class EnumRequirement : RangeRequirement<int>
 	{
 		public EnumRequirement(Enum i_Enum)
 			: base(0, Enum.GetValues(i_Enum.GetType()).Length)
 		{
-
 		}
 	}
 }

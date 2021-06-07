@@ -4,52 +4,51 @@ namespace Ex04.Menus.Delegates
 {
     public class MenuAction<T>
     {
-        public delegate string ActionDelegate();
-        public Action<object> m_MenuAction = delegate(object i_Obj) { };
+        private readonly VerifyDelegate r_Verify = obj => { return true; };
+        private readonly Type r_Type = typeof(T);
+        private readonly Action<object> r_MenuAction = i_Obj => { };
+        private readonly ActionDelegate r_Requirements = () => { return string.Empty; };
+
         public delegate bool VerifyDelegate(T obj);
 
-        private VerifyDelegate m_Verify = delegate { return true; };
-        public ActionDelegate m_Requirements = delegate { return "";};
+        public delegate string ActionDelegate();
 
-        private Type m_Type = typeof(T);
-
-        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify, ActionDelegate i_Requirements )
+        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify, ActionDelegate i_Requirements)
         {
-            this.m_MenuAction = i_MenuAction;
-            this.m_Verify = i_Verify;
-            this.m_Requirements = i_Requirements;
+            this.r_MenuAction = i_MenuAction;
+            this.r_Verify = i_Verify;
+            this.r_Requirements = i_Requirements;
         }
 
-        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify )
+        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify)
         {
-            this.m_MenuAction = i_MenuAction;
-            this.m_Verify = i_Verify;
+            this.r_MenuAction = i_MenuAction;
+            this.r_Verify = i_Verify;
         }
-        
-        public MenuAction(Action<object> i_MenuAction )
+
+        public MenuAction(Action<object> i_MenuAction)
         {
-            this.m_MenuAction = i_MenuAction;
+            this.r_MenuAction = i_MenuAction;
         }
 
         public Action<object> Action
         {
-            get { return this.m_MenuAction; }
+            get { return this.r_MenuAction; }
         }
 
         public Type Type
         {
-            get { return this.m_Type; }
+            get { return this.r_Type; }
         }
-        
+
         public ActionDelegate Requirements
         {
-            get { return this.m_Requirements; }
+            get { return this.r_Requirements; }
         }
-        
+
         public VerifyDelegate Verify
         {
-            get { return this.m_Verify; }
+            get { return this.r_Verify; }
         }
-        
     }
 }

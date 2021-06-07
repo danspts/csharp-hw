@@ -6,7 +6,9 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class ShowVersionDelegate : TerminalUIMenu
     {
-        public ShowVersionDelegate() : base(new MenuAction<string>(UtilsDelegate.ShowVersion), "Show Version", null){}
-
+        public ShowVersionDelegate()
+            : base(new MenuAction<string>(UtilsDelegate.ShowVersion), "Show Version", null)
+        {
+        }
     }
 }

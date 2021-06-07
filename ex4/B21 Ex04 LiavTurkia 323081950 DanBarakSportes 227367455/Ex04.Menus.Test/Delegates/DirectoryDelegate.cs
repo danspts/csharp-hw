@@ -8,40 +8,40 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class DirectoryDelegate : TerminalUIMenu
     {
-        
-        private UtilsDelegate m_Utils = new UtilsDelegate();
+        private readonly UtilsDelegate r_Utils = new UtilsDelegate();
 
-        public DirectoryDelegate( string i_Name, List<Menu> i_MenuList) : base(null, i_Name, i_MenuList)
+        public DirectoryDelegate(string i_Name, List<Menu> i_MenuList)
+            : base(null, i_Name, i_MenuList)
         {
-            MenuAction = new MenuAction<string>(NextMenu, Validate, i_Requirements:getRequirements);
-            
+            this.MenuAction = new MenuAction<string>(this.NextMenu, this.Validate, i_Requirements: this.getRequirements);
         }
 
-        public DirectoryDelegate(bool i_Root, string i_Name, List<Menu> i_MenuList) : base( i_Root, null, i_Name, i_MenuList)
+        public DirectoryDelegate(bool i_Root, string i_Name, List<Menu> i_MenuList)
+            : base(i_Root, null, i_Name, i_MenuList)
         {
-            MenuAction = new MenuAction<string>(NextMenu, Validate, i_Requirements:getRequirements);
+            this.MenuAction = new MenuAction<string>(this.NextMenu, this.Validate, i_Requirements: this.getRequirements);
         }
 
         internal UtilsDelegate Utils
         {
-            get { return m_Utils; }
+            get { return this.r_Utils; }
         }
-        
+
         private bool Validate(object i_Input)
         {
-            int inputInt = Utils.convert<int>(i_Input as string);
-            return inputInt >= 0 && inputInt < MenuList.Count;
+            int inputInt = this.Utils.Convert<int>(i_Input as string);
+            return inputInt >= 0 && inputInt < this.MenuList.Count;
         }
 
         private void NextMenu(object i_Input)
         {
-            int inputInt = Utils.convert<int>(i_Input as string);
-            MenuList[inputInt].Show();
+            int inputInt = this.Utils.Convert<int>(i_Input as string);
+            this.MenuList[inputInt].Show();
         }
-        
+
         private string getRequirements()
         {
-            return String.Format(" Inputs should have the range: {0} to {1} ", 0 , this.MenuList.Count - 1);
+            return string.Format(" Inputs should have the range: {0} to {1} ", 0, this.MenuList.Count - 1);
         }
     }
 }

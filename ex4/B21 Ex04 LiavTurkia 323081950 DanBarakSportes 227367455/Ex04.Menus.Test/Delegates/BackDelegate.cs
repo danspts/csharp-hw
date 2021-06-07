@@ -5,6 +5,9 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class BackDelegate : TerminalUIMenu
     {
-        public BackDelegate() : base(null, "Back To Main Menu", null) {}
+        public BackDelegate()
+            : base(null, "Back To Main Menu", null)
+        {
+        }
     }
 }

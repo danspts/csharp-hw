@@ -5,12 +5,15 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class VersionAndSpacesDelegate : DirectoryDelegate
     {
-        private static List<Menu> s_MenuList = new List<Menu>() { 
+        private static readonly List<Menu> sr_MenuList = new List<Menu>()
+        {
             new BackDelegate(),
             new ShowVersionDelegate(),
             new CountSpacesDelegate(),
         };
-        public VersionAndSpacesDelegate() : base("Version and Spaces", s_MenuList)
+
+        public VersionAndSpacesDelegate()
+            : base("Version and Spaces", sr_MenuList)
         {
         }
     }

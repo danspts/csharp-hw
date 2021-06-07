@@ -1,7 +1,4 @@
-﻿using Ex04.Menus.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Ex04.Menus.Test.Interfaces
 {
@@ -15,7 +12,7 @@ namespace Ex04.Menus.Test.Interfaces
 		public List<Menus.Interfaces.MenuItem> GetChildren()
 		{
 			return new List<Menus.Interfaces.MenuItem>()
-			{ 
+			{
 				new VersionAndSpaces(),
 				new ShowDateTime(),
 			};

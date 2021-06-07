@@ -1,78 +1,72 @@
 using System;
-using  System.Text;
+using System.Text;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-
 namespace Ex04.Menus.Delegates
 {
-    public class Menu <T>
+    public class Menu<T>
     {
+        private static T s_Quit;
+        private static Menu<T> s_Root;
+
+        private readonly Action<object> r_UIOut;
+        private readonly string r_Name;
+        private readonly List<Menu<T>> r_MenuList;
+        private readonly UIInputDelegate r_UIInput;
+        private MenuAction<T> m_MenuAction;
 
         public delegate T UIInputDelegate(Type i_Type);
 
-        public UIInputDelegate m_UIInput;
-        public Action<object> MUiOut;
-        private readonly string m_Name;
-
-        private static T sr_quit;
-        
-        private static Menu<T> sr_Root;
-
-        private MenuAction<T> m_MenuAction;
-
-        private List<Menu<T>> m_MenuList;
-
-
         public Menu(MenuAction<T> i_MenuAction, string i_Name, List<Menu<T>> i_MenuList, Action<object> i_UIOut, UIInputDelegate i_UIInput, T i_Quit)
         {
-            m_Name = i_Name;
-            m_MenuList = i_MenuList;
-            m_MenuAction = i_MenuAction;
-            m_UIInput = i_UIInput;
-            MUiOut = i_UIOut;
-            sr_quit = i_Quit;
+            this.r_Name = i_Name;
+            this.r_MenuList = i_MenuList;
+            this.m_MenuAction = i_MenuAction;
+            this.r_UIInput = i_UIInput;
+            this.r_UIOut = i_UIOut;
+            s_Quit = i_Quit;
         }
 
-        public Menu(bool i_Root, MenuAction<T> i_MenuAction, string i_Name, List<Menu<T>> i_MenuList, Action<object> i_UIOut, UIInputDelegate i_UIInput, T i_Quit) :
-            this (i_MenuAction,  i_Name,  i_MenuList,  i_UIOut,  i_UIInput,  i_Quit)
+        public Menu(bool i_Root, MenuAction<T> i_MenuAction, string i_Name, List<Menu<T>> i_MenuList, Action<object> i_UIOut, UIInputDelegate i_UIInput, T i_Quit)
+            : this(i_MenuAction,  i_Name,  i_MenuList,  i_UIOut,  i_UIInput,  i_Quit)
         {
             if (i_Root)
             {
-                sr_Root = this;
+                s_Root = this;
             }
         }
-        
+
         public static Menu<T> Root
         {
-            get { return sr_Root; }
+            get { return s_Root; }
         }
-        
+
         public Action<object> Output
         {
-            get { return MUiOut; }
-            
+            get { return this.r_UIOut; }
         }
 
         public UIInputDelegate Input
         {
-            get { return m_UIInput; }
+            get { return this.r_UIInput; }
         }
-        
+
         public MenuAction<T> MenuAction
         {
-            get { return m_MenuAction; }
-            set { m_MenuAction = value; }
+            get { return this.m_MenuAction; }
+            set { this.m_MenuAction = value; }
         }
-        
+
         public List<Menu<T>> MenuList
         {
-            get { return m_MenuList; }
+            get { return this.r_MenuList; }
         }
-        
-        public string Name {
-            get { return this.m_Name;}
+
+        public string Name
+        {
+            get { return this.r_Name; }
         }
 
         public virtual void Clear()
@@ -88,44 +82,45 @@ namespace Ex04.Menus.Delegates
             {
                 throw new FormatException(string.Format("Logic-invalid: {0}", i_Menu.MenuAction.Requirements.Invoke()));
             }
+
             return input;
         }
-        
+
         private static void showMenuItem(Menu<T> i_Menu)
         {
             if (i_Menu.MenuList != null && i_Menu.MenuList.Count > 0)
             {
                 i_Menu.Output.Invoke(i_Menu);
             }
-
         }
 
         public void Show()
         {
-            Clear();
+            this.Clear();
             while (true)
             {
                 try
                 {
                     object input = null;
-                    
-                    Output.Invoke(Name);
+
+                    this.Output.Invoke(this.Name);
                     showMenuItem(this);
 
-                    if (MenuList != null)
+                    if (this.MenuList != null)
                     {
                         input = promptGetInput(this);
-                        if (input.Equals(sr_quit))
+                        if (input.Equals(s_Quit))
                         {
                             break;
                         }
                     }
-                    MenuAction.Action.Invoke(input);
-                    Clear();
+
+                    this.MenuAction.Action.Invoke(input);
+                    this.Clear();
                 }
                 catch (Exception e)
                 {
-                    Output.Invoke(e);
+                    this.Output.Invoke(e);
                 }
             }
         }

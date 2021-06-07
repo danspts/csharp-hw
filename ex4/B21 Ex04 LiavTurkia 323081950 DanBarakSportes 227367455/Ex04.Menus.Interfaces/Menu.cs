@@ -16,7 +16,7 @@ namespace Ex04.Menus.Interfaces
 			this.r_Root = i_Root;
 		}
 
-        private MenuItem chooseNextItem(MenuItem i_Item)
+		private MenuItem chooseNextItem(MenuItem i_Item)
 		{
             bool isRoot = i_Item == this.r_Root;
             MenuItem chosen;
@@ -49,6 +49,7 @@ namespace Ex04.Menus.Interfaces
                     {
                         builder.AppendLine(string.Format("{0}: {1}", i + 1, children[i].Name));
                     }
+
                     builder.AppendLine(sr_Line);
                     builder.Append("Number:  ");
                     Console.WriteLine(builder.ToString());
@@ -56,7 +57,7 @@ namespace Ex04.Menus.Interfaces
                     int ordinal = (int)this.promptGetInput(new Requirements.RangeRequirement<int>(0, children.Count));
                     if (ordinal == 0)
                     {
-                        chosen = isRoot ? null : r_Root;
+                        chosen = isRoot ? null : this.r_Root;
                     }
                     else
                     {
@@ -70,7 +71,7 @@ namespace Ex04.Menus.Interfaces
                 Console.WriteLine("Press enter to return to main menu");
                 Console.ReadLine();
 
-                chosen = isRoot ? null : r_Root;
+                chosen = isRoot ? null : this.r_Root;
             }
 
             return chosen;
@@ -98,16 +99,16 @@ namespace Ex04.Menus.Interfaces
                 Requirements.TypeRequirement requirement = inputable.GetInputRequirement();
 
                 bool wasAccepted = false;
-                while(!wasAccepted)
+                while (!wasAccepted)
 				{
                     object readObject = this.promptGetInput(requirement);
                     builder = new StringBuilder();
                     wasAccepted = inputable.Execute(readObject, builder);
-					Console.WriteLine(builder.ToString());
+                    Console.WriteLine(builder.ToString());
 				}
 			}
 
-            if(i_Item is IExecutable)
+            if (i_Item is IExecutable)
 			{
                 (i_Item as IExecutable).Execute();
 			}
@@ -115,7 +116,7 @@ namespace Ex04.Menus.Interfaces
             return this.chooseNextItem(i_Item);
 		}
 
-        private object promptGetInput(Requirements.TypeRequirement i_Requirement)
+		private object promptGetInput(Requirements.TypeRequirement i_Requirement)
         {
             TypeConverter converter = TypeDescriptor.GetConverter(i_Requirement.Type);
 
@@ -150,7 +151,7 @@ namespace Ex04.Menus.Interfaces
                     outObject = command;
                 }
 
-                if(i_Requirement.Verify(outObject))
+                if (i_Requirement.Verify(outObject))
 				{
                     return outObject;
 				}
@@ -161,7 +162,7 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public void Show()
+		public void Show()
 		{
 			MenuItem currentItem = this.r_Root;
 			while ((currentItem = this.handleMenuItem(currentItem)) != null)

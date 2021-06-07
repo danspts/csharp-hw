@@ -4,6 +4,9 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class ExitDelegate : TerminalUIMenu
     {
-        public ExitDelegate() : base(new MenuAction<string>(UtilsDelegate.Quit), "Exit", null){}
+        public ExitDelegate()
+            : base(new MenuAction<string>(UtilsDelegate.Quit), "Exit", null)
+        {
+        }
     }
 }

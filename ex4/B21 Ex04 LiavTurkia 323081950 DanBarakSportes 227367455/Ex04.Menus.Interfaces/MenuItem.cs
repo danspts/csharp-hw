@@ -17,6 +17,5 @@ namespace Ex04.Menus.Interfaces
 		{
 			get { return this.r_Name; }
 		}
-
 	}
 }
