@@ -5,10 +5,7 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class CountSpacesDelegate : TerminalUIMenu
     {
-        private static MenuAction<string> menuAction = new MenuAction<string>();
+        public CountSpacesDelegate() : base(new MenuAction<string>(UtilsDelegate.CountSpaces), "Count Spaces", null){}
 
-        public CountSpacesDelegate() : base(i_MenuAction:new MenuAction<string>(), "Count Spaces", null)
-        {
-        }
     }
 }

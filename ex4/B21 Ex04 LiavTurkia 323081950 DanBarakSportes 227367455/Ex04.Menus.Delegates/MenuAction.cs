@@ -5,26 +5,32 @@ namespace Ex04.Menus.Delegates
     public class MenuAction<T>
     {
         public delegate string ActionDelegate();
-        public delegate Menu MenuDelegate(T obj);
+        public Action<object> m_MenuAction = delegate(object i_Obj) { };
         public delegate bool VerifyDelegate(T obj);
 
-        private MenuDelegate m_MenuAction = delegate { throw new NotImplementedException(); };
         private VerifyDelegate m_Verify = delegate { return true; };
-        public ActionDelegate m_Description = delegate { return "";};
         public ActionDelegate m_Requirements = delegate { return "";};
 
         private Type m_Type = typeof(T);
 
-        public MenuAction(MenuDelegate i_MenuAction, VerifyDelegate i_Verify, ActionDelegate i_Description )
+        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify, string i_Description )
         {
             this.m_MenuAction = i_MenuAction;
-            ActionDelegate m_Description = i_Description;
-            VerifyDelegate m_Verify = i_Verify;
+            this.m_Verify = i_Verify;
+        }
+        
+        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify )
+        {
+            this.m_MenuAction = i_MenuAction;
+            this.m_Verify = i_Verify;
+        }
+        
+        public MenuAction(Action<object> i_MenuAction )
+        {
+            this.m_MenuAction = i_MenuAction;
         }
 
-        public MenuAction(){}
-
-        public MenuDelegate Action
+        public Action<object> Action
         {
             get { return this.m_MenuAction; }
         }
@@ -44,9 +50,5 @@ namespace Ex04.Menus.Delegates
             get { return this.m_Verify; }
         }
         
-        public ActionDelegate Description
-        {
-            get { return this.m_Description; }
-        }
     }
 }

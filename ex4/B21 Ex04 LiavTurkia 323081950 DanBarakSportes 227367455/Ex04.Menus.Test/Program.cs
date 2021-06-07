@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ex04.Menus.Test
 {
@@ -8,9 +6,9 @@ namespace Ex04.Menus.Test
 	{
 		public static void Main(String[] args)
 		{
-			Delegates.RootDelegate.Show(new Delegates.RootDelegate());
+			new Delegates.RootDelegate().Show();
 			
-			new Menus.Interfaces.Menu(new Interfaces.RootItem()).Show();
+			// new Menus.Interfaces.Menu(new Interfaces.RootItem()).Show();
 		}
 	}
 }

@@ -42,8 +42,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delegates\ConvertDelegate.cs" />
+    <Compile Include="Delegates\BackDelegate.cs" />
+    <Compile Include="Delegates\DirectoryDelegate.cs" />
+    <Compile Include="Delegates\UtilsDelegate.cs" />
     <Compile Include="Delegates\CountSpacesDelegate.cs" />
+    <Compile Include="Delegates\ExitDelegate.cs" />
     <Compile Include="Delegates\RootDelegate.cs" />
     <Compile Include="Delegates\ShowDateDelegate.cs" />
     <Compile Include="Delegates\ShowDateTimeDelegate.cs" />
@@ -59,6 +62,9 @@
     <Compile Include="Interfaces\ShowVersion.cs" />
     <Compile Include="Interfaces\VersionAndSpaces.cs" />
     <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
