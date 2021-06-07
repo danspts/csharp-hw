@@ -4,8 +4,8 @@
 /Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/obj/Debug/Ex04.Menus.Delegates.csproj.CoreCompileInputs.cache
 /Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/obj/Debug/Ex04.Menus.Delegates.dll
 /Users/dan/RiderProjects/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/obj/Debug/Ex04.Menus.Delegates.pdb
-D:\Workspace\csharp-hw\ex4\B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455\Ex04.Menus.Delegates\bin\Debug\Ex04.Menus.Delegates.dll
-D:\Workspace\csharp-hw\ex4\B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455\Ex04.Menus.Delegates\bin\Debug\Ex04.Menus.Delegates.pdb
-D:\Workspace\csharp-hw\ex4\B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455\Ex04.Menus.Delegates\obj\Debug\Ex04.Menus.Delegates.csproj.CoreCompileInputs.cache
-D:\Workspace\csharp-hw\ex4\B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455\Ex04.Menus.Delegates\obj\Debug\Ex04.Menus.Delegates.dll
-D:\Workspace\csharp-hw\ex4\B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455\Ex04.Menus.Delegates\obj\Debug\Ex04.Menus.Delegates.pdb
+D:/Workspace/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/bin/Debug/Ex04.Menus.Delegates.dll
+D:/Workspace/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/bin/Debug/Ex04.Menus.Delegates.pdb
+D:/Workspace/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/obj/Debug/Ex04.Menus.Delegates.csproj.CoreCompileInputs.cache
+D:/Workspace/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/obj/Debug/Ex04.Menus.Delegates.dll
+D:/Workspace/csharp-hw/ex4/B21 Ex04 LiavTurkia 323081950 DanBarakSportes 227367455/Ex04.Menus.Delegates/obj/Debug/Ex04.Menus.Delegates.pdb

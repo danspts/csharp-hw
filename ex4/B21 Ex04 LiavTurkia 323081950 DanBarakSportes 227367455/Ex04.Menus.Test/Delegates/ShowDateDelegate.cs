@@ -5,7 +5,9 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class ShowDateDelegate : TerminalUIMenu
     {
-        public ShowDateDelegate() : base("Show Date", null)
+        private static MenuAction<string> menuAction = new MenuAction<string>();
+
+        public ShowDateDelegate() : base(i_MenuAction:new MenuAction<string>(),"Show Date", null)
         {
         }
     }

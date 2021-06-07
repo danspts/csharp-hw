@@ -9,7 +9,7 @@ namespace Ex04.Menus.Test.Delegates
             new ShowDateDelegate(),
             new ShowTimeDelegate(),
         };
-        public ShowDateTimeDelegate() : base("Show Date / Time", s_MenuList)
+        public ShowDateTimeDelegate() : base(i_MenuAction:new MenuAction<string>(),"Show Date / Time", s_MenuList)
         {
         }
     }

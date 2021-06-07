@@ -10,7 +10,7 @@ namespace Ex04.Menus.Delegates
     {
         private static readonly string sr_Line = new string('-', 85);
         
-        public TerminalUIMenu(string i_Name, List<Menu> i_MenuList) : base(i_Name, i_MenuList, i_UIOut: getOutput, i_UIInput: promptGetInput, i_Quit: "0")
+        public TerminalUIMenu(MenuAction<string> i_MenuAction, string i_Name, List<Menu> i_MenuList) : base(i_MenuAction, i_Name, i_MenuList, i_UIOut: getOutput, i_UIInput: promptGetInput, i_Quit: "0")
         { 
         }
         
@@ -47,7 +47,7 @@ namespace Ex04.Menus.Delegates
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("\n" + sr_Line);
-            builder.AppendLine("\t\t\t\tChoose a command: ");
+            builder.AppendLine(i_String);
             builder.AppendLine(sr_Line);
             Console.WriteLine(builder.ToString());
         }

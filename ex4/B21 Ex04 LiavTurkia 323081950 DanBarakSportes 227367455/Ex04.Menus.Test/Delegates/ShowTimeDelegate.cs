@@ -5,7 +5,9 @@ namespace Ex04.Menus.Test.Delegates
 {
     public class ShowTimeDelegate : TerminalUIMenu
     {
-        public ShowTimeDelegate() : base("Show Time", null)
+        private static MenuAction<string> menuAction = new MenuAction<string>();
+
+        public ShowTimeDelegate() : base(i_MenuAction:new MenuAction<string>(),"Show Time", null)
         {
         }
     }

@@ -14,7 +14,6 @@ namespace Ex04.Menus.Delegates
         public ActionDelegate m_Requirements = delegate { return "";};
 
         private Type m_Type = typeof(T);
-        
 
         public MenuAction(MenuDelegate i_MenuAction, VerifyDelegate i_Verify, ActionDelegate i_Description )
         {
@@ -22,7 +21,9 @@ namespace Ex04.Menus.Delegates
             ActionDelegate m_Description = i_Description;
             VerifyDelegate m_Verify = i_Verify;
         }
-        
+
+        public MenuAction(){}
+
         public MenuDelegate Action
         {
             get { return this.m_MenuAction; }

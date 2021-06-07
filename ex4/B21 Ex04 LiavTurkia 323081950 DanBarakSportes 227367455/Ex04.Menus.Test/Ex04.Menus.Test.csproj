@@ -42,12 +42,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delegates\ConvertDelegate.cs" />
     <Compile Include="Delegates\CountSpacesDelegate.cs" />
     <Compile Include="Delegates\RootDelegate.cs" />
     <Compile Include="Delegates\ShowDateDelegate.cs" />
     <Compile Include="Delegates\ShowDateTimeDelegate.cs" />
     <Compile Include="Delegates\ShowTimeDelegate.cs" />
     <Compile Include="Delegates\ShowVersionDelegate.cs" />
+    <Compile Include="Delegates\VerifyDelegates.cs" />
     <Compile Include="Delegates\VersionAndSpacesDelegate.cs" />
     <Compile Include="Interfaces\CountSpaces.cs" />
     <Compile Include="Interfaces\RootItem.cs" />

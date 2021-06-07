@@ -20,10 +20,20 @@ namespace Ex04.Menus.Delegates
         
         private readonly Menu r_Root;
 
-        private MenuAction<object> m_MenuAction;
+        private MenuAction<object> m_MenuAction = new MenuAction<object>();
         
         private List<Menu> m_MenuList;
 
+        
+        public Menu(MenuAction<String> i_MenuAction, string i_Name, List<Menu> i_MenuList, Action<object> i_UIOut, UIInputDelegate i_UIInput, object i_Quit)
+        {
+            m_Name = i_Name;
+            m_MenuList = i_MenuList;
+            m_UIInput = i_UIInput;
+            MUiOut = i_UIOut;
+            sr_quit = i_Quit;
+        }
+        
         Action<object> Output
         {
             get { return MUiOut; }
@@ -52,15 +62,6 @@ namespace Ex04.Menus.Delegates
         {
             m_MenuList = i_MenuActions;
         }
-        
-        public Menu(string i_Name, List<Menu> i_MenuList, Action<object> i_UIOut, UIInputDelegate i_UIInput, object i_Quit)
-        {
-            m_Name = i_Name;
-            m_MenuList = i_MenuList;
-            m_UIInput = i_UIInput;
-            MUiOut = i_UIOut;
-            sr_quit = i_Quit;
-        }
 
         private static object promptGetInput(Menu i_Menu)
         {
@@ -75,21 +76,24 @@ namespace Ex04.Menus.Delegates
         
         private static object showMenuItem(Menu i_Menu)
         {
-            i_Menu.Output(i_Menu.m_MenuAction.Description.Invoke());
+            string description = i_Menu.m_MenuAction.Description.Invoke();
+            if(description.Length > 0)
+            {
+                i_Menu.Output(description);
+            }
+
+            if (i_Menu.MenuList.Count > 0)
+            {
+                i_Menu.Output(i_Menu);
+            }
             return promptGetInput(i_Menu);
         }
 
-        public void Show()
-        {
-            Show(r_Root);
-        }
-        
         public static void Show(Menu i_Menu)
         {
             while (true)
             {
                 i_Menu.Output(i_Menu.Name);
-                i_Menu.Output(i_Menu.m_MenuList);
                 try
                 {
                     object nextMenu = showMenuItem(i_Menu);
@@ -99,7 +103,7 @@ namespace Ex04.Menus.Delegates
                     }
                     else
                     {
-                        Show(i_Menu.MenuAction.Action.Invoke(nextMenu));
+                        i_Menu.MenuAction.Action.Invoke(nextMenu);
                     }
                 }
                 catch (Exception e)
