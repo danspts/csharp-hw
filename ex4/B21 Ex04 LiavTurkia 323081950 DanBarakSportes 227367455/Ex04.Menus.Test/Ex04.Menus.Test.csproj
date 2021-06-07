@@ -52,7 +52,6 @@
     <Compile Include="Delegates\ShowDateTimeDelegate.cs" />
     <Compile Include="Delegates\ShowTimeDelegate.cs" />
     <Compile Include="Delegates\ShowVersionDelegate.cs" />
-    <Compile Include="Delegates\VerifyDelegates.cs" />
     <Compile Include="Delegates\VersionAndSpacesDelegate.cs" />
     <Compile Include="Interfaces\CountSpaces.cs" />
     <Compile Include="Interfaces\RootItem.cs" />

@@ -13,12 +13,13 @@ namespace Ex04.Menus.Delegates
 
         private Type m_Type = typeof(T);
 
-        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify, string i_Description )
+        public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify, ActionDelegate i_Requirements )
         {
             this.m_MenuAction = i_MenuAction;
             this.m_Verify = i_Verify;
+            this.m_Requirements = i_Requirements;
         }
-        
+
         public MenuAction(Action<object> i_MenuAction, VerifyDelegate i_Verify )
         {
             this.m_MenuAction = i_MenuAction;

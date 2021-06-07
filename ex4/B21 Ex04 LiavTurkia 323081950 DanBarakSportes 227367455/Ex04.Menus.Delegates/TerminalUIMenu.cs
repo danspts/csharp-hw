@@ -90,5 +90,7 @@ namespace Ex04.Menus.Delegates
             string command = Console.ReadLine();
             return command;
         }
+
+
     }
 }

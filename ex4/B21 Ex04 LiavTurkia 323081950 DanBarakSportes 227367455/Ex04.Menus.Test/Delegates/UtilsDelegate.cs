@@ -69,6 +69,8 @@ namespace Ex04.Menus.Test.Delegates
         
         internal static void CountSpaces(object i_O)
         {
+            Console.WriteLine("Please input a string to count spaces for:\n");
+            
             string input = Console.ReadLine();
 
             int counter = 0;

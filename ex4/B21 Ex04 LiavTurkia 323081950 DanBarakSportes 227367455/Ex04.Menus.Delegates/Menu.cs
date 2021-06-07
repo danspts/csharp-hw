@@ -121,7 +121,7 @@ namespace Ex04.Menus.Delegates
                         }
                     }
                     MenuAction.Action.Invoke(input);
-                    break;
+                    Clear();
                 }
                 catch (Exception e)
                 {
