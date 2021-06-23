@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C1FE2D9-9FE3-4259-A687-7B85BFA57180}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Ex04.Menus.Interfaces</RootNamespace>
-    <AssemblyName>Ex04.Menus.Interfaces</AssemblyName>
+    <ProjectGuid>{97DDD86A-A30E-4653-B459-9BC9516B60E9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>B21_Ex05</RootNamespace>
+    <AssemblyName>B21_Ex05</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,24 +31,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IDescribable.cs" />
-    <Compile Include="IExecutable.cs" />
-    <Compile Include="IInputable.cs" />
-    <Compile Include="IParental.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="Requirements\EnumRequirement.cs" />
-    <Compile Include="Requirements\MinimumRequirement.cs" />
-    <Compile Include="Requirements\PropertyRequirement.cs" />
-    <Compile Include="Requirements\RangeRequirement.cs" />
-    <Compile Include="Requirements\TypeRequirement.cs" />
+    <Reference Include="Ex02.ConsoleUtils">
+      <HintPath>..\..\..\Ex02.ConsoleUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Compile Include="Game\Board.cs" />
+    <Compile Include="Game\BoardCount.cs" />
+    <Compile Include="Game\CellPosition.cs" />
+    <Compile Include="Game\ComputerPlayer.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\HumanPlayer.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\GameSettings.cs" />
+    <Compile Include="Interface\UI.cs" />
+    <Compile Include="Interface\WinFormsUI.cs" />
+    <Compile Include="Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

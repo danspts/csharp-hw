@@ -1,0 +1,10 @@
+==========================Exercise Checking Report==========================
+Exercise No...........: 4
+First Student Details.: 323081950 - Liav Turkia
+Second Student Details: 227367455 - Dan Barak
+Delivery Date.........: 07/6/2021
+Delivered In Delay....: Yes (21 hours)
+Delay Reason..........: Partner was sick over the weekend due to food poisioning and unable to work
+Visual Studio Version.: 2019
+Comments..............: The first menu is for interfaces, the second menu is for delegates
+=======================End Exercise Checking Report=========================
