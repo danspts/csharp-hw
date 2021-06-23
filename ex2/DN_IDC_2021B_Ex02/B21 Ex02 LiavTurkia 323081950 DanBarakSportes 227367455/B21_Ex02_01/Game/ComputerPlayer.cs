@@ -9,7 +9,7 @@ namespace B21_Ex02.Game
 {
     class ComputerPlayer : Player
     {
-        private readonly Hashtable r_TranspositionTable = new Hashtable();
+        private readonly Dictionary<int, int> r_TranspositionTable = new Dictionary<int, int>();
 
         private int min(ref Board io_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
         {
@@ -29,7 +29,7 @@ namespace B21_Ex02.Game
                     int value;
                     boardCopy.SetCell(move, Board.eCellValue.Player2);
                     int boardHash = boardCopy.GetHashCode();
-                    if (!this.r_TranspositionTable.Contains(boardHash))
+                    if (!this.r_TranspositionTable.ContainsKey(boardHash))
                     {
                         value = this.minimax(ref boardCopy, Game.ePlayer.Player1, out CellPosition temp, i_Alpha, i_Beta);
                         this.r_TranspositionTable[boardHash] = value;
@@ -74,7 +74,7 @@ namespace B21_Ex02.Game
                     int value;
                     boardCopy.SetCell(move, Board.eCellValue.Player1);
                     int boardHash = boardCopy.GetHashCode();
-                    if (!this.r_TranspositionTable.Contains(boardHash))
+                    if (!this.r_TranspositionTable.ContainsKey(boardHash))
                     {
                         value = this.minimax(ref boardCopy, Game.ePlayer.Player2, out CellPosition temp, i_Alpha, i_Beta);
                         this.r_TranspositionTable[boardHash] = value;
