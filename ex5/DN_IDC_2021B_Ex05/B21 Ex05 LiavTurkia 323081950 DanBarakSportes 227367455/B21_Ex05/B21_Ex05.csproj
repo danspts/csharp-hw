@@ -50,9 +50,18 @@
     <Compile Include="Game\HumanPlayer.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Game\GameSettings.cs" />
+    <Compile Include="Interface\ReversedTicTacToe.cs" />
+    <Compile Include="Interface\ReversedTicTacToe.Designer.cs" />
+    <Compile Include="Interface\Settings.cs" />
+    <Compile Include="Interface\Settings.Designer.cs" />
     <Compile Include="Interface\UI.cs" />
     <Compile Include="Interface\WinFormsUI.cs" />
     <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Interface\ReversedTicTacToe.resx" />
+    <EmbeddedResource Include="Interface\Settings.dje.resx" />
+    <EmbeddedResource Include="Interface\Settings.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
