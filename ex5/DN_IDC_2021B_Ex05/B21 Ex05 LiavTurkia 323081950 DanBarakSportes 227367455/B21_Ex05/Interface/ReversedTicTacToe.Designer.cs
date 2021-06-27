@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace B21_Ex02.WinformsInterface
+namespace B21_Ex05.Interface
 {
     partial class ReversedTicTacToe
     {
