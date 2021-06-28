@@ -20,14 +20,12 @@ namespace B21_Ex05.Interface
         public ReversedTicTacToeForm(WinFormsUI i_UI, Game.GameSettings i_Settings)
         {
 	        this.m_ButtonMatrix = new Button[i_Settings.BoardSize, i_Settings.BoardSize];
+            this.Settings = i_Settings;
 
             InitializeComponent();
 
             i_UI.BeforeGame += this.UI_BeforeGame;
             i_UI.AfterGame += this.UI_AfterGame;
-
-            this.Settings = i_Settings;
-
 
             this.m_TableLayout = new TableLayoutPanel();
             this.m_TableLayout.ColumnCount = i_Settings.BoardSize;
@@ -60,20 +58,20 @@ namespace B21_Ex05.Interface
             this.m_TableLayout.RowStyles.Clear();
 
             // make sure the buttons are evenly spaced
-            int percent = 100 / this.m_ButtonMatrix.GetLength(0);
-            for (int i = 0; i < this.m_ButtonMatrix.GetLength(0); i++)
+            int percent = 100 / this.Settings.BoardSize;
+            for (int i = 0; i < this.Settings.BoardSize; i++)
             {
                 this.m_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, percent));
                 this.m_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, percent));
             }
 
-            for (int x = 0; x < this.m_ButtonMatrix.GetLength(0); x++)
+            for (int x = 0; x < this.Settings.BoardSize; x++)
 			{
-                for (int y = 0; y < this.m_ButtonMatrix.Length; y++)
+                for (int y = 0; y < this.Settings.BoardSize; y++)
 				{
                     Button button = new Button();
                     button.Text = "";
-                    button.Name = string.Format("button_{0}{1}", x, y);
+                    button.Name = string.Format("button_{0}.{1}", x, y);
                     button.Dock = DockStyle.Fill;
                     button.Tag = new Game.CellPosition(x, y);
                     this.m_TableLayout.Controls.Add(button, x, y);
