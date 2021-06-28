@@ -18,6 +18,6 @@ namespace B21_Ex05.Game
 			get { return this.r_Name; }
 		}
 
-		public abstract CellPosition Play(Board i_CurrentBoard);
+		public abstract void OnGameJoined(Game i_Game);
 	}
 }

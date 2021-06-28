@@ -15,7 +15,6 @@ namespace B21_Ex05.Game
             : base(i_Name)
 		{
 		}
-
         private int min(ref Board io_CurrentBoard, out CellPosition o_BestChoice, int i_Alpha, int i_Beta)
         {
             int bestValue = int.MaxValue;
@@ -142,10 +141,20 @@ namespace B21_Ex05.Game
             return returnValue;
         }
 
-        public override CellPosition Play(Board i_CurrentBoard)
+        public override void OnGameJoined(Game i_Game)
         {
-            this.min(ref i_CurrentBoard, out CellPosition move, int.MaxValue, int.MinValue);
-            return move;
+            i_Game.BeforeRound += Game_BeforeRound;
         }
+
+        private void Game_BeforeRound(Game i_Sender, Player i_Turn)
+		{
+            //Play our turn
+            if(i_Turn == this)
+			{
+                Board board = i_Sender.Board;
+                this.min(ref board, out CellPosition move, int.MaxValue, int.MinValue);
+                i_Sender.OnMove(move);
+			}
+		}
     }
 }

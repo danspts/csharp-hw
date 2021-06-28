@@ -17,11 +17,6 @@ namespace B21_Ex05.Interface
 			throw new NotImplementedException();
 		}
 
-		public override CellPosition PromptForMove(Board i_Board)
-		{
-			throw new NotImplementedException();
-		}
-
 		protected override bool ShouldGameContinue(Player i_Winner)
 		{
 			string caption;

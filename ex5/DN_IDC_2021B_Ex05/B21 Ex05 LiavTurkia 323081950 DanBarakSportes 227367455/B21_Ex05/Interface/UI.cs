@@ -14,38 +14,42 @@ namespace B21_Ex05.Interface
 
 		protected abstract Game.GameSettings PromptForGameSettings();
 
-        // TODO: do we need a better way of getting the human player move?
-		public abstract Game.CellPosition PromptForMove(Game.Board i_Board);
-
 
         //  passed in null in the case of a tie
         protected abstract bool ShouldGameContinue(Game.Player i_Winner);
 
+        private void startNewGame(Game.GameSettings i_Settings)
+		{
+            Game.Game game = new Game.Game(new Game.Board(i_Settings.BoardSize), i_Settings.Player1, i_Settings.Player2);
+
+            if (this.BeforeGame != null)
+            {
+                this.BeforeGame.Invoke(this, game);
+            }
+
+            game.GameOver += Game_GameOver;
+
+            game.Start();
+        }
+
         public void Start()
         {
-            Game.GameSettings settings = this.PromptForGameSettings();
+            this.startNewGame(this.PromptForGameSettings());
+        }
 
-            Game.Player winner;
-            do
+        private void Game_GameOver(Game.Game i_Sender, Game.Player i_Winner)
+		{
+            if (this.AfterGame != null)
             {
-                Game.Game game = new Game.Game(new Game.Board(settings.BoardSize), settings.Player1, settings.Player2);
-
-                if (this.BeforeGame != null)
-                {
-                    this.BeforeGame.Invoke(this, game);
-                }
-
-                while (!game.IsGameOver(out winner))
-                {
-                    game.PlayRound();
-                }
-
-                if (this.AfterGame != null)
-				{
-                    this.AfterGame.Invoke(this, game, winner);
-				}
+                this.AfterGame.Invoke(this, i_Sender, i_Winner);
             }
-            while (this.ShouldGameContinue(winner));
+
+            i_Sender.GameOver -= Game_GameOver;
+
+            if(this.ShouldGameContinue(i_Winner))
+			{
+                this.startNewGame(new Game.GameSettings(i_Sender.Board.Size, i_Sender.Player1, i_Sender.Player2));
+            }
         }
     }
 }

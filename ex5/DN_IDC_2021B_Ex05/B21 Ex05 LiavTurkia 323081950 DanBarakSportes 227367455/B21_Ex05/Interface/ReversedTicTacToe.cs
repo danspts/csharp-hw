@@ -78,15 +78,30 @@ namespace B21_Ex05.Interface
 
         private void button_Click(object i_Sender, EventArgs i_Args)
 		{
-            Game.CellPosition position = (i_Sender as Button).Tag as Game.CellPosition;
+            Button button = i_Sender as Button;
+            if (button != null)
+			{
+                TableLayoutPanel table = button.Parent as TableLayoutPanel;
+                if (table != null)
+                {
+                    Game.CellPosition position = button.Tag as Game.CellPosition;
+                    Game.Game game = table.Tag as Game.Game;
 
-            // TODO - somehow let the Game know what the player chose?
+                    if (game != null && position != null)
+					{
+                        game.OnMove(position);
+					}
+
+                }
+            }
 		}
 
         private void UI_BeforeGame(UI i_Sender, Game.Game i_Game)
 		{
             i_Game.Board.CellUpdated += this.Board_CellUpdated;
             i_Game.BeforeRound += this.Game_BeforeRound;
+
+            this.m_TableLayout.Tag = i_Game;
 		}
 
         private void UI_AfterGame(UI i_Sender, Game.Game i_Game, Game.Player i_Winner)
@@ -129,14 +144,14 @@ namespace B21_Ex05.Interface
             button.Text = coin;
         }
 
-        private void Game_BeforeRound(Game.Game i_Sender, Game.Game.ePlayer i_Turn)
+        private void Game_BeforeRound(Game.Game i_Sender, Game.Player i_Turn)
 		{
-            if (i_Turn == Game.Game.ePlayer.Player1)
+            if (i_Turn == i_Sender.Player1)
 			{
                 this.m_Player1.Font = new System.Drawing.Font(this.m_Player1.Font, System.Drawing.FontStyle.Bold);
                 this.m_Player2.Font = new System.Drawing.Font(this.m_Player1.Font, System.Drawing.FontStyle.Regular);
             }
-            else if(i_Turn == Game.Game.ePlayer.Player1)
+            else if(i_Turn == i_Sender.Player1)
 			{
 
                 this.m_Player1.Font = new System.Drawing.Font(this.m_Player1.Font, System.Drawing.FontStyle.Regular);

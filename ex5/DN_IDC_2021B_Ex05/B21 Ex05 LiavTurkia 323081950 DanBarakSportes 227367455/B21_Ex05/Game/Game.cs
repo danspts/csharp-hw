@@ -6,27 +6,16 @@ namespace B21_Ex05.Game
 {
     public class Game
     {
-        public delegate void RoundEventHandler(Game i_Sender, ePlayer i_Turn);
+        public delegate void RoundEventHandler(Game i_Sender, Player i_Turn);
+        public delegate void GameOverHandler(Game i_Sender, Player i_Victor);
 
         public event RoundEventHandler BeforeRound;
         public event RoundEventHandler AfterRound;
-
-        public enum ePlayer
-        {
-            Player1,
-            Player2,
-        }
-
-        public enum eGameResult
-        {
-            Player1,
-            Player2,
-            Tie,
-        }
+        public event GameOverHandler GameOver;
 
         private readonly Player r_Player1;
         private readonly Player r_Player2;
-        private ePlayer m_CurrentTurn = ePlayer.Player1;
+        private Player m_CurrentTurn;
         private Board m_Board;
 
         public Game(Board i_Board, Player i_Player1, Player i_Player2)
@@ -34,6 +23,10 @@ namespace B21_Ex05.Game
             this.m_Board = i_Board;
             this.r_Player1 = i_Player1;
             this.r_Player2 = i_Player2;
+
+            this.m_CurrentTurn = this.Player1;
+
+            this.AfterRound += Game_AfterRound;
         }
 
         public Game(GameSettings i_Settings)
@@ -47,47 +40,39 @@ namespace B21_Ex05.Game
             set { this.m_Board = value; }
         }
 
-        public Player GetPlayer(ePlayer i_Who)
-        {
-            return i_Who == ePlayer.Player1 ? this.r_Player1 : this.r_Player2;
-        }
+        public Player Player1
+		{
+            get { return this.r_Player1; }
+		}
 
-        private void PlayMove(ePlayer i_WhoseTurn)
-        {
-            Player player = this.GetPlayer(i_WhoseTurn);
+        public Player Player2
+		{
+            get { return this.r_Player2; }
+		}
 
-            Board.eCellValue cellValue;
-            switch (i_WhoseTurn)
+        public void Start()
+		{
+            this.Player1.OnGameJoined(this);
+            this.Player2.OnGameJoined(this);
+
+            if (this.BeforeRound != null)
             {
-                case ePlayer.Player1:
-                    cellValue = Board.eCellValue.Player1;
-                    break;
-                case ePlayer.Player2:
-                    cellValue = Board.eCellValue.Player2;
-                    break;
-
-                // Should never happen (because of the values of ePlayer)
-                // But here for safety
-                default:
-                    cellValue = Board.eCellValue.None;
-                    break;
+                this.BeforeRound.Invoke(this, this.m_CurrentTurn);
             }
-
-            this.Board.SetCell(player.Play(this.Board), cellValue);
         }
 
         // Out variable is null if tie, otherwise it's who won
-        public bool IsGameOver(out Player o_Victor)
+        private bool isGameOver(out Player o_Victor)
         {
             Board.eCellSequenceStatus sequence = this.Board.GetCellSequence();
 
             if (sequence == Board.eCellSequenceStatus.Player1)
             {
-                o_Victor = this.r_Player2;
+                o_Victor = this.Player2;
             }
             else if (sequence == Board.eCellSequenceStatus.Player2)
             {
-                o_Victor = this.r_Player1;
+                o_Victor = this.Player1;
             }
             else
             {
@@ -97,27 +82,59 @@ namespace B21_Ex05.Game
             return sequence != Board.eCellSequenceStatus.None;
         }
 
-        public void PlayRound()
+        public void OnMove(CellPosition i_Move)
         {
-            if (this.BeforeRound != null)
-            {
-                this.BeforeRound.Invoke(this, this.m_CurrentTurn);
+            Board.eCellValue cellValue;
+            if(this.m_CurrentTurn == this.Player1)
+			{
+                cellValue = Board.eCellValue.Player1;
             }
-
-            this.PlayMove(this.m_CurrentTurn);
-            if (this.m_CurrentTurn == ePlayer.Player1)
+			else if(this.m_CurrentTurn == this.Player2)
             {
-                this.m_CurrentTurn = ePlayer.Player2;
+                cellValue = Board.eCellValue.Player2;
             }
             else
             {
-                this.m_CurrentTurn = ePlayer.Player1;
+                // Should never happen
+                // But here for safety
+                cellValue = Board.eCellValue.None;
             }
+
+            this.Board.SetCell(i_Move, cellValue);
 
             if (this.AfterRound != null)
 			{
                 this.AfterRound.Invoke(this, this.m_CurrentTurn);
 			}
+            
+        }
+
+        private void Game_AfterRound(Game i_Sender, Player i_Turn)
+        {
+            if(this.isGameOver(out Player winner))
+			{
+                if(this.GameOver != null)
+				{
+                    this.GameOver.Invoke(this, winner);
+				}
+			}
+			else
+            {
+                // Switch turn and notify that it's next round
+                if (this.m_CurrentTurn == this.Player1)
+                {
+                    this.m_CurrentTurn = this.Player2;
+                }
+                else
+                {
+                    this.m_CurrentTurn = this.Player1;
+                }
+
+                if (this.BeforeRound != null)
+                {
+                    this.BeforeRound.Invoke(this, this.m_CurrentTurn);
+                }
+            }
         }
     }
 }

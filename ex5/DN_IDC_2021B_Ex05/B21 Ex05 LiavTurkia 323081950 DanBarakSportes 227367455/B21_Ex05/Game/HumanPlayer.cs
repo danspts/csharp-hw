@@ -6,17 +6,14 @@ namespace B21_Ex05.Game
 {
 	class HumanPlayer : Player
 	{
-		private readonly Interface.UI r_UserInterface;
-
-		public HumanPlayer(string i_Name, Interface.UI i_UserInterface)
+		public HumanPlayer(string i_Name)
 			: base(i_Name)
 		{
-			this.r_UserInterface = i_UserInterface;
 		}
 
-		public override CellPosition Play(Board i_CurrentBoard)
+		public override void OnGameJoined(Game i_Game)
 		{
-			return this.r_UserInterface.PromptForMove(i_CurrentBoard);
+			// Do nothing, the UI does it for us
 		}
 	}
 }
