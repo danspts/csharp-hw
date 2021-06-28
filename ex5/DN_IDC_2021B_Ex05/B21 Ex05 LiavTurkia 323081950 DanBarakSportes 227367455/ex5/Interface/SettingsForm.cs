@@ -18,17 +18,7 @@ namespace B21_Ex05.Interface
             get { return this.m_GameSettings;  }
             set { this.m_GameSettings = value; }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           // throw new System.NotImplementedException();
-        }
-
-        private void Settings_Load(object sender, EventArgs e)
-        {
-           // throw new System.NotImplementedException();
-        }
-
+        
         private void isNotComputerCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if ((sender as CheckBox).Checked)

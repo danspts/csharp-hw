@@ -8,6 +8,7 @@ namespace B21_Ex05.Interface
     {
         private Button[,] m_ButtonMatrix;
         private TableLayoutPanel m_TableLayout;
+        private int m_TableSize;
 
         private Game.GameSettings m_Settings;
 
@@ -18,14 +19,15 @@ namespace B21_Ex05.Interface
         
         public ReversedTicTacToeForm(WinFormsUI i_UI, Game.GameSettings i_Settings)
         {
+	        this.m_ButtonMatrix = new Button[i_Settings.BoardSize, i_Settings.BoardSize];
+
             InitializeComponent();
 
             i_UI.BeforeGame += this.UI_BeforeGame;
             i_UI.AfterGame += this.UI_AfterGame;
 
-            this.m_Settings = i_Settings;
+            this.Settings = i_Settings;
 
-            this.m_ButtonMatrix = new Button[i_Settings.BoardSize, i_Settings.BoardSize];
 
             this.m_TableLayout = new TableLayoutPanel();
             this.m_TableLayout.ColumnCount = i_Settings.BoardSize;
@@ -42,22 +44,30 @@ namespace B21_Ex05.Interface
             this.m_Score = new int[2];
             this.m_Score[0] = 0;
             this.m_Score[1] = 0;
+
+            this.ShowDialog();
         }
 
-        private void ReversedTicTacToe_Load(object i_Sender, EventArgs i_EventArgs)
+        private Game.GameSettings Settings
+        {
+	        get{return this.m_Settings;}
+	        set{this.m_Settings = value;}
+        }
+
+	        private void ReversedTicTacToe_Load(object i_Sender, EventArgs i_EventArgs)
         {
             this.m_TableLayout.ColumnStyles.Clear();
             this.m_TableLayout.RowStyles.Clear();
 
             // make sure the buttons are evenly spaced
-            int percent = 100 / this.m_ButtonMatrix.Length;
-            for (int i = 0; i < this.m_ButtonMatrix.Length; i++)
+            int percent = 100 / this.m_ButtonMatrix.GetLength(0);
+            for (int i = 0; i < this.m_ButtonMatrix.GetLength(0); i++)
             {
                 this.m_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, percent));
                 this.m_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, percent));
             }
 
-            for (int x = 0; x < this.m_ButtonMatrix.Length; x++)
+            for (int x = 0; x < this.m_ButtonMatrix.GetLength(0); x++)
 			{
                 for (int y = 0; y < this.m_ButtonMatrix.Length; y++)
 				{

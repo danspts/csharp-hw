@@ -8,6 +8,8 @@ namespace B21_Ex05.Interface
 	public class WinFormsUI : UI
 	{
 
+		protected ReversedTicTacToeForm m_GameForm;
+
 		public WinFormsUI()
 		{
 			// attach delegates here
@@ -17,8 +19,16 @@ namespace B21_Ex05.Interface
 		{
 			Interface.SettingsForm settings = new Interface.SettingsForm();
 			settings.ShowDialog();
+			this.GameForm = new ReversedTicTacToeForm(this, settings.GameSettings);
 			return settings.GameSettings;
 		}
+
+		public ReversedTicTacToeForm GameForm
+        {
+            get { return this.m_GameForm; }
+			set {  this.m_GameForm = value; }
+
+        }
 
 		protected override bool ShouldGameContinue(Player i_Winner)
 		{
