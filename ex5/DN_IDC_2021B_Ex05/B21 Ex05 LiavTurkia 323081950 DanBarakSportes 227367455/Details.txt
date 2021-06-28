@@ -1,0 +1,10 @@
+==========================Exercise Checking Report==========================
+Exercise No...........: 5
+First Student Details.: 323081950 - Liav Turkia
+Second Student Details: 227367455 - Dan Barak
+Delivery Date.........: 29/6/2021
+Delivered In Delay....: Yes (2 hours)
+Delay Reason..........: Ran out of time
+Visual Studio Version.: 2019
+Comments..............: The entire game logic and UI runs on delegates, there are no loops and no thread waiting or blocking. The Game has events for before and after each round (signifying whose turn it is) as well as an event to listen for when a cell's board updates. The UI listens to these events, and calls the OnMove function to progress the game forward. Whenever a move is played, the game detects if there is a result, and calls the GameOver delegate to signal that the game has completed.
+=======================End Exercise Checking Report=========================
