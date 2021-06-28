@@ -1,0 +1,12 @@
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\ex5.csproj.GenerateResource.cache
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\ex5.csproj.AssemblyReference.cache
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\ex5.csproj.CoreCompileInputs.cache
+C:\Users\dan\source\repos\ex5\ex5\bin\Debug\ex5.pdb
+C:\Users\dan\source\repos\ex5\ex5\bin\Debug\dje\ex5.resources.dll
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\dje\ex5.resources.dll
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\ex5.pdb
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\B21_Ex05.Interface.ReversedTicTacToeForm.resources
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\B21_Ex05.Interface.SettingsForm.resources
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\B21_Ex05.Interface.SettingsForm.dje.resources
+C:\Users\dan\source\repos\ex5\ex5\bin\Debug\ex5.exe
+C:\Users\dan\source\repos\ex5\ex5\obj\Debug\ex5.exe
