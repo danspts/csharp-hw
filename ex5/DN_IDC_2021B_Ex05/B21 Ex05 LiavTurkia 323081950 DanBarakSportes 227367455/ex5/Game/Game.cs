@@ -6,18 +6,6 @@ namespace B21_Ex05.Game
 {
     public class Game
     {
-        public enum ePlayer
-        {
-            Player1,
-            Player2,
-        }
-
-        public enum eGameResult
-        {
-            Player1,
-            Player2,
-            Tie,
-        }
 
         public delegate void RoundEventHandler(Game i_Sender, Player i_Turn);
         public delegate void GameOverHandler(Game i_Sender, Player i_Victor);
@@ -63,6 +51,10 @@ namespace B21_Ex05.Game
             get { return this.r_Player2; }
 		}
 
+        public Player CurrentTurn
+		{
+            get { return this.m_CurrentTurn; }
+		}
         public void Start()
 		{
             this.Player1.OnGameJoined(this);

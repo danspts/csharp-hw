@@ -22,3 +22,15 @@ C:\Users\dan\RiderProjects\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 3
 C:\Users\dan\RiderProjects\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\bin\Debug\ex5.pdb
 C:\Users\dan\RiderProjects\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\bin\Debug\dje\ex5.resources.dll
 C:\Users\dan\RiderProjects\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\dje\ex5.resources.dll
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\bin\Debug\ex5.exe
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\bin\Debug\ex5.pdb
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\bin\Debug\dje\ex5.resources.dll
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\ex5.csproj.AssemblyReference.cache
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\B21_Ex05.Interface.ReversedTicTacToeForm.resources
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\B21_Ex05.Interface.SettingsForm.resources
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\B21_Ex05.Interface.SettingsForm.dje.resources
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\ex5.csproj.GenerateResource.cache
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\ex5.csproj.CoreCompileInputs.cache
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\dje\ex5.resources.dll
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\ex5.exe
+D:\Workspace\csharp-hw\ex5\DN_IDC_2021B_Ex05\B21 Ex05 LiavTurkia 323081950 DanBarakSportes 227367455\ex5\obj\Debug\ex5.pdb

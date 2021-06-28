@@ -27,8 +27,13 @@ namespace B21_Ex05.Interface
         {
             get { return this.m_GameForm; }
 			set {  this.m_GameForm = value; }
-
         }
+
+		public override void Start()
+		{
+			base.Start();
+			this.GameForm.ShowDialog();
+		}
 
 		protected override bool ShouldGameContinue(Player i_Winner)
 		{
@@ -46,7 +51,6 @@ namespace B21_Ex05.Interface
 			}
 			builder.AppendLine("Would you like to play another round?");
 
-			// TODO once we have a window class, pass it in to this
 			DialogResult answer = MessageBox.Show(builder.ToString(), caption, MessageBoxButtons.YesNo);
 			return answer == DialogResult.Yes;
 		}

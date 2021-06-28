@@ -32,7 +32,7 @@ namespace B21_Ex05.Interface
             game.Start();
         }
 
-        public void Start()
+        public virtual void Start()
         {
             this.startNewGame(this.PromptForGameSettings());
         }
@@ -49,7 +49,11 @@ namespace B21_Ex05.Interface
             if(this.ShouldGameContinue(i_Winner))
 			{
                 this.startNewGame(new Game.GameSettings(i_Sender.Board.Size, i_Sender.Player1, i_Sender.Player2));
-            }
+			}
+			else
+			{
+                Environment.Exit(0);
+			}
         }
     }
 }

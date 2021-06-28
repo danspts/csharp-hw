@@ -34,10 +34,10 @@ namespace B21_Ex05.Interface
         /// </summary>
         private void InitializeComponent()
         {
-            this.m_TableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            //this.m_TableLayout = new System.Windows.Forms.TableLayoutPanel();
+            //this.label1 = new System.Windows.Forms.Label();
+            //this.label2 = new System.Windows.Forms.Label();
+            //this.SuspendLayout();
             // this.tableLayoutPanel1.ColumnCount = this.m_ButtonMatrix.GetLength(0);
             // this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 33);
             // this.tableLayoutPanel1.Name = "tableLayoutPanel1";
